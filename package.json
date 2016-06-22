@@ -1,0 +1,69 @@
+{
+  "name": "OpenSourceDataApp",
+  "version": "0.8.0",
+  "description": "A configureable data management app",
+  "repository": "https://github.com/roemhildtg",
+  "watch": {
+    "lint": "**/*.js",
+    "test": "**/*.js"
+  },
+  "scripts": {
+    "test": "testee test/index.html --reporter Spec --browsers firefox",
+    "build": "steal-tools",
+    "watch": "npm-watch",
+    "docs": "documentjs --watch -d",
+    "export": "node build.js",
+    "lint": "jshint .",
+    "pretest": "npm run lint"
+  },
+  "author": "roemhildtg",
+  "license": "MIT",
+  "devDependencies": {
+    "documentjs": "^0.4.2",
+    "jshint": "latest",
+    "npm-watch": "^0.1.4",
+    "steal-qunit": "^0.1.1",
+    "steal-tools": "^0.16.2",
+    "testee": "^0.2.5"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "can": "^2.3.23",
+    "can-connect": "^0.5.x",
+    "can-crud": "git+https://github.com/roemhildtg/can-crud.git",
+    "can-ui": "git+https://github.com/roemhildtg/can-ui.git",
+    "font-awesome": "^4.5.0",
+    "jquery": "^2.2.3",
+    "pubsub-js": "^1.5.3",
+    "query-string": "^4.2.2",
+    "steal": "^0.16.4"
+  },
+  "system": {
+    "bundleAssets": true,
+    "bundle": [
+      "app/crud",
+      "config/default/default",
+      "config/utilities/utilities"
+    ],
+    "npmIgnore": [
+      "documentjs",
+      "jshint",
+      "steal-tools",
+      "testee"
+    ],
+    "paths": {
+      "bootstrap": "node_modules/bootstrap/dist/js/bootstrap.min.js"
+    },
+    "meta": {},
+    "shim": {
+      "jquery": {
+        "exports": "jQuery"
+      },
+      "bootstrap": {
+        "deps": [
+          "jquery"
+        ]
+      }
+    }
+  }
+}
