@@ -40,18 +40,13 @@ export let AppViewModel = can.Map.extend({
     },
     messages: {
       Value: List
-    },
-    deferreds: {
-      Value: List
     }
   },
   startup: function(domNode) {
     this.initRoute();
     this.initPubSub();
-    Promise.all(this.attr('deferreds')).then(() => {
-      this.activateViewById(route.attr('view') || this.attr('views')[0].attr('id'));
-      can.$(domNode).html(can.view(template, this));
-    });
+    this.activateViewById(route.attr('view') || this.attr('views')[0].attr('id'));
+    can.$(domNode).html(can.view(template, this));
   },
   initRoute: function() {
     route(':view/:page/:objectId/');
