@@ -39,6 +39,7 @@
     "steal": "^0.16.4"
   },
   "system": {
+    "main": "index",
     "bundleAssets": true,
     "bundle": [
       "app/crud",
