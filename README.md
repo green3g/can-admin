@@ -1,3 +1,6 @@
+# Can Crud App
+
+[![Join the chat at https://gitter.im/roemhildtg/can-crud-app](https://badges.gitter.im/roemhildtg/can-crud-app.svg)](https://gitter.im/roemhildtg/can-crud-app?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Components
 
