@@ -4,6 +4,8 @@
 
 ## Components
 
+[![Join the chat at https://gitter.im/roemhildtg/can-crud-app](https://badges.gitter.im/roemhildtg/can-crud-app.svg)](https://gitter.im/roemhildtg/can-crud-app?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 This app utilizes canjs components from the following, both of which can be used individually:
 
  * can-ui - User interface bootstrap style components [![Build Status](https://travis-ci.org/roemhildtg/can-ui.svg?branch=master)](https://travis-ci.org/roemhildtg/can-ui)
