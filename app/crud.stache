@@ -11,8 +11,8 @@
 
     <div class="list-group">
       {{#each views}}
-        <a class="list-group-item {{#is activeView .}}active{{/is}}" title="{{title}}" href="{{getViewUrl(.)}}">
-            {{#if iconClass}}<i class="{{iconClass}}"></i>{{/if}}
+        <a class="list-group-item {{#is activeView %key}}active{{/is}}" title="{{title}}" href="{{getViewUrl(%key)}}">
+            <i class="{{#if iconClass}}{{iconClass}}{{else}}{{defaultIconClass}}{{/if}}"></i>
             <span class="hidden-toggled">{{title}}</span></a>
       {{/each}}
     </div>
@@ -26,9 +26,9 @@
         <div class="col-lg-12">
           <alert-widget {(messages)}="messages" />
 
-          {{#activeView}}
-            <h1>{{title}}</h1>
-            <crud-manager {(page)}="page" {(view-id)}="objectId" {view}="." />
+          {{#if activeViewConfig.value}}
+            <h1>{{activeViewProps.title}}</h1>
+            <crud-manager {(page)}="page" {(view-id)}="objectId" {view}="activeViewConfig.value" />
           {{/if}}
         </div>
       </div>

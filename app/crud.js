@@ -11,7 +11,6 @@ import 'font-awesome/css/font-awesome.min.css';
 import './crud.less!';
 import template from './crud.stache!';
 import { TOPICS } from 'can-crud/crud-manager/';
-import { ViewMap } from 'can-crud/crud-manager/ViewMap';
 import 'can-ui/alert-widget/';
 import PubSub from 'pubsub-js';
 
@@ -19,9 +18,8 @@ import PubSub from 'pubsub-js';
 export let AppViewModel = can.Map.extend({
   define: {
     views: {
-      Type: List.extend({
-        map: ViewMap
-      })
+      Type: CanMap,
+      serialize: false
     },
     page: {
       type: 'string',
@@ -32,38 +30,61 @@ export let AppViewModel = can.Map.extend({
       value: 0
     },
     activeView: {
-      value: null
+      value: null,
+      type: 'string'
+    },
+    activeViewProps: {
+      get(){
+        if (!this.attr('activeView')) {
+          return null;
+        }
+        return this.attr('views.' + this.attr('activeView'));
+      }
+    },
+    activeViewConfig: {
+      get(val, setAttr) {
+        let view = this.attr('activeViewProps');
+        if (!view) {
+          return null;
+        }
+        let deferred = can.Deferred();
+        System.import(view.attr('path')).then(module => {
+          deferred.resolve(module[view.attr('moduleID') || 'default']);
+        });
+        return deferred;
+      },
+      serialize: false
     },
     sidebarHidden: {
       type: 'boolean',
-      value: false
+      value: false,
+      serialize: false
     },
     messages: {
-      Value: List
+      Value: List,
+      serialize: false
     },
-    deferreds: {
-      Value: List
+    defaultIconClass: {
+      type: 'string',
+      value: 'fa fa-plus-circle',
+      serialize: false
     }
   },
-  startup: function(domNode) {
+  startup(domNode) {
+    if (!this.attr('activeView')) {
+      let key = CanMap.keys(this.attr('views'))[0];
+      this.attr('activeView', key);
+    }
     this.initRoute();
     this.initPubSub();
-    Promise.all(this.attr('deferreds')).then(() => {
-      this.activateViewById(route.attr('view') || this.attr('views')[0].attr('id'));
-      can.$(domNode).html(can.view(template, this));
-    });
+    can.$(domNode).html(can.view(template, this));
   },
-  initRoute: function() {
-    route(':view/:page/:objectId/');
+  initRoute() {
+    route.map(this);
+    route(':activeView/:page/:objectId');
     route.ready();
-    this.attr(route.attr());
-
-    //bind to properties that should update the route
-    this.bind('objectId', this.updateRoute.bind(this, 'objectId'));
-    this.bind('page', this.updateRoute.bind(this, 'page'));
-    route.bind('change', this.routeChanged.bind(this));
   },
-  initPubSub: function() {
+  initPubSub() {
     PubSub.subscribe(TOPICS.ADD_MESSAGE, (topic, message) => {
       this.attr('messages').push(message);
       if (message.autoHide) {
@@ -77,53 +98,24 @@ export let AppViewModel = can.Map.extend({
       this.attr('messages').replace([]);
     });
   },
-  routeChanged: function() {
-    this.attr(route.attr());
-    if (this.attr('activeView.id') !== route.attr('view')) {
-      this.activateViewById(route.attr('view'));
-    }
-  },
-  toggleMenu: function(e) {
+  /**
+   * Toggles the display of the sidebar mode via `sidebarHidden` property.
+   *  Sidebar will become compact or full.
+   * @return {Boolean} Returns false to prevent page navigation from link click
+   */
+  toggleMenu() {
     this.attr('sidebarHidden', !this.attr('sidebarHidden'));
     return false;
   },
-  activateViewById: function(name) {
-    var self = this;
-    this.attr('views').forEach(function(view) {
-      if (view.attr('id') === name) {
-        self.activateView(view);
-      }
-    });
-  },
-  activateView: function(view) {
-    this.attr('activeView', view);
-    if (route.attr('view') !== view.attr('id')) {
-      route.attr('view', view.attr('id'));
-    }
-  },
-  navigateToView: function(view) {
-    can.batch.start();
-    this.attr({
-      page: 'all',
-      objectId: 0
-    });
-    this.activateView(view);
-    can.batch.stop();
-    return false;
-  },
-  routeChange: function() {
-    this.activateViewById(route.attr('view'));
-  },
-  updateRoute: function(name, action, value, oldValue) {
-    if (!value) {
-      route.attr(name, '');
-    }
-    route.attr(name, value);
-  },
+  /**
+   * Returns a can-route url based on a view id
+   * @param  {string} view The id of the view
+   * @return {[type]}      [description]
+   */
   getViewUrl(view) {
     return route.url({
+      activeView: view,
       page: 'all',
-      view: view.attr('id'),
       objectId: 0
     });
   },
