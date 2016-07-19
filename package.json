@@ -36,7 +36,7 @@
     "jquery": "^2.2.3",
     "pubsub-js": "^1.5.3",
     "query-string": "^4.2.2",
-    "steal": "^0.16.4"
+    "steal": "^0.16.27"
   },
   "system": {
     "main": "index",
