@@ -17,10 +17,6 @@ import PubSub from 'pubsub-js';
 
 export let AppViewModel = can.Map.extend({
   define: {
-    views: {
-      Type: CanMap,
-      serialize: false
-    },
     page: {
       type: 'string',
       value: 'all'
@@ -29,17 +25,31 @@ export let AppViewModel = can.Map.extend({
       type: 'number',
       value: 0
     },
-    activeView: {
+    view: {
       value: null,
-      type: 'string'
+      type: 'string',
+      set(view) {
+        if (!view) {
+          if(!this.attr('views')){
+            return null;
+          }
+          return CanMap.keys(this.attr('views'))[0];
+        }
+        return view;
+      }
+    },
+    views: {
+      Type: CanMap,
+      serialize: false
     },
     activeViewProps: {
-      get(){
-        if (!this.attr('activeView')) {
+      get() {
+        if (!this.attr('view')) {
           return null;
         }
-        return this.attr('views.' + this.attr('activeView'));
-      }
+        return this.attr('views.' + this.attr('view'));
+      },
+      serialize: false
     },
     activeViewConfig: {
       get(val, setAttr) {
@@ -49,7 +59,7 @@ export let AppViewModel = can.Map.extend({
         }
         let deferred = can.Deferred();
         System.import(view.attr('path')).then(module => {
-          deferred.resolve(module[view.attr('moduleID') || 'default']);
+          deferred.resolve(module[view.attr('module') || 'default']);
         });
         return deferred;
       },
@@ -71,17 +81,17 @@ export let AppViewModel = can.Map.extend({
     }
   },
   startup(domNode) {
-    if (!this.attr('activeView')) {
-      let key = CanMap.keys(this.attr('views'))[0];
-      this.attr('activeView', key);
-    }
+
+    //set default view
     this.initRoute();
     this.initPubSub();
     can.$(domNode).html(can.view(template, this));
   },
   initRoute() {
+    let key = route.attr('view') || this.attr('view');
+    this.attr('view', key);
     route.map(this);
-    route(':activeView/:page/:objectId');
+    route(':view/:page/:objectId');
     route.ready();
   },
   initPubSub() {
@@ -114,8 +124,8 @@ export let AppViewModel = can.Map.extend({
    */
   getViewUrl(view) {
     return route.url({
-      activeView: view,
-      page: 'all',
+      view: view,
+      page: 'list',
       objectId: 0
     });
   },

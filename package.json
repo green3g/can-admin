@@ -22,9 +22,9 @@
     "documentjs": "^0.4.2",
     "jshint": "latest",
     "npm-watch": "^0.1.4",
-    "steal-qunit": "^0.1.1",
+    "steal": "^1.0.0-beta.3",
     "steal-tools": "^0.16.2",
-    "testee": "^0.2.5"
+    "steal-tools": "^1.0.0-beta.1",
   },
   "dependencies": {
     "bootstrap": "^3.3.6",
