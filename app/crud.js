@@ -19,7 +19,7 @@ export let AppViewModel = can.Map.extend({
   define: {
     page: {
       type: 'string',
-      value: 'all'
+      value: 'list'
     },
     objectId: {
       type: 'number',
@@ -30,7 +30,7 @@ export let AppViewModel = can.Map.extend({
       type: 'string',
       set(view) {
         if (!view) {
-          if(!this.attr('views')){
+          if (!this.attr('views')) {
             return null;
           }
           return CanMap.keys(this.attr('views'))[0];
@@ -88,11 +88,11 @@ export let AppViewModel = can.Map.extend({
     can.$(domNode).html(can.view(template, this));
   },
   initRoute() {
-    let key = route.attr('view') || this.attr('view');
-    this.attr('view', key);
     route.map(this);
     route(':view/:page/:objectId');
     route.ready();
+    let key = route.attr('view') || this.attr('view');
+    this.attr('view', key);
   },
   initPubSub() {
     PubSub.subscribe(TOPICS.ADD_MESSAGE, (topic, message) => {
