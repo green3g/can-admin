@@ -20,9 +20,9 @@ export let AppViewModel = can.Map.extend({
     page: {
       type: 'string',
       value: 'list',
-      set(page){
-        let validPages = ['list', 'details', 'edit', 'selection', 'loading'];
-        if(!page || validPages.indexOf(page) === -1){
+      set(page) {
+        let validPages = ['list', 'details', 'add', 'edit', 'selection', 'loading'];
+        if (!page || validPages.indexOf(page) === -1) {
           return validPages[0];
         }
         return page;
@@ -65,8 +65,17 @@ export let AppViewModel = can.Map.extend({
           return null;
         }
         let deferred = can.Deferred();
+        console.log(view);
         System.import(view.attr('path')).then(module => {
-          deferred.resolve(module[view.attr('module') || 'default']);
+          let viewMod = module[view.attr('module') || 'default'];
+          let name = this.attr('view');
+
+          //check for route parameters passed to filter this view
+          let params = route.attr(name + '.parameters');
+          if (params) {
+            viewMod = can.extend({}, viewMod, { parameters: params });
+          }
+          deferred.resolve(viewMod);
         });
         return deferred;
       },
