@@ -1,8 +1,8 @@
 {
-  "name": "OpenSourceDataApp",
+  "name": "can-crud-app",
   "version": "0.8.0",
   "description": "A configureable data management app",
-  "repository": "https://github.com/roemhildtg",
+  "repository": "https://github.com/roemhildtgcan-crud-app",
   "watch": {
     "lint": "**/*.js",
     "test": "**/*.js"
@@ -34,8 +34,7 @@
     "font-awesome": "^4.5.0",
     "jquery": "^2.2.3",
     "pubsub-js": "^1.5.3",
-    "query-string": "^4.2.2",
-    "steal": "^1.0.0-beta.3"
+    "query-string": "^4.2.2"
   },
   "system": {
     "main": "index",
