@@ -19,21 +19,28 @@ export let AppViewModel = can.Map.extend({
   define: {
     page: {
       type: 'string',
-      value: 'list'
+      value: 'list',
+      set(page){
+        let validPages = ['list', 'details', 'edit', 'selection', 'loading'];
+        if(!page || validPages.indexOf(page) === -1){
+          return validPages[0];
+        }
+        return page;
+      }
     },
     objectId: {
       type: 'number',
       value: 0
     },
     view: {
-      value: null,
       type: 'string',
       set(view) {
-        if (!view) {
+        let validViews = CanMap.keys(this.attr('views'));
+        if (!view || validViews.indexOf(view) === -1) {
           if (!this.attr('views')) {
-            return null;
+            return;
           }
-          return CanMap.keys(this.attr('views'))[0];
+          return validViews[0];
         }
         return view;
       }
@@ -81,8 +88,6 @@ export let AppViewModel = can.Map.extend({
     }
   },
   startup(domNode) {
-
-    //set default view
     this.initRoute();
     this.initPubSub();
     can.$(domNode).html(can.view(template, this));
@@ -91,6 +96,8 @@ export let AppViewModel = can.Map.extend({
     route.map(this);
     route(':view/:page/:objectId');
     route.ready();
+
+    //set default view if its not set already
     let key = route.attr('view') || this.attr('view');
     this.attr('view', key);
   },
