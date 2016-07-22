@@ -1,3 +1,3 @@
-import {AppViewModel} from './app/crud';
+import {AppViewModel} from 'app/crud';
 
 export default AppViewModel;

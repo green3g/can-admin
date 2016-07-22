@@ -65,7 +65,6 @@ export let AppViewModel = can.Map.extend({
           return null;
         }
         let deferred = can.Deferred();
-        console.log(view);
         System.import(view.attr('path')).then(module => {
           let viewMod = module[view.attr('module') || 'default'];
           let name = this.attr('view');
