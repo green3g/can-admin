@@ -1,6 +1,6 @@
 {
   "name": "can-crud-app",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "A configureable data management app",
   "repository": "https://github.com/roemhildtgcan-crud-app",
   "watch": {
