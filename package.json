@@ -30,19 +30,23 @@
     "can": "^2.3.23",
     "can-connect": "^0.5.x",
     "can-crud": "git+https://github.com/roemhildtg/can-crud.git",
+    "can-restless": "^0.3.0",
     "can-ui": "git+https://github.com/roemhildtg/can-ui.git",
     "font-awesome": "^4.5.0",
     "jquery": "^2.2.3",
     "pubsub-js": "^1.5.3",
     "query-string": "^4.2.2"
   },
+  "main": "index",
   "system": {
     "main": "index",
     "bundleAssets": true,
     "bundle": [
-      "app/crud",
-      "config/default/default",
-      "config/utilities/utilities"
+      "index",
+      "config/flask/flask",
+      "config/flask/Article",
+      "config/flask/Person_Basic",
+      "config/flask/Person_Advanced"
     ],
     "npmIgnore": [
       "documentjs",
