@@ -1,6 +1,5 @@
 import 'can-crud/form-widget/field-components/date-field/';
 import CanMap from 'can/map/';
-import List from 'can/list/';
 //define plugin
 //https://canjs.com/docs/can.Map.prototype.define.html
 import 'can/map/define/';

@@ -27,6 +27,11 @@ export default {
       title: 'Articles',
       path: 'config/flask/Article',
       iconClass: 'fa fa-newspaper-o'
+    },
+    visits: {
+      title: 'Visits',
+      path: 'config/flask/Visit',
+      iconClass: 'fa fa-calendar'
     }
   }
 };

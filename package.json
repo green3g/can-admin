@@ -43,6 +43,8 @@
     "bundleAssets": true,
     "bundle": [
       "index",
+      "config/default/default",
+      "config/default/Task",
       "config/flask/flask",
       "config/flask/Article",
       "config/flask/Person_Basic",
