@@ -1,10 +1,11 @@
+<alert-widget {(messages)}="messages" />
+
 <div id="wrapper" class="{{#sidebarHidden}}toggled{{/sidebarHidden}}">
 
   <!-- Sidebar -->
   <div id="sidebar-wrapper" class="hidden-print">
     <div class="list-group">
-      <a ($click)="toggleMenu" title="Toggle Sidebar" class="list-group-item" id="menu-toggle"
-        href="">
+      <a ($click)="toggleMenu" title="Toggle Sidebar" class="list-group-item" id="menu-toggle" href="">
         <i class="fa {{#if sidebarHidden}}fa-caret-square-o-right{{else}}fa-caret-square-o-left{{/if}}"></i>
         <span class="hidden-toggled">Toggle Sidebar</span>
       </a>
@@ -26,7 +27,6 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-12">
-          <alert-widget {(messages)}="messages" />
           {{#if activeViewConfig.value}}
             <h1>{{activeViewProps.title}}</h1>
             <crud-manager {(page)}="page" {(view-id)}="objectId" {view}="activeViewConfig.value" />

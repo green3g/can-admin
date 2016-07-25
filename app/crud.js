@@ -13,7 +13,8 @@ import template from './crud.stache!';
 import { TOPICS } from 'can-crud/crud-manager/';
 import 'can-ui/alert-widget/';
 import PubSub from 'pubsub-js';
-
+import {MessageList} from 'can-ui/alert-widget/';
+import {Message} from 'can-ui/alert-widget/message';
 
 export let AppViewModel = can.Map.extend({
   define: {
@@ -86,7 +87,7 @@ export let AppViewModel = can.Map.extend({
       serialize: false
     },
     messages: {
-      Value: List,
+      Value: MessageList,
       serialize: false
     },
     defaultIconClass: {
@@ -111,7 +112,9 @@ export let AppViewModel = can.Map.extend({
   },
   initPubSub() {
     PubSub.subscribe(TOPICS.ADD_MESSAGE, (topic, message) => {
+      message = new Message(message);
       this.attr('messages').push(message);
+
       if (message.autoHide) {
         setTimeout(() => {
           this.removeMessage(message);
