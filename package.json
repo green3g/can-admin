@@ -37,12 +37,11 @@
     "pubsub-js": "^1.5.3",
     "query-string": "^4.2.2"
   },
-  "main": "index",
+  "main": "app/crud",
   "system": {
-    "main": "index",
+    "main": "app/crud",
     "bundleAssets": true,
     "bundle": [
-      "index",
       "config/default/default",
       "config/default/Task",
       "config/flask/flask",
