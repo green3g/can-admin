@@ -6,7 +6,7 @@
   <div id="sidebar-wrapper" class="hidden-print">
     <div class="list-group">
       <a ($click)="toggleMenu" title="Toggle Sidebar" class="list-group-item" id="menu-toggle" href="">
-        <i class="fa {{#if sidebarHidden}}fa-caret-square-o-right{{else}}fa-caret-square-o-left{{/if}}"></i>
+        <i class="fa fa-fw {{#if sidebarHidden}}fa-caret-square-o-right{{else}}fa-caret-square-o-left{{/if}}"></i>
         <span class="hidden-toggled">Toggle Sidebar</span>
       </a>
     </div>
