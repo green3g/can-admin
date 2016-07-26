@@ -26,7 +26,7 @@
     "steal-tools": "^1.0.0-beta.1"
   },
   "dependencies": {
-    "bootstrap": "^3.3.6",
+    "bootstrap": "^3.3.7",
     "can": "^2.3.23",
     "can-connect": "^0.5.x",
     "can-crud": "git+https://github.com/roemhildtg/can-crud.git",
