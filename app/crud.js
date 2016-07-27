@@ -12,8 +12,8 @@ import template from './crud.stache!';
 import { TOPICS } from 'can-crud/crud-manager/';
 import 'can-ui/alert-widget/';
 import PubSub from 'pubsub-js';
-import {MessageList} from 'can-ui/alert-widget/';
-import {Message} from 'can-ui/alert-widget/message';
+import { MessageList } from 'can-ui/alert-widget/';
+import { Message } from 'can-ui/alert-widget/message';
 
 export let AppViewModel = can.Map.extend({
   define: {
@@ -23,8 +23,9 @@ export let AppViewModel = can.Map.extend({
       set(page) {
         let validPages = ['list', 'details', 'add', 'edit', 'selection', 'loading'];
         if (!page || validPages.indexOf(page) === -1) {
-          return validPages[0];
+          page = validPages[0];
         }
+        this.updateTitle(this.attr('activeViewProps'), page);
         return page;
       }
     },
@@ -38,9 +39,10 @@ export let AppViewModel = can.Map.extend({
         let validViews = CanMap.keys(this.attr('views'));
         if (!view || validViews.indexOf(view) === -1) {
           if (!this.attr('views')) {
-            return;
+            view = null;
+          } else {
+            view = validViews[0];
           }
-          return validViews[0];
         }
         return view;
       }
@@ -50,11 +52,14 @@ export let AppViewModel = can.Map.extend({
       serialize: false
     },
     activeViewProps: {
-      get() {
+      get(view) {
         if (!this.attr('view')) {
-          return null;
+          view = null;
+        } else {
+          view = this.attr('views.' + this.attr('view'));
         }
-        return this.attr('views.' + this.attr('view'));
+        this.updateTitle(view, this.attr('page'));
+        return view;
       },
       serialize: false
     },
@@ -95,11 +100,18 @@ export let AppViewModel = can.Map.extend({
       serialize: false
     }
   },
+  /**
+   * initializes the application and renders it on a dom node
+   * @param  {DomElement} domNode The dom node or selector to render this application 
+   */
   startup(domNode) {
     this.initRoute();
     this.initPubSub();
     can.$(domNode).html(can.view(template, this));
   },
+  /**
+   * initializes the route url
+   */
   initRoute() {
     route.map(this);
     route(':view/:page/:objectId');
@@ -109,6 +121,9 @@ export let AppViewModel = can.Map.extend({
     let key = route.attr('view') || this.attr('view');
     this.attr('view', key);
   },
+  /**
+   * initializes the message listener using pubsub-js
+   */
   initPubSub() {
     PubSub.subscribe(TOPICS.ADD_MESSAGE, (topic, message) => {
       message = new Message(message);
@@ -124,6 +139,17 @@ export let AppViewModel = can.Map.extend({
     PubSub.subscribe(TOPICS.CLEAR_MESSAGES, (topic, data) => {
       this.attr('messages').replace([]);
     });
+  },
+  /**
+   * updates the title of the page when the view changes
+   * @param  {activeViewProps} view The properties describing the view. The title
+   * property of this object is used as part of the page title
+   * @param  {String} page The name of the current page, this is capitalized
+   * and added to the title of the page
+   */
+  updateTitle(view, page) {
+    let node = can.$('title');
+    let dummy = view && page && node.length && node.html && node.html(view.title + ' - ' + can.capitalize(page));
   },
   /**
    * Toggles the display of the sidebar mode via `sidebarHidden` property.
