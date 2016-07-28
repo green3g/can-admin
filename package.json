@@ -39,7 +39,6 @@
   },
   "main": "can-crud-app/app/crud",
   "system": {
-    "main": "app/crud",
     "bundleAssets": true,
     "bundle": [
       "can-crud-app/config/default/default",
@@ -47,7 +46,8 @@
       "can-crud-app/config/flask/flask",
       "can-crud-app/config/flask/Article",
       "can-crud-app/config/flask/Person_Basic",
-      "can-crud-app/config/flask/Person_Advanced"
+      "can-crud-app/config/flask/Person_Advanced",
+      "can-crud-app/config/flask/Visit"
     ],
     "npmIgnore": [
       "documentjs",

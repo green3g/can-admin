@@ -12,7 +12,7 @@ export default {
       title: 'People (basic example)',
 
       //this is the absolute path to the view file
-      path: 'config/flask/Person_Basic',
+      path: '~/config/flask/Person_Basic',
 
       //this icon gets displayed in the sidebar
       iconClass: 'fa fa-user'
@@ -20,17 +20,17 @@ export default {
     },
     people_advanced: {
       title: 'People (advanced)',
-      path: 'config/flask/Person_Advanced',
+      path: '~/config/flask/Person_Advanced',
       iconClass: 'fa fa-user'
     },
     articles: {
       title: 'Articles',
-      path: 'config/flask/Article',
+      path: '~/config/flask/Article',
       iconClass: 'fa fa-newspaper-o'
     },
     visits: {
       title: 'Visits',
-      path: 'config/flask/Visit',
+      path: '~/config/flask/Visit',
       iconClass: 'fa fa-calendar'
     }
   }
