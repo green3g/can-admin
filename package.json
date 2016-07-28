@@ -30,7 +30,7 @@
     "can": "^2.3.23",
     "can-connect": "^0.5.x",
     "can-crud": "git+https://github.com/roemhildtg/can-crud.git",
-    "can-restless": "^0.3.0",
+    "can-restless": "latest",
     "can-ui": "git+https://github.com/roemhildtg/can-ui.git",
     "font-awesome": "^4.5.0",
     "jquery": "^2.2.3",
