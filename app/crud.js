@@ -1,21 +1,23 @@
 import can from 'can/util/library';
 import CanMap from 'can/map/';
-import List from 'can/list/';
 import route from 'can/route/';
 import 'can/view/stache/';
 import 'can/map/define/';
+import PubSub from 'pubsub-js';
+
+import './crud.less!';
+import template from './crud.stache!';
+
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css!';
 import 'font-awesome/css/font-awesome.min.css!';
-import './crud.less!';
-import template from './crud.stache!';
+import 'can-crud/crud-manager/';
+import 'can-ui/alert-widget/alert-widget';
 import { TOPICS } from 'can-crud/crud-manager/';
-import 'can-ui/alert-widget/';
-import PubSub from 'pubsub-js';
-import { MessageList } from 'can-ui/alert-widget/';
+import { MessageList } from 'can-ui/alert-widget/alert-widget';
 import { Message } from 'can-ui/alert-widget/message';
 
-export let AppViewModel = can.Map.extend({
+export let AppViewModel = CanMap.extend({
   define: {
     page: {
       type: 'string',
@@ -102,7 +104,7 @@ export let AppViewModel = can.Map.extend({
   },
   /**
    * initializes the application and renders it on a dom node
-   * @param  {DomElement} domNode The dom node or selector to render this application 
+   * @param  {DomElement} domNode The dom node or selector to render this application
    */
   startup(domNode) {
     this.initRoute();
