@@ -9,10 +9,10 @@
   },
   "scripts": {
     "test": "testee test/index.html --reporter Spec --browsers firefox",
-    "build": "steal-tools",
+    "build": "node build.js",
     "watch": "npm-watch",
     "docs": "documentjs --watch -d",
-    "export": "node build.js",
+    "export": "node export.js",
     "lint": "jshint .",
     "pretest": "npm run lint"
   },
@@ -22,8 +22,10 @@
     "documentjs": "^0.4.2",
     "jshint": "latest",
     "npm-watch": "^0.1.4",
-    "steal": "^1.0.0-beta.3",
-    "steal-tools": "^1.0.0-beta.1"
+    "path": "^0.12.7",
+    "steal-qunit": "^0.1.x",
+    "steal-tools": "^1.0.0-beta.2",
+    "testee": "^0.2.5"
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
@@ -32,14 +34,14 @@
     "can-crud": "git+https://github.com/roemhildtg/can-crud.git",
     "can-restless": "latest",
     "can-ui": "git+https://github.com/roemhildtg/can-ui.git",
-    "font-awesome": "^4.5.0",
-    "jquery": "^2.2.3",
-    "pubsub-js": "^1.5.3",
-    "query-string": "^4.2.2"
+    "font-awesome": "^4.5.x",
+    "jquery": "^2.2.x",
+    "pubsub-js": "^1.5.x",
+    "query-string": "^4.2.2",
+    "steal": "^1.0.0-beta.3"
   },
   "main": "can-crud-app/app/crud",
   "system": {
-    "bundleAssets": true,
     "bundle": [
       "can-crud-app/config/default/default",
       "can-crud-app/config/default/Task",
@@ -58,15 +60,15 @@
     "paths": {
       "bootstrap": "node_modules/bootstrap/dist/js/bootstrap.min.js"
     },
-    "meta": {},
-    "shim": {
-      "jquery": {
-        "exports": "jQuery"
-      },
+    "meta": {
       "bootstrap": {
         "deps": [
           "jquery"
         ]
+      },
+      "jquery": {
+        "exports": "jQuery",
+        "format": "global"
       }
     }
   }
