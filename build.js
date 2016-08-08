@@ -5,6 +5,6 @@ stealTools.build({
     config: path.join(__dirname,"package.json!npm")
 },{
     // bundleSteal: true,
-    // bundleAssets: true,
+    bundleAssets: true
     // sourceMaps: true
 });

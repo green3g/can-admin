@@ -1,75 +1,37 @@
 {
   "name": "can-crud-app",
-  "version": "0.9.0",
-  "description": "A configureable data management app",
-  "repository": "https://github.com/roemhildtgcan-crud-app",
-  "watch": {
-    "lint": "**/*.js",
-    "test": "**/*.js"
-  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "app/crud.js",
   "scripts": {
-    "test": "testee test/index.html --reporter Spec --browsers firefox",
-    "build": "node build.js",
-    "watch": "npm-watch",
-    "docs": "documentjs --watch -d",
-    "export": "node export.js",
-    "lint": "jshint .",
-    "pretest": "npm run lint"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "roemhildtg",
-  "license": "MIT",
-  "devDependencies": {
-    "documentjs": "^0.4.2",
-    "jshint": "latest",
-    "npm-watch": "^0.1.4",
-    "path": "^0.12.7",
-    "steal-qunit": "^0.1.x",
-    "steal-tools": "^1.0.0-beta.2",
-    "testee": "^0.2.5"
-  },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "can": "^2.3.23",
-    "can-connect": "^0.5.x",
-    "can-crud": "git+https://github.com/roemhildtg/can-crud.git",
-    "can-restless": "latest",
-    "can-ui": "git+https://github.com/roemhildtg/can-ui.git",
-    "font-awesome": "^4.5.x",
-    "jquery": "^2.2.x",
-    "pubsub-js": "^1.5.x",
+    "can": "^2.3.24",
+    "can-connect": "^0.5.5",
+    "can-crud": "^0.4.0",
+    "can-restless": "^0.4.0",
+    "can-ui": "^0.2.0",
+    "font-awesome": "^4.6.3",
+    "pubsub-js": "^1.5.3",
     "query-string": "^4.2.2",
     "steal": "^1.0.0-beta.3"
   },
-  "main": "can-crud-app/app/crud",
+  "devDependencies": {
+    "steal-tools": "^1.0.0-beta.3"
+  },
   "system": {
     "bundle": [
-      "can-crud-app/config/default/default",
+      "can-crud-app/config/default/",
       "can-crud-app/config/default/Task",
-      "can-crud-app/config/flask/flask",
+      "can-crud-app/config/flask/",
       "can-crud-app/config/flask/Article",
       "can-crud-app/config/flask/Person_Basic",
       "can-crud-app/config/flask/Person_Advanced",
       "can-crud-app/config/flask/Visit"
-    ],
-    "npmIgnore": [
-      "documentjs",
-      "jshint",
-      "steal-tools",
-      "testee"
-    ],
-    "paths": {
-      "bootstrap": "node_modules/bootstrap/dist/js/bootstrap.min.js"
-    },
-    "meta": {
-      "bootstrap": {
-        "deps": [
-          "jquery"
-        ]
-      },
-      "jquery": {
-        "exports": "jQuery",
-        "format": "global"
-      }
-    }
+    ]
   }
 }
