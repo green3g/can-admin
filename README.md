@@ -7,9 +7,6 @@
 
 [![Join the chat at https://gitter.im/roemhildtg/can-crud-app](https://badges.gitter.im/roemhildtg/can-crud-app.svg)](https://gitter.im/roemhildtg/can-crud-app?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-## Demo 
-Visit http://cancrud-roemhildtg.rhcloud.com/ for a live demo.
-
 ## Components
 
 This app utilizes canjs components from the following, both of which can be used individually:
@@ -32,12 +29,12 @@ git clone http://path-to-this-repository
 npm install
 ```
 
-The application should run in a web browser now using `index.html`. To build it for production:
+The application should run in a web browser now using `index-dev.html`. To build it for production:
 ```bash
 npm run build
 ```
 
-Use `index.html` to use the production build, simply change the steal path to `steal.production.js`
+Use `index.html` to use the production build
 
 ## Open source projects used
 
