@@ -12,7 +12,7 @@
     "bootstrap": "^3.3.7",
     "can": "^2.3.25",
     "can-connect": "^0.5.5",
-    "can-crud": "^0.5.0",
+    "can-crud": "^0.6.0",
     "can-restless": "^0.4.0",
     "can-ui": "^0.2.0",
     "font-awesome": "^4.6.3",
