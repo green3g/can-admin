@@ -52,6 +52,19 @@ export let AppViewModel = CanMap.extend({
     views: {
       Type: CanMap,
       serialize: false
+      // set(views) {
+      //   if(!views){
+      //     return views;
+      //   }
+      //   //preload views
+      //   for (let view in views) {
+      //     let map = new CanMap(views.attr('view'));
+      //     setTimeout(() => {
+      //       this.loadView(map);
+      //     }, 100);
+      //   }
+      //   return views;
+      // }
     },
     activeViewProps: {
       get(view) {
@@ -71,19 +84,7 @@ export let AppViewModel = CanMap.extend({
         if (!view) {
           return null;
         }
-        let deferred = can.Deferred();
-        System.import(view.attr('path')).then(module => {
-          let viewMod = module[view.attr('module') || 'default'];
-          let name = this.attr('view');
-
-          //check for route parameters passed to filter this view
-          let params = route.attr(name + '.parameters');
-          if (params) {
-            viewMod = can.extend({}, viewMod, { parameters: params });
-          }
-          deferred.resolve(viewMod);
-        });
-        return deferred;
+        return this.loadView(view);
       },
       serialize: false
     },
@@ -110,6 +111,21 @@ export let AppViewModel = CanMap.extend({
     this.initRoute();
     this.initPubSub();
     can.$(domNode).html(can.view(template, this));
+  },
+  loadView(view) {
+    let deferred = can.Deferred();
+    System.import(view.attr('path')).then(module => {
+      let viewMod = module[view.attr('module') || 'default'];
+      let name = this.attr('view');
+
+      //check for route parameters passed to filter this view
+      let params = route.attr(name + '.parameters');
+      if (params) {
+        viewMod = can.extend({}, viewMod, { parameters: params });
+      }
+      deferred.resolve(viewMod);
+    });
+    return deferred;
   },
   /**
    * initializes the route url
