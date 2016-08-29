@@ -21,6 +21,8 @@ This app currently is under active development, and should therefore be consider
 
 ### Demo
 
+Note: Demo will take a couple of minutes to boot up once visited. You may need to refresh the page a couple of times. Please be patient. 
+
 You can try out a demo of this app paired with a flask server here: http://cancrud-roemhildtg.rhcloud.com/
 
 ### Setup the project
