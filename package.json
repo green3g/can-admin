@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "can": "^2.3.25",
+    "can": "^2.3.27",
     "can-connect": "^0.5.5",
     "can-crud": "^0.7.3",
     "can-restless": "^0.4.0",
