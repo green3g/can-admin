@@ -11,7 +11,7 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "can": "^2.3.27",
-    "can-connect": "^0.5.5",
+    "can-connect": "^1.0.4",
     "can-crud": "^0.7.3",
     "can-restless": "^0.4.0",
     "can-ui": "^0.2.0",
