@@ -1,197 +1,151 @@
-import can from 'can/util/library';
-import CanMap from 'can/map/';
-import route from 'can/route/';
-import 'can/view/stache/';
-import 'can/map/define/';
+import DefineMap from 'can-define/map/map';
+import DefineList from 'can-define/list/list';
+import canViewModel from 'can-view-model';
+import assign from 'can-util/js/assign/assign';
+import route from 'can-route';
 import PubSub from 'pubsub-js';
+window.vm = canViewModel;
 
+import 'font-awesome/css/font-awesome.css!';
+import 'spectre.css/dist/spectre.css!';
 import './crud.less!';
 import template from './crud.stache!';
 
-import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css!';
-import 'font-awesome/css/font-awesome.min.css!';
-import 'can-crud/crud-manager/';
-import 'can-ui/alert-widget/alert-widget';
-import { TOPICS } from 'can-crud/crud-manager/';
-import { MessageList } from 'can-ui/alert-widget/alert-widget';
-import { Message } from 'can-ui/alert-widget/message';
+import 'spectre-canjs/data-admin/data-admin';
+import 'spectre-canjs/toast-container/toast-container';
 
-export let AppViewModel = CanMap.extend({
-  define: {
+export const AppViewModel = DefineMap.extend('AppViewModel', {
     page: {
-      type: 'string',
-      value: 'list',
-      set(page) {
-        let validPages = ['list', 'details', 'add', 'edit', 'selection', 'loading'];
-        if (!page || validPages.indexOf(page) === -1) {
-          page = validPages[0];
+        type: 'string',
+        value: 'list',
+        set (page) {
+            const validPages = ['list', 'details', 'add', 'edit'];
+            if (!page || validPages.indexOf(page) === -1) {
+                page = validPages[0];
+            }
+            return page;
         }
-        this.updateTitle(this.attr('activeViewProps'), page);
-        return page;
-      }
     },
     objectId: {
-      type: 'number',
-      value: 0
+        type: 'number',
+        value: 0
     },
     view: {
-      type: 'string',
-      set(view) {
-        let validViews = CanMap.keys(this.attr('views'));
-        if (!view || validViews.indexOf(view) === -1) {
-          if (!this.attr('views')) {
-            view = null;
-          } else {
-            view = validViews[0];
-          }
+        type: 'string',
+        set (view) {
+            const validViews = Object.keys(this.views);
+            if (!view || validViews.indexOf(view) === -1) {
+                if (!this.views) {
+                    view = null;
+                } else {
+                    view = validViews[0];
+                }
+            }
+            return view;
         }
-        return view;
-      }
     },
     views: {
-      Type: CanMap,
-      serialize: false
-      // set(views) {
-      //   if(!views){
-      //     return views;
-      //   }
-      //   //preload views
-      //   for (let view in views) {
-      //     let map = new CanMap(views.attr('view'));
-      //     setTimeout(() => {
-      //       this.loadView(map);
-      //     }, 100);
-      //   }
-      //   return views;
-      // }
+        Type: DefineMap,
+        serialize: false
     },
     activeViewProps: {
-      get(view) {
-        if (!this.attr('view')) {
-          view = null;
-        } else {
-          view = this.attr('views.' + this.attr('view'));
-        }
-        this.updateTitle(view, this.attr('page'));
-        return view;
-      },
-      serialize: false
+        get (view) {
+            if (!this.view) {
+                view = null;
+            } else {
+                view = this.views[this.view];
+            }
+            return view;
+        },
+        serialize: false
     },
-    activeViewConfig: {
-      get(val, setAttr) {
-        let view = this.attr('activeViewProps');
-        if (!view) {
-          return null;
+    configPromise: {
+        get (val) {
+            const view = this.activeViewProps;
+            if (!view) {
+                return null;
+            }
+            const promise = new Promise((resolve, reject) => {
+                System.import(view.path).then((module) => {
+                    let viewMod = module[view.module || 'default'];
+                    const name = this.view;
+
+                    //check for route parameters passed to filter this view
+                    const params = this.hasOwnProperty('name') ? this[name].parameters : null;
+                    if (params) {
+                        viewMod = assign({}, viewMod, {parameters: params});
+                    }
+                    resolve(viewMod);
+                }, reject);
+            });
+            promise.catch((e) => {
+                console.error(e);
+            });
+            return promise;
+        },
+        serialize: false
+    },
+    config: {
+        get (val, set) {
+            this.configPromise.then(set);
         }
-        return this.loadView(view);
-      },
-      serialize: false
     },
     sidebarHidden: {
-      type: 'boolean',
-      value: false,
-      serialize: false
+        type: 'boolean',
+        value: false,
+        serialize: false
     },
     messages: {
-      Value: MessageList,
-      serialize: false
+        Value: DefineList,
+        serialize: false
     },
     defaultIconClass: {
-      type: 'string',
-      value: 'fa fa-plus-circle',
-      serialize: false
-    }
-  },
+        type: 'string',
+        value: 'fa fa-plus-circle',
+        serialize: false
+    },
+    topics: {
+        value: {
+            addMessage: 'addMessage',
+            setView: 'setView'
+        },
+        serialize: false
+    },
   /**
    * initializes the application and renders it on a dom node
    * @param  {DomElement} domNode The dom node or selector to render this application
    */
-  startup(domNode) {
-    this.initRoute();
-    this.initPubSub();
-    can.$(domNode).html(can.view(template, this));
-  },
-  loadView(view) {
-    let deferred = can.Deferred();
-    System.import(view.attr('path')).then(module => {
-      let viewMod = module[view.attr('module') || 'default'];
-      let name = this.attr('view');
-
-      //check for route parameters passed to filter this view
-      let params = route.attr(name + '.parameters');
-      if (params) {
-        viewMod = can.extend({}, viewMod, { parameters: params });
-      }
-      deferred.resolve(viewMod);
-    });
-    return deferred;
-  },
+    startup (domNode) {
+        this.initRoute();
+        this.initPubSub();
+        domNode.appendChild(template(this));
+        this.toastContainer = canViewModel('toast-container');
+    },
   /**
    * initializes the route url
    */
-  initRoute() {
-    route.map(this);
-    route(':view/:page/:objectId');
-    route.ready();
+    initRoute () {
+        route.data = this;
+        route('{view}/{page}/{objectId}');
+        route.ready();
 
     //set default view if its not set already
-    let key = route.attr('view') || this.attr('view');
-    this.attr('view', key);
-  },
+        const key = route.data.view || this.view;
+        this.view = key;
+    },
   /**
    * initializes the message listener using pubsub-js
    */
-  initPubSub() {
-    PubSub.subscribe(TOPICS.ADD_MESSAGE, (topic, message) => {
-      message = new Message(message);
-      this.attr('messages').push(message);
-
-      if (message.autoHide) {
-        setTimeout(() => {
-          this.removeMessage(message);
-        }, message.timeout);
-      }
-    });
-
-    PubSub.subscribe(TOPICS.CLEAR_MESSAGES, (topic, data) => {
-      this.attr('messages').replace([]);
-    });
-  },
-  /**
-   * updates the title of the page when the view changes
-   * @param  {activeViewProps} view The properties describing the view. The title
-   * property of this object is used as part of the page title
-   * @param  {String} page The name of the current page, this is capitalized
-   * and added to the title of the page
-   */
-  updateTitle(view, page) {
-    let node = can.$('title');
-    let dummy = view && page && node.length && node.html && node.html(view.title + ' - ' + can.capitalize(page));
-  },
-  /**
-   * Toggles the display of the sidebar mode via `sidebarHidden` property.
-   *  Sidebar will become compact or full.
-   * @return {Boolean} Returns false to prevent page navigation from link click
-   */
-  toggleMenu() {
-    this.attr('sidebarHidden', !this.attr('sidebarHidden'));
-    return false;
-  },
-  /**
-   * Returns a can-route url based on a view id
-   * @param  {string} view The id of the view
-   * @return {[type]}      [description]
-   */
-  getViewUrl(view) {
-    return route.url({
-      view: view,
-      page: 'list',
-      objectId: 0
-    });
-  },
-  removeMessage: function(e) {
-    var index = this.attr('messages').indexOf(e);
-    var dummy = index !== -1 && this.attr('messages').splice(index, 1);
-  }
+    initPubSub () {
+        PubSub.subscribe(this.topics.addMessage, (topic, message) => {
+            this.toastContainer.addMessage(message);
+        });
+        PubSub.subscribe(this.topics.setView, (topic, view, page, id) => {
+            this.set({
+                view: view,
+                objectId: id || null,
+                page: page || 'list'
+            });
+        });
+    }
 });

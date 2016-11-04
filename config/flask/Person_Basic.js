@@ -1,5 +1,5 @@
 import 'can-crud/form-widget/field-components/date-field/';
-import CanMap from 'can/map/';
+import DefineMap from 'can-define/map/map';
 //define plugin
 //https://canjs.com/docs/can.Map.prototype.define.html
 import 'can/map/define/';
@@ -23,7 +23,7 @@ import Factory from 'can-restless';
 export let Person = Factory({
   url: '/api/person',
   name: 'person',
-  map: CanMap.extend({
+  map: DefineMap.extend({
     name: '',
     phone_number: '',
     address: '',

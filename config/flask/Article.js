@@ -1,4 +1,4 @@
-import CanMap from 'can/map/';
+import DefineMap from 'can-define/map/map';
 import Factory from 'can-restless';
 import route from 'can/route/';
 
@@ -18,7 +18,7 @@ content = db.Column(db.Text())
 export let Article = Factory({
   url: '/api/article',
   name: 'article',
-  map: CanMap.extend({
+  map: DefineMap.extend({
     define: {
       author_id: {
         type: 'number',

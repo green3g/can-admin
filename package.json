@@ -1,6 +1,6 @@
 {
   "name": "can-crud-app",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
   "main": "app/crud.js",
   "scripts": {
@@ -9,29 +9,41 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^3.3.7",
-    "can": "^2.3.27",
-    "can-connect": "^0.5.5",
-    "can-crud": "^0.7.3",
-    "can-restless": "^0.4.0",
-    "can-ui": "^0.2.0",
+    "can-define": "^1.0.3",
+    "can-restless": "github:roemhildtg/can-restless#canjs-3.0",
+    "can-route": "^3.0.2",
+    "can-util": "^3.0.7",
+    "can-view-model": "^3.0.0",
     "font-awesome": "^4.6.3",
+    "jquery": "^3.1.1",
     "pubsub-js": "^1.5.3",
-    "query-string": "^4.2.3",
-    "steal": "^1.0.0-beta.3"
+    "spectre-canjs": "^0.8.0",
+    "spectre.css": "^0.1.27",
+    "steal": "^1.0.0-rc.6",
+    "steal-stache": "^3.0.1"
   },
   "devDependencies": {
-    "steal-tools": "^1.0.0-beta.3"
+    "babel-eslint": "^7.1.0",
+    "eslint": "^3.9.1",
+    "steal-tools": "^1.0.0-rc.3"
   },
   "system": {
     "bundle": [
-      "can-crud-app/config/default/",
-      "can-crud-app/config/default/Task",
-      "can-crud-app/config/flask/",
-      "can-crud-app/config/flask/Article",
-      "can-crud-app/config/flask/Person_Basic",
-      "can-crud-app/config/flask/Person_Advanced",
-      "can-crud-app/config/flask/Visit"
+      "can-crud-app/config/utilities/workorders",
+      "can-crud-app/config/utilities/parcel",
+      "can-crud-app/config/utilities/sanitary",
+      "can-crud-app/config/utilities/storm",
+      "can-crud-app/config/utilities/water",
+      "can-crud-app/config/utilities/views/Feature_Detail",
+      "can-crud-app/config/utilities/views/Parcel",
+      "can-crud-app/config/utilities/views/Sanitary",
+      "can-crud-app/config/utilities/views/Storm",
+      "can-crud-app/config/utilities/views/Tapcard",
+      "can-crud-app/config/utilities/views/Water",
+      "can-crud-app/config/utilities/views/Well_Reservoir",
+      "can-crud-app/config/utilities/views/Workorder_Comment",
+      "can-crud-app/config/utilities/views/Workorder_Feature",
+      "can-crud-app/config/utilities/views/Workorder"
     ]
   }
 }

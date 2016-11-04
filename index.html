@@ -23,7 +23,7 @@
             }
         };
     </script>
-    <script src="node_modules/steal/steal.js" data-main="can-crud-app/app/crud" data-env="production">
+    <script src="node_modules/steal/steal.js" data-main="can-crud-app/app/crud">
 
         Promise.all([
             System.import('can-crud-app/app/crud')
@@ -34,7 +34,7 @@
 
             System.import(config).then(function(module) {
                 var app = new AppViewModel(module.config || module.default);
-                app.startup('#app');
+                app.startup(document.getElementById('app'));
             });
         });
     </script>

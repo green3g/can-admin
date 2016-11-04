@@ -1,5 +1,5 @@
 import 'can-crud/form-widget/field-components/date-field/';
-import CanMap from 'can/map/';
+import DefineMap from 'can-define/map/map';
 import List from 'can/list/';
 //define plugin
 //https://canjs.com/docs/can.Map.prototype.define.html
@@ -38,7 +38,7 @@ fixture({
 // moduleID in the default.js config
 export default {
   connection: TaskConnection,
-  objectTemplate: CanMap.extend({
+  objectTemplate: DefineMap.extend({
 
     //define our field and objects behavior
     //see can-crud/util/Field for documentation on available properties
