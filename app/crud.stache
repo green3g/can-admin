@@ -9,10 +9,9 @@
         </p>
     {{else}}
         {{#if config}}
-            <h2>{{activeViewProps.title}}</h2>
             <data-admin {(page)}="page" {(view-id)}="objectId" {view}="config" />
         {{else}}
-            <toast-item body="Config could not be loaded" heading="Oops!" />
+            <toast-item body="Config could not be loaded" heading="Oops!" severity="warning" />
         {{/if}}
     {{/if}}
 </div>

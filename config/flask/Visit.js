@@ -2,9 +2,9 @@ import DefineMap from 'can-define/map/map';
 import 'can/map/define/';
 
 //Lets create an instance of can-connect using can-restless flask factory
-import Factory from 'can-restless';
+import factory from 'can-restless';
 
-export let Visit = Factory({
+export let Visit = factory({
   url: '/api/visit',
   name: 'visit',
   map: DefineMap.extend({

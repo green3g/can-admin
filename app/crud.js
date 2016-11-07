@@ -4,6 +4,7 @@ import canViewModel from 'can-view-model';
 import assign from 'can-util/js/assign/assign';
 import route from 'can-route';
 import PubSub from 'pubsub-js';
+import {TOPICS as T} from './constants';
 window.vm = canViewModel;
 
 import 'font-awesome/css/font-awesome.css!';
@@ -28,7 +29,10 @@ export const AppViewModel = DefineMap.extend('AppViewModel', {
     },
     objectId: {
         type: 'number',
-        value: 0
+        value: 0,
+        serialize (val) {
+            return this.page !== 'list' && val ? val : undefined;
+        }
     },
     view: {
         type: 'string',
@@ -73,7 +77,9 @@ export const AppViewModel = DefineMap.extend('AppViewModel', {
                     //check for route parameters passed to filter this view
                     const params = this.hasOwnProperty('name') ? this[name].parameters : null;
                     if (params) {
-                        viewMod = assign({}, viewMod, {parameters: params});
+                        viewMod = assign({}, viewMod, {
+                            parameters: params
+                        });
                     }
                     resolve(viewMod);
                 }, reject);
@@ -104,44 +110,53 @@ export const AppViewModel = DefineMap.extend('AppViewModel', {
         value: 'fa fa-plus-circle',
         serialize: false
     },
-    topics: {
-        value: {
-            addMessage: 'addMessage',
-            setView: 'setView'
-        },
+    toast: {
+        type: '*',
+        value: null
+    },
+    defaults: {
+        Type: DefineMap,
         serialize: false
     },
-  /**
-   * initializes the application and renders it on a dom node
-   * @param  {DomElement} domNode The dom node or selector to render this application
-   */
+    /**
+     * initializes the application and renders it on a dom node
+     * @param  {DomElement} domNode The dom node to render this application
+     */
     startup (domNode) {
+        if (typeof domNode === 'string') {
+            domNode = document.querySelector(domNode);
+            if (!domNode) {
+                throw new Error('Could not locate domnode');
+            }
+        }
         this.initRoute();
         this.initPubSub();
         domNode.appendChild(template(this));
-        this.toastContainer = canViewModel('toast-container');
+        this.toast = canViewModel(document.querySelector('toast-container'));
     },
-  /**
-   * initializes the route url
-   */
+    /**
+     * initializes the route url
+     */
     initRoute () {
         route.data = this;
+        route('{view}/{page}');
         route('{view}/{page}/{objectId}');
         route.ready();
 
-    //set default view if its not set already
+        //set default view if its not set already
         const key = route.data.view || this.view;
         this.view = key;
     },
-  /**
-   * initializes the message listener using pubsub-js
-   */
+    /**
+     * initializes the message listener using pubsub-js
+     */
     initPubSub () {
-        PubSub.subscribe(this.topics.addMessage, (topic, message) => {
-            this.toastContainer.addMessage(message);
+        const _this = this;
+        PubSub.subscribe(T.ADD_TOAST, function (topic, toast) {
+            _this.toast.addToast(toast);
         });
-        PubSub.subscribe(this.topics.setView, (topic, view, page, id) => {
-            this.set({
+        PubSub.subscribe(T.SET_VIEW, (topic, view, page, id) => {
+            _this.set({
                 view: view,
                 objectId: id || null,
                 page: page || 'list'

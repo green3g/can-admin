@@ -11,7 +11,7 @@ import connect from 'can-connect';
 import 'can-connect/data/url/';
 import 'can-connect/constructor/';
 
-export let TaskConnection = connect(['data-url', 'constructor'], {
+export let taskConnection = connect(['data-url', 'constructor'], {
   url: '/tasks',
   name: 'tasks'
 });
@@ -37,7 +37,7 @@ fixture({
 // or we could export let TaskModel = {....} and specify
 // moduleID in the default.js config
 export default {
-  connection: TaskConnection,
+  connection: taskConnection,
   objectTemplate: DefineMap.extend({
 
     //define our field and objects behavior

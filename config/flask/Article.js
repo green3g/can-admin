@@ -1,5 +1,5 @@
 import DefineMap from 'can-define/map/map';
-import Factory from 'can-restless';
+import factory from 'can-restless';
 import route from 'can/route/';
 
 import pubsub from 'pubsub-js';
@@ -15,7 +15,7 @@ title = db.Column(db.String(100))
 content = db.Column(db.Text())
 */
 
-export let Article = Factory({
+export let Article = factory({
   url: '/api/article',
   name: 'article',
   map: DefineMap.extend({

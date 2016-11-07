@@ -6,7 +6,7 @@ import DefineMap from 'can-define/map/map';
 import 'can/map/define/';
 
 //Lets create an instance of can-connect using can-restless flask factory
-import Factory from 'can-restless';
+import factory from 'can-restless';
 
 
 //import a view for a relationship
@@ -25,7 +25,7 @@ import Article from './Article';
   picture = db.Column(db.String(500))
 
   */
-export let Person = Factory({
+export let Person = factory({
   url: '/api/person',
   name: 'person',
   map: DefineMap.extend({
