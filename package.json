@@ -12,7 +12,7 @@
     "can-define": "^1.0.3",
     "can-restless": "github:roemhildtg/can-restless#canjs-3.0",
     "can-route": "^3.0.2",
-    "can-util": "^3.0.7",
+    "can-util": "^3.0.8",
     "can-view-model": "^3.0.0",
     "font-awesome": "^4.6.3",
     "jquery": "^3.1.1",
