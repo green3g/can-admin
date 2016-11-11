@@ -17,7 +17,7 @@
     "font-awesome": "^4.6.3",
     "jquery": "^3.1.1",
     "pubsub-js": "^1.5.3",
-    "spectre-canjs": "^0.9.0",
+    "spectre-canjs": "^0.10.0",
     "spectre.css": "^0.1.27",
     "steal": "^1.0.0-rc.6",
     "steal-stache": "^3.0.1"
