@@ -15,6 +15,9 @@ import template from './crud.stache!';
 import 'spectre-canjs/data-admin/data-admin';
 import 'spectre-canjs/toast-container/toast-container';
 
+import 'spectre.css/dist/spectre.css!';
+import 'font-awesome/css/font-awesome.css!';
+
 export const AppViewModel = DefineMap.extend('AppViewModel', {
     page: {
         type: 'string',
