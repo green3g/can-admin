@@ -5,7 +5,6 @@ import assign from 'can-util/js/assign/assign';
 import route from 'can-route';
 import PubSub from 'pubsub-js';
 import {TOPICS as T} from './constants';
-window.vm = canViewModel;
 
 import 'font-awesome/css/font-awesome.css!';
 import 'spectre.css/dist/spectre.css!';
