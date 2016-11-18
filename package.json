@@ -23,7 +23,7 @@
     "steal-stache": "^3.0.1"
   },
   "devDependencies": {
-    "babel-eslint": "^7.1.0",
+    "babel-eslint": "^7.1.1",
     "eslint": "^3.10.0",
     "steal-tools": "^1.0.0-rc.3"
   },
