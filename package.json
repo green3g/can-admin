@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "can-define": "^1.0.3",
+    "can-define": "^1.0.4",
     "can-restless": "github:roemhildtg/can-restless#canjs-3.0",
     "can-route": "^3.0.4",
     "can-util": "^3.0.12",
