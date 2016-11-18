@@ -1,5 +1,5 @@
 {
-  "name": "can-crud-app",
+  "name": "can-admin-app",
   "version": "0.1.0",
   "description": "",
   "main": "app/crud.js",
@@ -29,21 +29,10 @@
   },
   "system": {
     "bundle": [
-      "can-crud-app/config/utilities/workorders",
-      "can-crud-app/config/utilities/parcel",
-      "can-crud-app/config/utilities/sanitary",
-      "can-crud-app/config/utilities/storm",
-      "can-crud-app/config/utilities/water",
-      "can-crud-app/config/utilities/views/Feature_Detail",
-      "can-crud-app/config/utilities/views/Parcel",
-      "can-crud-app/config/utilities/views/Sanitary",
-      "can-crud-app/config/utilities/views/Storm",
-      "can-crud-app/config/utilities/views/Tapcard",
-      "can-crud-app/config/utilities/views/Water",
-      "can-crud-app/config/utilities/views/Well_Reservoir",
-      "can-crud-app/config/utilities/views/Workorder_Comment",
-      "can-crud-app/config/utilities/views/Workorder_Feature",
-      "can-crud-app/config/utilities/views/Workorder"
+      "can-admin-app/config/utilities/workorders",
+      "can-admin-app/config/utilities/views/Workorder_Comment",
+      "can-admin-app/config/utilities/views/Workorder_Feature",
+      "can-admin-app/config/utilities/views/Workorder"
     ]
   }
 }

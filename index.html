@@ -7,7 +7,7 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
-    <link rel="stylesheet" href="/static_apps/crud/dist/bundles/can-crud-app/app/crud.css">
+    <link rel="stylesheet" href="/static_apps/crud/dist/bundles/can-admin-app/app/crud.css">
 </head>
 
 <body>
@@ -19,18 +19,18 @@
         //let steal know we've already loaded the main css
         steal = {
             instantiated: {
-                "bundles/can-crud-app/app/crud.css!$css": null
+                "bundles/can-admin-app/app/crud.css!$css": null
             }
         };
     </script>
-    <script src="dist/bundles/can-crud-app/app/crud.js" base-url="dist" data-main="can-crud-app/app/crud">
+    <script src="dist/bundles/can-admin-app/app/crud.js" base-url="dist" data-main="can-admin-app/app/crud">
 
         Promise.all([
-            System.import('can-crud-app/app/crud')
+            System.import('can-admin-app/app/crud')
         ]).then(function(modules) {
             // var qs = modules[0];
             var AppViewModel = modules[0].AppViewModel;
-            var config = 'can-crud-app/config/utilities/workorders';
+            var config = 'can-admin-app/config/utilities/workorders';
 
             System.import(config).then(function(module) {
                 var app = new AppViewModel(module.config || module.default);
