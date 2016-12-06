@@ -9,25 +9,29 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "can-define": "^1.0.3",
-    "can-restless": "github:roemhildtg/can-restless#canjs-3.0",
+    "can-define": "^1.0.4",
+    "can-restless": "^0.5.1",
     "can-route": "^3.0.4",
-    "can-util": "^3.0.12",
+    "can-stache": "^3.0.13",
+    "can-util": "^3.0.13",
     "can-view-model": "^3.1.0",
     "font-awesome": "^4.6.3",
     "jquery": "^3.1.1",
     "pubsub-js": "^1.5.3",
-    "spectre-canjs": "^0.14.0",
+    "spectre-canjs": "^0.14.4",
     "spectre.css": "^0.1.27",
-    "steal": "^1.0.0-rc.6",
-    "steal-stache": "^3.0.1"
+    "steal": "^1.0.0-rc2",
+    "steal-css": "^0.5.1",
+    "steal-less": "^0.3.6",
+    "steal-stache": "^3.0.3"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
     "eslint": "^3.10.0",
-    "steal-tools": "^1.0.0-rc.3"
+    "steal-tools": "^1.0.0-rc2"
   },
-  "system": {
+  "steal": {
+    "plugins": ["steal-less", "steal-css", "steal-stache"],
     "bundle": [
       "can-admin-app/config/utilities/workorders",
       "can-admin-app/config/utilities/views/Workorder_Comment",
