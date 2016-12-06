@@ -1,21 +1,18 @@
 import DefineMap from 'can-define/map/map';
 import DefineList from 'can-define/list/list';
-import canViewModel from 'can-view-model';
 import assign from 'can-util/js/assign/assign';
 import route from 'can-route';
+import 'can-stache/helpers/route';
 import PubSub from 'pubsub-js';
 import {TOPICS as T} from './constants';
 
-import 'font-awesome/css/font-awesome.css!';
-import 'spectre.css/dist/spectre.css!';
-import './crud.less!';
+import './crud.less';
 import template from './crud.stache!';
 
 import 'spectre-canjs/data-admin/data-admin';
 import 'spectre-canjs/toast-container/toast-container';
 
-import 'spectre.css/dist/spectre.css!';
-import 'font-awesome/css/font-awesome.css!';
+window.route = route;
 
 export const AppViewModel = DefineMap.extend('AppViewModel', {
     page: {
@@ -51,7 +48,9 @@ export const AppViewModel = DefineMap.extend('AppViewModel', {
         }
     },
     views: {
-        Type: DefineMap,
+        Type: DefineMap.extend({
+            seal: false
+        }),
         serialize: false
     },
     activeViewProps: {
