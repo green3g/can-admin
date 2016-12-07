@@ -10,6 +10,7 @@ import './crud.less';
 import template from './crud.stache!';
 
 import 'spectre-canjs/data-admin/data-admin';
+import 'spectre-canjs/dropdown-menu/dropdown-menu';
 import 'spectre-canjs/toast-container/toast-container';
 
 window.route = route;
