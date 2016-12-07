@@ -1,8 +1,29 @@
 toast-container {
-    toast-item {
-        opacity: 0.8;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 50%;
-        right: 0;
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    right:0
+}
+toast-item {
+    width: 300px;
+}
+
+/* navigation toggle/hover */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+  }
+.dropdown-menu.menu {
+    display: none;
+}
+a.dropdown-toggle:focus,
+a.dropdown-toggle:active {
+    background: #f2f2f2;
+}
+a.dropdown-toggle:focus+.dropdown-menu,
+a.dropdown-toggle:active+.dropdown-menu {
+    display: block;
+}
+.dropdown-menu:hover {
+    display: block;
+}
