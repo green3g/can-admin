@@ -10,7 +10,7 @@
             {{#each views}}
                 <li class="menu-item">
                     <a href="{{routeUrl(page='list' view=%key)}}">
-                        <i class="fa fa-fw fa-map-marker"></i> {{title}}</a>
+                        <i class="{{#if iconClass}}{{iconClass}}{{else}}fa fa-fw fa-ellipsis-v{{/if}}"></i> {{title}}</a>
                 </li>
             {{/each}}
         </ul>
