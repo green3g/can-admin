@@ -22,8 +22,8 @@
     "spectre-canjs": "^0.16.0",
     "spectre.css": "^0.1.27",
     "steal": "^1.0.0-rc2",
-    "steal-css": "^0.5.1",
-    "steal-less": "^0.3.6",
+    "steal-css": "^1.0.0",
+    "steal-less": "^1.0.1",
     "steal-stache": "^3.0.3"
   },
   "devDependencies": {
