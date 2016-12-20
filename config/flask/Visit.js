@@ -1,21 +1,18 @@
 import DefineMap from 'can-define/map/map';
-import 'can/map/define/';
 
 //Lets create an instance of can-connect using can-restless flask factory
 import factory from 'can-restless';
 
-export let Visit = factory({
-  url: '/api/visit',
-  name: 'visit',
-  map: DefineMap.extend({
-    define: {
-      date: {
-        type: 'date',
-        //set a default date to now with the Value: Date constructor
-        Value: Date
-      }
-    }
-  })
+export const Visit = factory({
+    url: '/api/visit',
+    name: 'visit',
+    map: DefineMap.extend({
+        date: {
+            type: 'date',
+            //set a default date to now with the Value: Date constructor
+            Value: Date
+        }
+    })
 });
 
 // define our view properties
@@ -24,8 +21,8 @@ export let Visit = factory({
 // or we could export let TaskModel = {....} and specify
 // moduleID in the default.js config
 export default {
-  connection: Visit,
-  title: 'Visits'
+    connection: Visit,
+    title: 'Visits'
 };
 
 //save a visit if this file gets loaded

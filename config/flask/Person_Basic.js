@@ -1,8 +1,5 @@
-import 'can-crud/form-widget/field-components/date-field/';
+// import 'can-crud/form-widget/field-components/date-field/';
 import DefineMap from 'can-define/map/map';
-//define plugin
-//https://canjs.com/docs/can.Map.prototype.define.html
-import 'can/map/define/';
 
 //Lets create an instance of can-connect using can-restless flask factory
 import factory from 'can-restless';
@@ -20,20 +17,20 @@ import factory from 'can-restless';
   picture = db.Column(db.String(500))
 
   */
-export let Person = factory({
-  url: '/api/person',
-  name: 'person',
-  map: DefineMap.extend({
-    name: '',
-    phone_number: '',
-    address: '',
-    city: '',
-    state: '',
-    zip_code: 0,
-    is_cool: false,
-    birthday: '',
-    picture: ''
-  })
+export const Person = factory({
+    url: '/api/person',
+    name: 'person',
+    map: DefineMap.extend({
+        name: 'string',
+        phone_number: 'string',
+        address: 'string',
+        city: 'string',
+        state: 'string',
+        zip_code: 'number',
+        is_cool: 'boolean',
+        birthday: 'date',
+        picture: 'string'
+    })
 });
 
 // define our view properties
@@ -42,6 +39,6 @@ export let Person = factory({
 // or we could export let TaskModel = {....} and specify
 // moduleID in the default.js config
 export default {
-  connection: Person,
-  title: 'People'
+    connection: Person,
+    title: 'People'
 };
