@@ -1,0 +1,3 @@
+/*config/flask/Visit*/
+define("config/flask/Visit",["exports","can-define/map/map","can-restless"],function(e,t,i){"use strict";function a(e){return e&&e.__esModule?e:{"default":e}}Object.defineProperty(e,"__esModule",{value:!0}),e.Visit=void 0;var n=a(t),s=a(i),d=e.Visit=s["default"]({url:"/api/visit",name:"visit",map:n["default"].extend({date:{type:"date",Value:Date}})});e["default"]={connection:d,title:"Visits"},d.save(new d.Map)});
+//# sourceMappingURL=Visit.js.map

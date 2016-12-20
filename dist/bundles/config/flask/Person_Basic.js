@@ -1,0 +1,3 @@
+/*config/flask/Person_Basic*/
+define("config/flask/Person_Basic",["exports","can-define/map/map","can-restless"],function(e,n,t){"use strict";function r(e){return e&&e.__esModule?e:{"default":e}}Object.defineProperty(e,"__esModule",{value:!0}),e.Person=void 0;var s=r(n),i=r(t),o=e.Person=i["default"]({url:"/api/person",name:"person",map:s["default"].extend({name:"string",phone_number:"string",address:"string",city:"string",state:"string",zip_code:"number",is_cool:"boolean",birthday:"date",picture:"string"})});e["default"]={connection:o,title:"People"}});
+//# sourceMappingURL=Person_Basic.js.map

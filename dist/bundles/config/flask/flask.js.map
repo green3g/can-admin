@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../config/flask/flask.js"],"names":["views","people_basic","title","path","iconClass","people_advanced","articles","visits"],"mappings":";gIAOEA,OACEC,cAGEC,MAAO,yBAGPC,KAAM,8BAGNC,UAAW,cAGbC,iBACEH,MAAO,oBACPC,KAAM,iCACNC,UAAW,cAEbE,UACEJ,MAAO,WACPC,KAAM,yBACNC,UAAW,qBAEbG,QACEL,MAAO,SACPC,KAAM,uBACNC,UAAW","file":"flask.js"}
