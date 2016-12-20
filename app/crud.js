@@ -1,5 +1,6 @@
 import DefineMap from 'can-define/map/map';
 import DefineList from 'can-define/list/list';
+import canViewModel from 'can-view-model';
 import assign from 'can-util/js/assign/assign';
 import route from 'can-route';
 import 'can-stache/helpers/route';
@@ -12,6 +13,9 @@ import template from './crud.stache!';
 import 'spectre-canjs/data-admin/data-admin';
 import 'spectre-canjs/dropdown-menu/dropdown-menu';
 import 'spectre-canjs/toast-container/toast-container';
+
+import 'spectre.css/dist/spectre.css';
+import 'font-awesome/css/font-awesome.css';
 
 window.route = route;
 

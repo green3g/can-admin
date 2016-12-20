@@ -14,13 +14,13 @@
     "can-route": "^3.0.4",
     "can-stache": "^3.0.13",
     "can-util": "^3.2.0",
-    "can-view-model": "^3.1.0",
-    "font-awesome": "^4.6.3",
+    "can-view-model": "^3.1.3",
+    "font-awesome": "^4.7.0",
     "jquery": "^3.1.1",
     "object-assign": "^4.1.0",
     "pubsub-js": "^1.5.3",
     "spectre-canjs": "^0.16.0",
-    "spectre.css": "^0.1.27",
+    "spectre.css": "^0.1.29",
     "steal": "^1.0.0-rc2",
     "steal-css": "^1.0.0",
     "steal-less": "^1.0.1",
@@ -32,12 +32,17 @@
     "steal-tools": "^1.0.0-rc2"
   },
   "steal": {
-    "plugins": ["steal-less", "steal-css", "steal-stache"],
+    "plugins": [
+      "steal-less",
+      "steal-css",
+      "steal-stache"
+    ],
     "bundle": [
-      "can-admin-app/config/utilities/workorders",
-      "can-admin-app/config/utilities/views/Workorder_Comment",
-      "can-admin-app/config/utilities/views/Workorder_Feature",
-      "can-admin-app/config/utilities/views/Workorder"
+      "config/flask/flask",
+      "config/flask/Article",
+      "config/flask/Person_Advanced",
+      "config/flask/Person_Basic",
+      "config/flask/Visit"
     ]
   }
 }
