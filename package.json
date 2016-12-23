@@ -19,17 +19,18 @@
     "jquery": "^3.1.1",
     "object-assign": "^4.1.0",
     "pubsub-js": "^1.5.3",
-    "spectre-canjs": "^0.15.12",
+    "spectre-canjs": "^0.15.13",
     "spectre.css": "^0.1.29",
-    "steal": "^1.0.0-rc2",
-    "steal-css": "^1.0.0",
-    "steal-less": "^1.0.1",
+    "steal": "^1.0.6"
     "steal-stache": "^3.0.3"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
     "eslint": "^3.10.0",
-    "steal-tools": "^1.0.0-rc2"
+    "steal-css": "^1.0.0",
+    "steal-less": "^1.0.1",
+    "steal-stache": "^3.0.4",
+    "steal-tools": "^1.0.1"
   },
   "steal": {
     "plugins": [
