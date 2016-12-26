@@ -7,7 +7,6 @@ import 'can-stache/helpers/route';
 import PubSub from 'pubsub-js';
 import {TOPICS as T} from './constants';
 
-import './crud.less';
 import template from './crud.stache!';
 
 import 'spectre-canjs/data-admin/data-admin';
@@ -16,6 +15,7 @@ import 'spectre-canjs/toast-container/toast-container';
 
 import 'spectre.css/dist/spectre.css';
 import 'font-awesome/css/font-awesome.css';
+import './crud.less';
 
 window.route = route;
 
