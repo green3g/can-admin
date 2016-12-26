@@ -22,11 +22,11 @@ export const Article = factory({
             type: 'number',
             formatter (id) {
                 return '<a  href="' +
-            route.url({
-                view: 'people_basic',
-                page: 'details',
-                objectId: id
-            }) + '">Author: ' + id + '</a>';
+                    route.url({
+                        view: 'people_advanced',
+                        page: 'details',
+                        objectId: id
+                    }) + '">Author: ' + id + '</a>';
             }
         },
         title: {
@@ -49,13 +49,13 @@ export const Article = factory({
             }
         },
         reviewed: {
-        //sqlite doesn't have boolean so we use 1,0
+            //sqlite doesn't have boolean so we use 1,0
             type: 'integer',
             value: 0,
             formatter (reviewed) {
                 return '<i class="fa fa-' +
-            (reviewed ? 'check' : 'square-o') +
-            '"></i>';
+                    (reviewed ? 'check' : 'square-o') +
+                    '"></i>';
             },
             fieldType: 'select',
             options: [{
