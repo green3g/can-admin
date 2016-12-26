@@ -21,15 +21,15 @@
     "pubsub-js": "^1.5.3",
     "spectre-canjs": "^0.16.0",
     "spectre.css": "^0.1.29",
-    "steal": "^1.0.0-rc2",
-    "steal-css": "^1.0.0",
-    "steal-less": "^1.0.1",
-    "steal-stache": "^3.0.3"
+    "steal": "^1.0.0-rc2"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
     "eslint": "^3.10.0",
-    "steal-tools": "^1.0.0-rc2"
+    "steal-tools": "^1.0.0-rc2",
+    "steal-css": "^1.0.0",
+    "steal-less": "^1.0.1",
+    "steal-stache": "^3.0.3"
   },
   "steal": {
     "plugins": [
@@ -38,11 +38,11 @@
       "steal-stache"
     ],
     "bundle": [
-      "config/flask/flask",
-      "config/flask/Article",
-      "config/flask/Person_Advanced",
-      "config/flask/Person_Basic",
-      "config/flask/Visit"
+      "can-admin-app/config/flask/flask",
+      "can-admin-app/config/flask/Article",
+      "can-admin-app/config/flask/Person_Advanced",
+      "can-admin-app/config/flask/Person_Basic",
+      "can-admin-app/config/flask/Visit"
     ]
   }
 }
