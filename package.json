@@ -29,7 +29,7 @@
     "steal-css": "^1.1.1",
     "steal-less": "^1.0.2",
     "steal-stache": "^3.0.4",
-    "steal-tools": "^1.0.1"
+    "steal-tools": "^1.0.3"
   },
   "steal": {
     "plugins": [
