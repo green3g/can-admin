@@ -121,6 +121,7 @@ export const AppViewModel = DefineMap.extend('AppViewModel', {
         value: null
     },
     defaults: {
+        Value: DefineMap,
         Type: DefineMap,
         serialize: false
     },
