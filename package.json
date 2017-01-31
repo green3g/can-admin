@@ -18,7 +18,7 @@
     "font-awesome": "^4.7.0",
     "object-assign": "^4.1.1",
     "pubsub-js": "^1.5.3",
-    "spectre-canjs": "^0.21.3",
+    "spectre-canjs": "^0.22.1",
     "spectre.css": "^0.1.31",
     "steal": "^1.1.0"
   },
