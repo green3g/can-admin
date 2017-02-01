@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
-    "eslint": "^3.14.0",
+    "eslint": "^3.14.1",
     "steal-css": "^1.2.0",
     "steal-less": "^1.1.0",
     "steal-stache": "^3.0.5",
