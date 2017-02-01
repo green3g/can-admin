@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "can-define": "^1.0.15",
+    "can-define": "^1.0.16",
     "can-restless": "^0.6.0",
     "can-route": "^3.0.4",
     "can-stache": "^3.0.19",
