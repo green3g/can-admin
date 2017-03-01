@@ -20,7 +20,7 @@
     "pubsub-js": "^1.5.3",
     "spectre-canjs": "^0.23.0",
     "spectre.css": "^0.1.32",
-    "steal": "^1.2.5"
+    "steal": "^1.2.6"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
