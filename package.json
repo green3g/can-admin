@@ -11,7 +11,7 @@
   "dependencies": {
     "can-define": "^1.0.15",
     "can-restless": "^0.6.0",
-    "can-route": "^3.0.4",
+    "can-route": "^3.0.7",
     "can-stache": "^3.0.19",
     "can-util": "^3.3.1",
     "can-view-model": "^3.1.3",
