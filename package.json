@@ -4,7 +4,8 @@
   "description": "",
   "main": "app/crud.js",
   "scripts": {
-    "build": "node build"
+    "build": "node build",
+    "test": "node build"
   },
   "author": "",
   "license": "ISC",
