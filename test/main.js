@@ -1,1 +1,1 @@
-import q from 'steal-qunit';
+import 'steal-qunit';

@@ -49,6 +49,7 @@ export const Person = factory({
         name: {
             type: 'string'
         },
+        // eslint-disable-next-line camelcase
         phone_number: {
             excludeListTable: true,
             type: 'string',
@@ -80,14 +81,16 @@ export const Person = factory({
                 })[0].label;
             }
         },
+        // eslint-disable-next-line camelcase
         zip_code: {
             excludeListTable: true,
             type: 'number'
         },
+        // eslint-disable-next-line camelcase
         is_cool: {
             type: 'boolean',
-            formatter (is_cool) {
-                const icon = is_cool ? 'fa-thumbs-up' : 'fa-thumbs-down';
+            formatter (isCool) {
+                const icon = isCool ? 'fa-thumbs-up' : 'fa-thumbs-down';
                 return `<i class="fa  ${icon}"></i>`;
             }
         },

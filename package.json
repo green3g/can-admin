@@ -4,7 +4,11 @@
   "description": "",
   "main": "app/crud.js",
   "scripts": {
-    "build": "node build"
+    "build": "node build",
+    "lint": "eslint . --fix",
+    "pretest": "npm run lint",
+    "test": "testee test/index.html --reporter Spec --browsers firefox",
+    "posttest": "npm run build"
   },
   "author": "",
   "license": "ISC",
@@ -27,8 +31,10 @@
     "eslint": "^3.16.1",
     "steal-css": "^1.2.1",
     "steal-less": "^1.1.0",
+    "steal-qunit": "^1.0.1",
     "steal-stache": "^3.0.5",
-    "steal-tools": "^1.1.1"
+    "steal-tools": "^1.1.1",
+    "testee": "^0.3.1"
   },
   "steal": {
     "plugins": [
