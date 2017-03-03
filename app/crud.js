@@ -171,7 +171,7 @@ export const AppViewModel = DefineMap.extend('AppViewModel', {
      */
     initPubSub () {
         PubSub.subscribe(T.ADD_TOAST, (topic, toast) => {
-            this.toast.addToast(toast);
+            this.messages.push(toast);
         });
         PubSub.subscribe(T.SET_VIEW, (topic, view, page, id) => {
             this.set({
