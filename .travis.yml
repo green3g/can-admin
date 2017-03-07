@@ -3,7 +3,7 @@ node_js: node
 install:
   - npm install
 addons:
-  firefox: latest
+  firefox: "51.0"
 before_script: npm run build
 before_install:
 - "export DISPLAY=:99.0"
