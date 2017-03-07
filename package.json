@@ -14,7 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "can-define": "^1.0.15",
-    "can-restless": "^0.6.0",
+    "can-restless": "^0.7.0",
     "can-route": "^3.0.7",
     "can-stache": "^3.0.20",
     "can-util": "^3.3.1",
