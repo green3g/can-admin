@@ -3,6 +3,7 @@ import DefineList from 'can-define/list/list';
 import canViewModel from 'can-view-model';
 import assign from 'can-util/js/assign/assign';
 import route from 'can-route';
+import dev from 'can-util/js/dev/dev';
 import 'can-stache/helpers/route';
 import PubSub from 'pubsub-js';
 import {TOPICS as T} from './constants';
@@ -86,7 +87,7 @@ export const AppViewModel = DefineMap.extend('AppViewModel', {
                 }, reject);
             });
             promise.catch((e) => {
-                console.error(e);
+                dev.warn(e);
             });
             return promise;
         },
@@ -133,7 +134,7 @@ export const AppViewModel = DefineMap.extend('AppViewModel', {
             //     return null;
             // }
             // this.viewObject.parameters.set(params.serialize());
-            return null;
+            return params;
         }
     },
     /**
@@ -169,12 +170,11 @@ export const AppViewModel = DefineMap.extend('AppViewModel', {
      * initializes the message listener using pubsub-js
      */
     initPubSub () {
-        const _this = this;
-        PubSub.subscribe(T.ADD_TOAST, function (topic, toast) {
-            _this.toast.addToast(toast);
+        PubSub.subscribe(T.ADD_TOAST, (topic, toast) => {
+            this.messages.push(toast);
         });
         PubSub.subscribe(T.SET_VIEW, (topic, view, page, id) => {
-            _this.set({
+            this.set({
                 view: view,
                 objectId: id || null,
                 page: page || 'list'

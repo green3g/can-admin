@@ -4,31 +4,37 @@
   "description": "",
   "main": "app/crud.js",
   "scripts": {
-    "build": "node build"
+    "build": "node build",
+    "lint": "eslint . --fix",
+    "pretest": "npm run lint",
+    "test": "testee test/index.html --reporter Spec --browsers firefox",
+    "posttest": "npm run build"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "can-define": "^1.0.15",
-    "can-restless": "^0.6.0",
-    "can-route": "^3.0.4",
-    "can-stache": "^3.0.19",
+    "can-restless": "^0.8.0",
+    "can-route": "^3.0.7",
+    "can-stache": "^3.0.20",
     "can-util": "^3.3.1",
     "can-view-model": "^3.1.3",
     "font-awesome": "^4.7.0",
     "object-assign": "^4.1.1",
     "pubsub-js": "^1.5.5",
-    "spectre-canjs": "^0.24.1",
-    "spectre.css": "^0.2.4",
-    "steal": "^1.2.9"
+    "spectre-canjs": "^0.24.6",
+    "spectre.css": "^0.2.5",
+    "steal": "^1.2.10"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
     "eslint": "^3.16.1",
     "steal-css": "^1.2.1",
-    "steal-less": "^1.1.0",
+    "steal-less": "^1.2.0",
+    "steal-qunit": "^1.0.1",
     "steal-stache": "^3.0.5",
-    "steal-tools": "^1.1.1"
+    "steal-tools": "^1.1.1",
+    "testee": "^0.3.1"
   },
   "steal": {
     "plugins": [

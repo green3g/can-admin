@@ -18,6 +18,7 @@ export const Article = factory({
     url: '/api/article',
     name: 'article',
     map: DefineMap.extend({
+        // eslint-disable-next-line camelcase
         author_id: {
             type: 'number',
             formatter (id) {
@@ -44,6 +45,7 @@ export const Article = factory({
             excludeForm: true,
             excludeFilter: true,
             set (val) {
+                // eslint-disable-next-line camelcase
                 this.author_id = val;
                 return val;
             }
