@@ -20,16 +20,11 @@ import './crud.less';
 window.route = route;
 
 export const AppViewModel = DefineMap.extend('AppViewModel', {
+    seal: false
+}, {
     page: {
         type: 'string',
-        value: 'list',
-        set (page) {
-            const validPages = ['list', 'details', 'add', 'edit'];
-            if (!page || validPages.indexOf(page) === -1) {
-                page = validPages[0];
-            }
-            return page;
-        }
+        value: 'list'
     },
     objectId: {
         type: 'number',
@@ -70,7 +65,7 @@ export const AppViewModel = DefineMap.extend('AppViewModel', {
         serialize: false
     },
     configPromise: {
-        get (val) {
+        get () {
             const view = this.activeViewProps;
             if (!view) {
                 return null;
@@ -98,6 +93,7 @@ export const AppViewModel = DefineMap.extend('AppViewModel', {
         serialize: false
     },
     config: {
+        Type: DefineMap,
         get (val, set) {
             this.configPromise.then(set);
         }
@@ -121,8 +117,24 @@ export const AppViewModel = DefineMap.extend('AppViewModel', {
         value: null
     },
     defaults: {
+        Value: DefineMap,
         Type: DefineMap,
         serialize: false
+    },
+    parameters: {
+        Type: DefineMap,
+        serialize: false,
+        set (params) {
+            // console.log(params);
+            // if (!params) {
+            //     return null;
+            // }
+            // if (!this.viewObject) {
+            //     return null;
+            // }
+            // this.viewObject.parameters.set(params.serialize());
+            return null;
+        }
     },
     /**
      * initializes the application and renders it on a dom node
