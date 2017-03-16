@@ -22,11 +22,14 @@ export const Person = factory({
     name: 'person',
     map: DefineMap.extend({
         name: 'string',
+        // eslint-disable-next-line camelcase
         phone_number: 'string',
         address: 'string',
         city: 'string',
         state: 'string',
+        // eslint-disable-next-line camelcase
         zip_code: 'number',
+        // eslint-disable-next-line camelcase
         is_cool: 'boolean',
         birthday: 'date',
         picture: 'string'
