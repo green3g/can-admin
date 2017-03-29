@@ -1,19 +1,20 @@
-<ul class="api cascading primary-grouping"> 
+<ul class="menu api cascading primary-grouping">
 	{{#getActiveAndParents}}
 		{{#each parents}}
-		<li class="search-container active parent">
+		<li class="menu-item search-container active parent">
 			<a class="sidebar-title" href="{{urlTo name}}" data-search="{{#if title}}{{title}}{{else}}{{{name}}}{{/if}}">
 				{{makeTitle}}
 			</a>
+		</li>
+    <li class="divider"></li>
 			{{#if ../active.hideChildrenInMenu}}
 				{{> active-menu.mustache}}
 			{{/if}}
-		</li>
 		{{/each}}
 		{{#active}}
 			{{^if hideChildrenInMenu}}
-			<li class="search-container active">
-			<a class="sidebar-title" href="{{urlTo name}}" data-search="{{#if title}}{{title}}{{else}}{{{name}}}{{/if}}">
+			<li class="menu-item search-container active">
+			<a class="sidebar-title active" href="{{urlTo name}}" data-search="{{#if title}}{{title}}{{else}}{{{name}}}{{/if}}">
 				{{makeTitle}}
 			</a>
 			{{> active-menu.mustache}}

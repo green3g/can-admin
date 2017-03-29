@@ -1,13 +1,11 @@
 {{#if children.length}}
-<ul>
 	{{#eachOrderedChildren children}}
 	{{^if hide}}
-	<li class="search-container{{#if active}} active{{#children.length}} parent{{/children.length}}{{/if}}">
-		<a class="{{type}}" href="{{urlTo name}}" data-search="{{#if title}}{{title}}{{else}}{{{name}}}{{/if}}">
+	<li class="menu-item search-container{{#if active}} active{{#children.length}} parent{{/children.length}}{{/if}}">
+		<a class="{{type}}{{#if active}} active{{/ifActive}}" href="{{urlTo name}}" data-search="{{#if title}}{{title}}{{else}}{{{name}}}{{/if}}">
 			{{makeTitle}}
 		</a>
 	</li>
 	{{/if}}
 	{{/eachOrderedChildren}}
-</ul>
 {{/if}}

@@ -1,24 +1,29 @@
 <div class="heading">
-<h1>{{makeTitle}}</h1>
-	<ul class="tags">
-		<li>{{type}}</li>
-	</ul>
+	<h1>{{makeTitle}}</h1>
+
+	<div class="chip-sm">
+		<span class="chip-name">
+			{{type}}
+		</span>
+	</div>
+	<div class="chip-sm">
+		<span class="chip-name">
+			<code>{{{makeTypesString types}}}</code>
+		</span>
+	</div>
 	{{#if plugin}}<span class="module">{{plugin}}</span>{{/if}}
 	{{#if release}}<span class="release">{{release}}</span>{{/if}}
 </div>
 
 <div class="sub-heading">
 	{{#if title}}
-	{{^if plugin}}
-		<span class="module">{{name}}</span>
+		{{^if plugin}}
+		<cite>{{name}}</cite>
 	{{/if}}
-	{{/if}}
-	{{#if types}}
-	<h2><code>{{{makeTypesString types}}}</code></h2>
 	{{/if}}
 	<span class="inherits">{{#if inherits}}inherits: <a href="{{urlTo inherits}}">{{inherits}}</a>{{else}}&nbsp;{{/if}}</span>
 </div>
-
+{{#if links.length}}
 <ul class="links">
 	{{#links}}
 		<li><a href="{{href}}">{{title}}</a></li>
@@ -33,4 +38,5 @@
 		<li><a href="{{urlTest .}}">tests</a></li>
 	{{/if}}
 </ul>
+{{/if}}
 <br />

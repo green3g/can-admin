@@ -1,6 +1,6 @@
 (function () {
     var isClient = typeof window !== 'undefined';
-	
+
     var configData = {
         map: {
             'jquery/jquery': 'jquery',
@@ -20,15 +20,15 @@
             stache: 'can/view/stache/system'
         }
     };
-	
+
     if (isClient) {
 		// when not a client, these values are set by build.js.
         configData.paths = {
             'jquery': 'jquery/dist/jquery.js',
-            'can/*': 'can/*.js' 
-        };
+            'can/*': 'can/*.js'
+        }; 
     }
-	
+
     System.config(configData);
 })();
 
