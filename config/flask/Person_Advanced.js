@@ -76,9 +76,12 @@ export const Person = factory({
             // pass our observable list as options
             options: statesList,
             formatter (abbrev) {
-                return statesList.filter((state) => {
-                    return state.value === abbrev;
-                })[0].label;
+                for (var i = 0; i < statesList.length; i ++) {
+                    if (statesList[i].value === abbrev) {
+                        return statesList[i].label;
+                    }
+                }
+                return 'None';
             }
         },
         // eslint-disable-next-line camelcase

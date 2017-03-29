@@ -6,6 +6,17 @@
 //or the loader will look for the default
 export default {
     views: {
+        // a collection of user articles
+        articles: {
+            title: 'Articles',
+            path: '~/config/flask/Article',
+            iconClass: 'fa fa-newspaper-o'
+        },
+        visits: {
+            title: 'Visits',
+            path: '~/config/flask/Visit',
+            iconClass: 'fa fa-calendar'
+        },
         // eslint-disable-next-line camelcase
         people_basic: {
 
@@ -24,16 +35,6 @@ export default {
             title: 'People (advanced)',
             path: '~/config/flask/Person_Advanced',
             iconClass: 'fa fa-user'
-        },
-        articles: {
-            title: 'Articles',
-            path: '~/config/flask/Article',
-            iconClass: 'fa fa-newspaper-o'
-        },
-        visits: {
-            title: 'Visits',
-            path: '~/config/flask/Visit',
-            iconClass: 'fa fa-calendar'
         }
     }
 };

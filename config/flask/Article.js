@@ -89,5 +89,16 @@ export default {
                 });
             });
         }
+    }],
+    quickFilters: [{
+        text: 'Reviewed',
+        field: 'reviewed',
+        options: [{
+            value: 1,
+            label: 'Yes'
+        }, {
+            value: 0,
+            label: 'No'
+        }]
     }]
 };
