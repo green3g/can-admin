@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "animate.css": "^3.5.2",
     "can-define": "^1.0.15",
     "can-restless": "^0.9.0",
     "can-route": "^3.0.7",
@@ -22,7 +23,7 @@
     "font-awesome": "^4.7.0",
     "object-assign": "^4.1.1",
     "pubsub-js": "^1.5.5",
-    "spectre-canjs": "^0.24.6",
+    "spectre-canjs": "^0.24.8",
     "spectre.css": "^0.2.11",
     "steal": "^1.2.10"
   },

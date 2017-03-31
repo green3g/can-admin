@@ -1,6 +1,5 @@
 import DefineMap from 'can-define/map/map';
 import DefineList from 'can-define/list/list';
-import canViewModel from 'can-view-model';
 import assign from 'can-util/js/assign/assign';
 import route from 'can-route';
 import dev from 'can-util/js/dev/dev';
@@ -15,6 +14,7 @@ import 'spectre-canjs/dropdown-menu/dropdown-menu';
 import 'spectre-canjs/toast-container/toast-container';
 
 import 'spectre.css/dist/spectre.css';
+import 'animate.css/animate.css';
 import 'font-awesome/css/font-awesome.css';
 import './crud.less';
 
