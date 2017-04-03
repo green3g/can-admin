@@ -18,8 +18,6 @@ import 'animate.css/animate.css';
 import 'font-awesome/css/font-awesome.css';
 import './crud.less';
 
-window.route = route;
-
 export const AppViewModel = DefineMap.extend('AppViewModel', {
     seal: false
 }, {
@@ -151,7 +149,6 @@ export const AppViewModel = DefineMap.extend('AppViewModel', {
         this.initRoute();
         this.initPubSub();
         domNode.appendChild(template(this));
-        this.toast = canViewModel(document.querySelector('toast-container'));
     },
     /**
      * initializes the route url
