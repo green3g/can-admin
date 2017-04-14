@@ -15,7 +15,7 @@
   "dependencies": {
     "animate.css": "^3.5.2",
     "can-define": "^1.0.15",
-    "can-restless": "^0.9.0",
+    "can-restless": "^0.10.0",
     "can-route": "^3.0.7",
     "can-stache": "^3.0.20",
     "can-util": "^3.3.1",
