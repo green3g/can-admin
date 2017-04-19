@@ -13,7 +13,7 @@ import 'spectre-canjs/data-admin/data-admin';
 import 'spectre-canjs/dropdown-menu/dropdown-menu';
 import 'spectre-canjs/toast-container/toast-container';
 
-import 'spectre.css/dist/spectre.css';
+import 'spectre.css/docs/dist/spectre.css';
 import 'animate.css/animate.css';
 import 'font-awesome/css/font-awesome.css';
 import './crud.less';

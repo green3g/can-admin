@@ -24,7 +24,7 @@
     "object-assign": "^4.1.1",
     "pubsub-js": "^1.5.5",
     "spectre-canjs": "^0.26.0",
-    "spectre.css": "^0.2.11",
+    "spectre.css": "^0.2.13",
     "steal": "^1.2.10"
   },
   "devDependencies": {
