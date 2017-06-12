@@ -9,7 +9,7 @@ import {TOPICS as T} from './constants';
 
 import template from './crud.stache!';
 
-import 'spectre-canjs/data-admin/data-admin';
+import '../components/data-admin/data-admin';
 import 'spectre-canjs/dropdown-menu/dropdown-menu';
 import 'spectre-canjs/toast-container/toast-container';
 
