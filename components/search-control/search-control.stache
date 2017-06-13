@@ -1,4 +1,4 @@
-<dropdown-menu class="filter-dropdown inline-block" text="Search{{#if filters.length}} ({{filters.length}}){{/if}}" icon-class="fa fa-search">
+<dropdown-menu class="filter-dropdown inline-block" text="Search{{#if filters.length}}{{/if}}" icon-class="fa fa-search">
   <div class="menu">
     <filter-widget {(filters)}="filters" {fields}="fields" {object-template}="view.ObjectTemplate" />
   </div>
