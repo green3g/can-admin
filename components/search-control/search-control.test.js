@@ -2,7 +2,7 @@
 
 import q from 'steal-qunit';
 import {ViewModel} from './search-control';
-import {Field} from 'spectre-canjs/util/field/field';
+import Field from 'spectre-canjs/util/field/Field';
 
 //eslint-disable-next-line
 let vm;

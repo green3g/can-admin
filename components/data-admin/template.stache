@@ -3,7 +3,7 @@
     {{>view.listTemplate}}
   </nav-page>
 
-  {{#if view.canDelete}}
+  {{#if view.canCreate}}
     <nav-page label="Create" page-id="add">
       {{>view.addTemplate}}
     </nav-page>
@@ -29,7 +29,7 @@
   {{/each}}
 </nav-container>
 
-{{#if canDelete}}
+{{#if view.canDelete}}
   <confirm-dialog small title="Delete" {^action-promise}="deletePromise" {(active)}="showConfirmDelete">
 
     <h3><i class="fa fa-exclamation"></i> Warning!</h3>

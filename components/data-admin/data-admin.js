@@ -15,10 +15,13 @@ import 'spectre-canjs/list-table/list-table';
 import 'spectre-canjs/property-table/property-table';
 import 'spectre-canjs/form-widget/form-widget';
 import 'spectre-canjs/nav-container/nav-container';
-import 'spectre-canjs/modal-dialog/confirm-dialog';
+import 'spectre-canjs/nav-page/nav-page';
+import 'spectre-canjs/confirm-dialog/confirm-dialog';
+import 'spectre-canjs/modal-dialog/modal-dialog';
 
 import {FilterList} from 'spectre-canjs/filter-widget/Filter';
-import {parseFieldArray, mapToFields} from 'spectre-canjs/util/field/field';
+import mapToFields from 'spectre-canjs/util/field/mapToFields/mapToFields';
+import parseFieldArray from 'spectre-canjs/util/field/parseFieldArray/parseFieldArray';
 
 import {VIEW_BUTTON, EDIT_BUTTON, DELETE_BUTTON} from './buttons';
 import {ViewMap} from './ViewMap';
