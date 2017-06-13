@@ -12,7 +12,7 @@ import template from './crud.stache!';
 import '../components/data-admin/data-admin';
 import 'spectre-canjs/dropdown-menu/dropdown-menu';
 import 'spectre-canjs/toast-container/toast-container';
-import {ViewModel as Toast} from 'spectre-canjs/toast-item/toast-item';
+import 'spectre-canjs/toast-item/toast-item';
 
 import 'spectre.css/docs/dist/spectre.css';
 import 'animate.css/animate.css';
