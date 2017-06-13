@@ -29,7 +29,7 @@ export const ViewModel = DefineMap.extend({
     /**
      * The fields to search on. These fields will be excluded from the fitler
      * if `filter: false`
-     * @property {Array<util/field.Field>} search-control.ViewModel.props.fields fields
+     * @property {Array<util/field/Field>} search-control.ViewModel.props.fields fields
      */
     fields: DefineList,
     /**

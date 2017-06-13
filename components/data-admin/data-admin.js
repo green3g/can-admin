@@ -342,7 +342,7 @@ export const ViewModel = DefineMap.extend('DataAdmin', {
     /**
      * The internal field array that define the display of data and field types
      * for editing and filtering
-     * @property {Array<util/field.Field>} data-admin.ViewModel.props._fields
+     * @property {Array<util/field/Field>} data-admin.ViewModel.props._fields
      * @parent data-admin.ViewModel.props
      */
     _fields: {
@@ -380,7 +380,7 @@ export const ViewModel = DefineMap.extend('DataAdmin', {
      * A field that is related to a parent data-admin. The field's name should
      * be passed to this property, and the viewModel automatically looks up
      * the relevent field object
-     * @property {util/field.Field} data-admin.ViewModel.props.relatedField
+     * @property {util/field/Field} data-admin.ViewModel.props.relatedField
      * @parent data-admin.ViewModel.props
      */
     relatedField: {
@@ -428,7 +428,7 @@ export const ViewModel = DefineMap.extend('DataAdmin', {
      *  The operator used will be `'equals'`
      * @function addFilter
      * @signature
-     * @param {util/field.Field} field The field to filter on (the child key)
+     * @param {util/field/Field} field The field to filter on (the child key)
      * @param {any} value The value to use in the filter
      * @param {Boolean} visible Whether or not this filter should be visible.
      * The default is `true`.

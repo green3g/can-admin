@@ -77,7 +77,7 @@ export const ViewMap = DefineMap.extend('ViewMap', {seal: false}, {
     /**
      * An array of field definitions which controls the display and editing
      * of each property of the objects being displayed and edited
-     * @property {Array<util/field.Field>} data-admin/ViewMap.props.fields fields
+     * @property {Array<util/field/Field>} data-admin/ViewMap.props.fields fields
      * @parent data-admin/ViewMap.props
      */
     fields: DefineList,
