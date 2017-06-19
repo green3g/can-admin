@@ -1,4 +1,4 @@
-{{#if focusObject}}
+{{#if viewId}}
   {{#if focusObjectPromise.isPending}}
     <div class="loading"></div>
   {{else}}

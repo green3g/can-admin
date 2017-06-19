@@ -1,5 +1,5 @@
 <nav-container {(active-id)}="page">
-  <nav-page label="List" page-id="list" {{#if objectsPromise.isPending}} loading {{/if}} classes="list-tab">
+  <nav-page label="List" page-id="list" classes="list-tab">
     {{>view.listTemplate}}
   </nav-page>
 
@@ -10,7 +10,7 @@
   {{/if}}
 
   {{#if viewId}}
-    <nav-page label="Details" page-id="details" {{#if focusObjectPromise.isPending}} loading {{/if}} classes="details-tab">
+    <nav-page label="Details" page-id="details" classes="details-tab">
       {{>view.detailsTemplate}}
     </nav-page>
 
