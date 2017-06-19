@@ -771,7 +771,9 @@ export const ViewModel = DefineMap.extend('DataAdmin', {
     },
     /**
      * Passes an array of objects to the on click handler of a manageButton.
-     * The array will contain an array of objects to "manage"
+     * The array will contain an array of objects to "manage". The context of this in 
+     * the event function is the data-admin viewmodel, so properties like 
+     * `view` and `_fields`, etc can be accessed easily. 
      * @function manageObjects
      * @signature
      * @param  {Function} button The button object with an `onclick` property
@@ -795,8 +797,8 @@ export const ViewModel = DefineMap.extend('DataAdmin', {
         }
 
         // if the button has an onclick handler call it directly with the objects
-        if (button.onClick) {
-            const promise = button.onClick(objects);
+        if (button.onClick && typeof button.onClick === 'function') {
+            const promise = button.onClick.call(this, objects);
             if (promise) {
                 promise.then(() => {
                     this.objectsRefreshCount++;
@@ -835,7 +837,12 @@ export const ViewModel = DefineMap.extend('DataAdmin', {
         return false;
     },
     /**
-     * A helper function to trigger beforeSave, afterSave, etc events.
+     * A helper function to trigger beforeSave, afterSave, etc events. The 
+     * event name is dispatched as a lower case event name, and is passed the 
+     * object as an argument. If the view object has the event name as a function
+     * the function will be called with the object. The context of this in 
+     * the event function is the data-admin viewmodel, so properties like 
+     * `view` and `_fields`, etc can be accessed easily. 
      * @function onEvent
      * @signature
      * @param  {DefineMap} obj The object to dispatch with the event
@@ -845,12 +852,12 @@ export const ViewModel = DefineMap.extend('DataAdmin', {
     onEvent (obj, eventName) {
 
         // get the view method
-        const prop = this.view[eventName];
+        const eventFunc = this.view[eventName];
 
         // if it is a function, call it passing the object
         let returnVal = true;
-        if (typeof prop === 'function') {
-            returnVal = prop(obj);
+        if (typeof eventFunc === 'function') {
+            returnVal = eventFunc.call(this, obj);
 
             // Only return falsey value if a value is returned.
             // Otherwise the execution of the event will be halted unintentionally
