@@ -6,6 +6,8 @@ import dev from 'can-util/js/dev/dev';
 import 'can-stache/helpers/route';
 import PubSub from 'pubsub-js';
 import {TOPICS as T} from './constants';
+import Toast from 'spectre-canjs/toast-item/ViewModel';
+
 
 import template from './crud.stache!';
 
