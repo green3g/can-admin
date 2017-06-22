@@ -24,13 +24,13 @@
   <div {{#if objectsPromise.isPending}} class="faded" {{/if}}>
     <list-table {objects}="objects" id-prop="{{view.connection.idProp}}" {actions}="buttons" {(selected-objects)}="selectedObjects"{{#if view.canEdit}} (edit)="editObject" {{/if}}{{#if view.canDelete}} (delete)="deleteObject" {{/if}}(view)="viewObject" (custom)="manageObjects" {sort}="@noop" {(current-sort)}="parameters.sort"
       {fields}="_fields" />
+
+      <div class="hidden-print">
+        <paginate-footer total="{{totalItems}}" {(per-page)}="parameters.perPage" {(page-index)}="parameters.page" />
+      </div>
   </div>
 {{else}}
   {{#if objectsPromise.isResolved}}
     <p>{{view.noDataMessage}}</p>
   {{/if}}
 {{/if}}
-
-<div class="hidden-print">
-  <paginate-footer total="{{totalItems}}" {(per-page)}="parameters.perPage" {(page-index)}="parameters.page" />
-</div>
