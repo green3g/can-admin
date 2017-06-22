@@ -82,13 +82,29 @@ export const ViewMap = DefineMap.extend('ViewMap', {seal: false}, {
      */
     fields: DefineList,
     /**
-     * The message to display when adding new items is disabled
+     * The message to display when listing data is disabled. This message is only shown if the user
+     * tries to access the page.
+     * @property {String} data-admin/ViewMap.props.listDisabledMessage listDisabledMessage
+     * @parent data-admin/ViewMap.props
+     */
+    listDisabledMessage: {value: 'You do not have permission to view this data.'},
+    /**
+     * The message to display when viewing details is disabled. This message is only shown if the user
+     * tries to access the page.
+     * @property {String} data-admin/ViewMap.props.detailsDisabledMessage detailsDisabledMessage
+     * @parent data-admin/ViewMap.props
+     */
+    detailsDisabledMessage: {value: 'You do not have permission to view this data.'},
+    /**
+     * The message to display when adding new items is disabled. This message is only shown if the user
+     * tries to access the page.
      * @property {String} data-admin/ViewMap.props.addDisabledMessage addDisabledMessage
      * @parent data-admin/ViewMap.props
      */
     addDisabledMessage: {value: 'You do not have permission to add this data.'},
     /**
-     * The message to display when a user does not have permissions to edit
+     * The message to display when a user does not have permissions to edit. This message is only shown if the user
+     * tries to access the page.
      * @property {String} data-admin/ViewMap.props.editDisabledMessage editDisabledMessage
      * @parent data-admin/ViewMap.props
      */
@@ -99,6 +115,18 @@ export const ViewMap = DefineMap.extend('ViewMap', {seal: false}, {
      * @parent data-admin/ViewMap.props
      */
     noDataMessage: {value: 'No rows found.'},
+    /**
+     * A flag to disable listing of existing objects
+     * @property {Boolean} data-admin/ViewMap.props.canList canList
+     * @parent data-admin/ViewMap.props
+     */
+    canList: {value: true},
+    /**
+     * A flag to disable viewing details on existing objects
+     * @property {Boolean} data-admin/ViewMap.props.canDetails canDetails
+     * @parent data-admin/ViewMap.props
+     */
+    canDetails: {value: true},
     /**
      * A flag to disable editing existing objects
      * @property {Boolean} data-admin/ViewMap.props.canEdit canEdit

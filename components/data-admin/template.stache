@@ -1,7 +1,10 @@
 <nav-container {(active-id)}="page">
+
+  {{#if view.canList}}
   <nav-page label="List" page-id="list" classes="list-tab">
     {{>view.listTemplate}}
   </nav-page>
+  {{/if}}
 
   {{#if view.canCreate}}
     <nav-page label="Create" page-id="add" classes="create-tab">
@@ -9,17 +12,22 @@
     </nav-page>
   {{/if}}
 
+
   {{#if viewId}}
+    {{#if view.canDetails}}
     <nav-page label="Details" page-id="details" classes="details-tab">
       {{>view.detailsTemplate}}
     </nav-page>
+    {{/if}}
 
     {{#if view.canEdit}}
       <nav-page label="Edit" page-id="edit" classes="edit-tab">
         {{>view.editTemplate}}
       </nav-page>
     {{/if}}
+
   {{/if}}
+
   {{#each view.tabs as tab}}
     {{#unless tab.disabled}}
       <nav-page label="{{tab.label}}" page-id="{{tab.id}}" classes="{{tab.id}}-tab">

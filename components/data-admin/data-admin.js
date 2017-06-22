@@ -560,12 +560,6 @@ export const ViewModel = DefineMap.extend('DataAdmin', {
         var deferred = this.view.connection.save(obj);
         deferred.then((result) => {
 
-            // if event handlers
-            if (isNew) {
-                this.onEvent(obj, 'afterCreate');
-            } else {
-                this.onEvent(obj, 'afterSave');
-            }
 
             // update the view id
             // set page to the details view by default
@@ -575,6 +569,13 @@ export const ViewModel = DefineMap.extend('DataAdmin', {
                 objectsRefreshCount: this.objectsRefreshCount + 1
             });
 
+
+            // if event handlers
+            if (isNew) {
+                this.onEvent(obj, 'afterCreate');
+            } else {
+                this.onEvent(obj, 'afterSave');
+            }
 
         }).catch((e) => {
             this.set({
@@ -771,9 +772,9 @@ export const ViewModel = DefineMap.extend('DataAdmin', {
     },
     /**
      * Passes an array of objects to the on click handler of a manageButton.
-     * The array will contain an array of objects to "manage". The context of this in 
-     * the event function is the data-admin viewmodel, so properties like 
-     * `view` and `_fields`, etc can be accessed easily. 
+     * The array will contain an array of objects to "manage". The context of this in
+     * the event function is the data-admin viewmodel, so properties like
+     * `view` and `_fields`, etc can be accessed easily.
      * @function manageObjects
      * @signature
      * @param  {Function} button The button object with an `onclick` property
@@ -837,12 +838,12 @@ export const ViewModel = DefineMap.extend('DataAdmin', {
         return false;
     },
     /**
-     * A helper function to trigger beforeSave, afterSave, etc events. The 
-     * event name is dispatched as a lower case event name, and is passed the 
+     * A helper function to trigger beforeSave, afterSave, etc events. The
+     * event name is dispatched as a lower case event name, and is passed the
      * object as an argument. If the view object has the event name as a function
-     * the function will be called with the object. The context of this in 
-     * the event function is the data-admin viewmodel, so properties like 
-     * `view` and `_fields`, etc can be accessed easily. 
+     * the function will be called with the object. The context of this in
+     * the event function is the data-admin viewmodel, so properties like
+     * `view` and `_fields`, etc can be accessed easily.
      * @function onEvent
      * @signature
      * @param  {DefineMap} obj The object to dispatch with the event

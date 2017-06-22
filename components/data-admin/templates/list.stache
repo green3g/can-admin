@@ -1,3 +1,4 @@
+{{#if view.canList}}
 <header class="navbar">
   <section class="navbar-section">
     <h3>{{view.title}} List</h3>
@@ -33,4 +34,7 @@
   {{#if objectsPromise.isResolved}}
     <p>{{view.noDataMessage}}</p>
   {{/if}}
+{{/if}}
+{{else}}
+<p>{{view.listDisabledMessage}}</p>
 {{/if}}

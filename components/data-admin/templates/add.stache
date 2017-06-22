@@ -1,7 +1,6 @@
-{{#if view.disableCreate}}
-  <p>{{view.addDisabledMessage}}</p>
-{{else}}
-
+{{#if view.canCreate}}
   <h3>Create {{view.title}}</h3>
-  <form-widget {form-object}="getNewObject()" show-saving (submit)="saveObject" (cancel)="setPage('list')" {fields}="_fields" />
+  <form-widget {form-object}="getNewObject()" show-saving (submit)="saveObject" {fields}="_fields" />
+{{else}}
+  <p>{{view.addDisabledMessage}}</p>
 {{/if}}

@@ -1,3 +1,4 @@
+{{#if view.canEdit}}
 {{#if viewId}}
   {{#if focusObjectPromise.isPending}}
     <div class="loading"></div>
@@ -8,4 +9,7 @@
   {{/if}}
 {{else}}
   <p>Please click the <i class="fa fa-pencil"></i> Edit button on the list page to edit a row.</p>
+{{/if}}
+{{else}}
+<p>{{view.editDisabledMessage}}</p>
 {{/if}}
