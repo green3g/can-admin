@@ -7,6 +7,7 @@ import 'can-stache/helpers/route';
 import PubSub from 'pubsub-js';
 import {TOPICS as T} from './constants';
 import Toast from 'spectre-canjs/toast-item/ViewModel';
+import steal from '@loader';
 
 
 import template from './crud.stache!';
@@ -73,7 +74,7 @@ export const AppViewModel = DefineMap.extend('AppViewModel', {
                 return null;
             }
             const promise = new Promise((resolve, reject) => {
-                System.import(view.path).then((module) => {
+                steal.import(view.path).then((module) => {
                     let viewMod = module[view.module || 'default'];
                     const name = this.view;
 

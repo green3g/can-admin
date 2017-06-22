@@ -27,13 +27,13 @@
     <script src="dist/bundles/can-admin-app/app/crud.js" base-url="dist" data-main="can-admin-app/app/crud">
 
         Promise.all([
-            System.import('can-admin-app/app/crud')
+            steal.import('can-admin-app/app/crud')
         ]).then(function(modules) {
             // var qs = modules[0];
             var AppViewModel = modules[0].AppViewModel;
             var config = 'can-admin-app/config/utilities/workorders';
 
-            System.import(config).then(function(module) {
+            steal.import(config).then(function(module) {
                 var app = new AppViewModel(module.config || module.default);
                 app.startup(document.getElementById('app'));
             });
