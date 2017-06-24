@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
-    "eslint": "^3.19.0",
+    "eslint": "^4.1.0",
     "steal-css": "^1.2.4",
     "steal-less": "^1.2.0",
     "steal-qunit": "^1.0.1",
