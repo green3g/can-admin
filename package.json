@@ -12,31 +12,33 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "animate.css": "^3.5.2",
-    "can-component": "^3.0.7",
-    "can-define": "^1.0.25",
-    "can-restless": "^0.12.0",
-    "can-route": "^3.0.11",
-    "can-stache": "^3.0.24",
-    "can-util": "^3.4.0",
-    "can-view-model": "^3.1.3",
-    "font-awesome": "^4.7.0",
-    "object-assign": "^4.1.1",
-    "pubsub-js": "^1.5.6",
-    "spectre-canjs": "^0.30.0",
-    "spectre.css": "^0.2.13",
-    "steal": "^1.5.0"
-  },
-  "devDependencies": {
-    "babel-eslint": "^7.2.3",
-    "eslint": "^3.19.0",
-    "steal-css": "^1.2.4",
-    "steal-less": "^1.2.0",
-    "steal-qunit": "^1.0.1",
-    "steal-stache": "^3.0.5",
-    "steal-tools": "^1.3.5",
-    "testee": "^0.5.1"
+    "dependencies": {
+      "animate.css": "^3.5.2",
+      "can-component": "^3.1.0",
+      "can-define": "^1.2.3",
+      "can-restless": "^0.12.2",
+      "can-route": "^3.1.0",
+      "can-stache": "^3.1.0",
+      "can-stache-converters": "^3.2.0",
+      "can-util": "^3.9.0",
+      "can-view-import": "^3.1.0",
+      "can-view-model": "^3.3.0",
+      "font-awesome": "^4.7.0",
+      "pubsub-js": "^1.5.7",
+      "spectre-canjs": "^0.30.0",
+      "spectre.css": "^0.2.14",
+      "steal": "^1.5.4"
+    },
+    "devDependencies": {
+      "babel-eslint": "^7.2.3",
+      "eslint": "^4.1.1",
+      "steal-css": "^1.2.4",
+      "steal-less": "^1.2.0",
+      "steal-qunit": "^1.0.1",
+      "steal-stache": "^3.1.0",
+      "steal-tools": "^1.3.6",
+      "testee": "^0.6.1"
+    },
   },
   "steal": {
     "plugins": [
