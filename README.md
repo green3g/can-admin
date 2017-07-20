@@ -5,6 +5,8 @@
 
 # Can Admin App
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/roemhildtg/can-admin-app.svg)](https://greenkeeper.io/)
+
 [![Join the chat at https://gitter.im/roemhildtg/can-admin-app](https://badges.gitter.im/roemhildtg/can-admin-app.svg)](https://gitter.im/roemhildtg/can-admin-app?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Build Status](https://travis-ci.org/roemhildtg/can-admin-app.svg?branch=master)](https://travis-ci.org/roemhildtg/can-admin-app)
 
 A configureable javascript client to build administrative data displays for rest services. Utilizing can-connect and canjs, this app can easily provide a method to update, view, and create almost any type of data.
