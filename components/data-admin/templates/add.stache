@@ -1,0 +1,16 @@
+<div class="btn-group btn-group-block float-right hidden-print">
+  <button ($click)="setPage('list')" class="btn tooltip" type="button" data-tooltip="Back to List"><i class="fa fa-list"></i> List</button>
+</div>
+
+{{#if view.canCreate}}
+  <h3>Create {{view.title}}</h3>
+  <form-widget 
+    {form-object}="getNewObject()" 
+    show-saving (submit)="saveObject" 
+    (cancel)="setPage('list')" 
+    {fields}="_fields"
+    (submitfail)="view.errorSubmit"
+     />
+{{else}}
+  <p>{{view.addDisabledMessage}}</p>
+{{/if}}

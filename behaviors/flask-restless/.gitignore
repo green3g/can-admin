@@ -1,0 +1,13 @@
+# Dependency directory
+node_modules/
+
+#docs and build output
+dist/
+docs/
+
+.directory
+env/
+
+*.log
+
+test/demo/test.db

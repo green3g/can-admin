@@ -1,0 +1,54 @@
+<ul id="log"></ul>
+
+<script type="text/javascript" src="./node_modules/steal/steal.js">
+  import Factory from 'can-admin/behaviors/flask-restless/index';
+  import CanMap from 'can/map/';
+
+
+  let log = document.getElementById('log');
+
+  function logger(text){
+    let el = document.createElement('li');
+    el.innerHTML = text;
+    log.appendChild(el);
+  }
+
+  let Person = Factory({
+    name: 'person',
+    url: 'http://localhost:5000/api/person',
+    map: CanMap.extend({
+      name: 'John',
+      birth_date: null
+    })
+  });
+
+  //save some data
+  let jeff = new Person.Map({
+    name: 'Jeffry Doe',
+    birth_date: new Date()
+  });
+
+  Person.save(jeff).then(data => {
+
+    logger('-------------data saved -----------');
+    logger('person ' + data.name + ' saved with id ' + data.id);
+    logger('-----------------------------------');
+
+    //read the data
+    Person.getList({}).then(data => {
+
+
+      data.forEach(item => {
+        logger('------------ data retrieved --------------');
+        logger('person ' + item.name + '  with id ' + item.id);
+      });
+
+
+      //delete the data
+      //Person.destroy(jeff).then(data => {
+      //console.log('--------------- data deleted -----------------------');
+      //console.log(data);
+      //});
+    });
+  });
+</script>

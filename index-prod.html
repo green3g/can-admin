@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.1.29/spectre.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
+</head>
+
+<body>
+    <div id="app"></div>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/4.1.13/es5-shim.min.js"></script>
+    <![endif]-->
+    <script>
+        //let steal know we've already loaded the main css
+        steal = {
+            instantiated: {
+                "bundles/can-admin/app/crud.css!$css": null
+            }
+        };
+    </script>
+    <script src="dist/steal.production.js" data-main="can-admin/app/crud">
+
+        Promise.all([
+            steal.import('can-admin/app/crud')
+        ]).then(function(modules) {
+            // var qs = modules[0];
+            var AppViewModel = modules[0].AppViewModel;
+            var config = 'can-admin/config/workorders/workorders';
+
+            steal.import(config).then(function(module) {
+                var app = new AppViewModel(module.config || module.default);
+                app.startup(document.getElementById('app'));
+            });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+<can-import from="can-admin/templates/flatten" />
+
+{{#if isObject(object[field.name])}}
+  <h4>{{field.alias}}</h4>
+  <property-table {object}="flatten(object[field.name])" />
+{{else}}
+  {{object[field.name]}}
+{{/if}}

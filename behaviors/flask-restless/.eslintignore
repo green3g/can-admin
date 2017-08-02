@@ -1,0 +1,14 @@
+# distributable files
+dist/*
+
+# docs and demos
+docs/*
+docs-site/*
+
+# python demo
+test/demo/*
+test/boilerplate.test.js
+
+# build scripts
+build.js
+docs-bundle.js

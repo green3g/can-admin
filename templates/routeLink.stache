@@ -1,0 +1,1 @@
+<button class="btn btn-link" ($click)="dispatchEvent('view', object)"> {{object[field.name]}}</button>

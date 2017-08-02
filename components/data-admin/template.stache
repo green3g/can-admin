@@ -1,0 +1,54 @@
+<h3 class="show-print logo-title">
+    {{#switch page}}
+      {{#case 'list'}}
+        {{view.title}} List
+      {{/case}}
+      {{#case 'details'}}
+        {{view.title}} {{focusObject[view.titleProp]}}
+      {{/case}}
+    {{/switch}}
+</h3>
+
+{{#switch page}}
+
+  {{#case 'list'}}
+    {{>view.listTemplate}}
+    {{/case}}
+
+  {{#case 'add'}}
+      {{>view.addTemplate}}
+  {{/case}}
+
+
+  {{#case 'details'}}
+  {{>view.detailsTemplate}}
+  {{/case}}
+
+{{#case 'edit'}}
+    {{>view.editTemplate}}
+  {{/case}}
+
+
+  {{#each view.tabs as tab}}
+    {{#case tab.id}}
+        {{>tab.template}}
+    {{/case}}
+  {{/each}}
+
+  {{/switch}}
+
+{{#if view.canDelete}}
+  <confirm-dialog small title="Delete" {^action-promise}="deletePromise" {(active)}="showConfirmDelete">
+
+    <h3><i class="fa fa-exclamation"></i> Warning!</h3>
+    <p>Are you sure you want to delete these item(s)?</p>
+
+    <p>{{objectsToDelete.length}} item(s) to be deleted:</p>
+    <ul>
+      {{#each objectsToDelete as obj}}
+        <li>{{obj[view.titleProp]}}</li>
+      {{/each}}
+    </ul>
+
+  </confirm-dialog>
+{{/if}}

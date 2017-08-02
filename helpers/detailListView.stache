@@ -1,0 +1,3 @@
+{{#if objects.length}}
+    <property-table {object}="objects.0" {fields}="_fields" />
+{{/if}}

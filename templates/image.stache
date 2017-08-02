@@ -1,0 +1,5 @@
+{{#each splitUrl object[field.name]}}
+  <p>
+    <a href="{{.}}" target="_blank"><img style="width:100px;" src="{{.}}" /></a>
+  </p>
+{{/each}}

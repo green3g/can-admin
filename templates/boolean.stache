@@ -1,0 +1,1 @@
+{{#if object[field.name]}}Yes{{else}}No{{/if}}

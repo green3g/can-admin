@@ -1,0 +1,17 @@
+{
+  "name": "flask",
+  "version": "1.0.0",
+  "description": "",
+  "main": "@empty",
+  "dependencies": {
+    "can": "^2.3.24",
+    "can-admin/behaviors/flask-restless": "^0.1.0",
+    "steal": "^0.16.23"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
