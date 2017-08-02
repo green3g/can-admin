@@ -38,12 +38,6 @@ npm run build
 
 Use `index.html` to use the production build
 
-## Components
-
-This app utilizes canjs components from the following, both of which can be used individually:
-
- * can-ui - User interface bootstrap style components [![Build Status](https://travis-ci.org/roemhildtg/can-ui.svg?branch=master)](https://travis-ci.org/roemhildtg/can-ui)
- * spectre-canjs - ui toolkit and data components built on Spectre.css [![Build Status](https://travis-ci.org/roemhildtg/spectre-canjs.svg?branch=master)](https://travis-ci.org/roemhildtg/can-crud)
 
 ### Requirements
 * NodeJS
