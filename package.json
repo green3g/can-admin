@@ -16,7 +16,7 @@
     "animate.css": "^3.5.2",
     "can-component": "^3.3.0",
     "can-connect": "^1.5.5",
-    "can-define": "^1.3.3",
+    "can-define": "^1.4.0",
     "can-event": "^3.6.1",
     "can-jquery": "^3.2.1",
     "can-reflect": "^1.2.5",
@@ -52,8 +52,31 @@
       "steal-stache"
     ],
     "bundle": [
-      "can-admin/config/issues/issues",
-      "can-admin/config/issues/IssueView"
+      "can-admin/config/workorders/workorders",
+      "can-admin/config/workorders/Workorder_Comment",
+      "can-admin/config/workorders/Workorder_Feature",
+      "can-admin/config/workorders/Workorder",
+      "can-admin/config/tapcards/tapcards",
+      "can-admin/config/tapcards/Tapcard",
+      "can-admin/config/sanitary/sanitary",
+      "can-admin/config/sanitary/lift",
+      "can-admin/config/sanitary/BiAnnualInspection",
+      "can-admin/config/sanitary/MonthlyInspection",
+      "can-admin/config/sanitary/SanitaryBackup",
+      "can-admin/config/sanitary/LiftStationView",
+      "can-admin/config/sanitary/WeeklyInspection",
+      "can-admin/config/sanitary/Workorder",
+      "can-admin/config/sanitary/televise",
+      "can-admin/config/sanitary/SanitaryTelevise",
+      "can-admin/components/modal-dialog/modal-dialog",
+      "can-admin/config/plans/plans",
+      "can-admin/config/plans/Plan",
+      "can-admin/config/water/fireflow",
+      "can-admin/config/water/water",
+      "can-admin/config/water/Workorder",
+      "can-admin/config/water/FireFlowTest",
+      "can-admin/config/storm/storm",
+      "can-admin/config/storm/Workorder"
     ]
   }
 }

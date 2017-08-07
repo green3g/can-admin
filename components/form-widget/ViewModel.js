@@ -1,6 +1,6 @@
 import DefineMap from 'can-define/map/map';
 import FieldIteratorMap from '~/util/field/base/FieldIteratorMap';
-
+import canBatch from 'can-event/batch/batch';
 /**
  * @constructor form-widget.ViewModel ViewModel
  * @parent form-widget
@@ -122,7 +122,7 @@ const ViewModel = FieldIteratorMap.extend('FormWidget', {
      * @parent form-widget.ViewModel.props
      */
     dirtyObject: {
-        Value: DefineMap.extend('FormDirtyObject', {
+        Value: DefineMap.extend('FormDirtyObject', {seal: false}, {
             __isDirtyObject: {value: true, serialize: false},
             __isDirty: {value: false, serialize: false}
         })
@@ -242,7 +242,15 @@ const ViewModel = FieldIteratorMap.extend('FormWidget', {
         }
         const formObject = this.formObject;
 
-        formObject.set(this.dirtyObject.serialize());
+        // temporary workaround for setting array values on define map
+        const serialized = this.dirtyObject.serialize();
+        canBatch.start();
+        for (var fieldIndex = 0; fieldIndex < this.fields.length; fieldIndex ++) {
+            const name = this.fields[fieldIndex].name;
+            this.formObject[name] = serialized[name];
+        }
+        canBatch.stop();
+        // formObject.set(this.dirtyObject.serialize());
         this.dispatch('submit', [formObject]);
         return false;
     },

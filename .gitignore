@@ -7,7 +7,6 @@ custom/
 
 #docs and build output
 docs/
-dist/
 
 .directory
 *.log

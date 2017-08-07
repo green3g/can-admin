@@ -1,7 +1,5 @@
-<can-import from="can-admin/templates/paths" />
-
 <ul>
-{{#each split(object[field.name], ',')}}
-  <li><a target="_blank" href="{{.}}">{{filename(.)}}</a></li>
-{{/each}}
+  {{#each object[field.name]}}
+    <li><a target="_blank" href="{{path}}">{{name}}</a></li>
+  {{/each}}
 </ul>

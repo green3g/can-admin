@@ -13,14 +13,14 @@
         {{#if state.isPending}}
             <li class="menu-item loading"></li>
         {{/if}}
-        {{#if currentFiles.length}}
+        {{#if value.length}}
             <!-- menu header -->
             <li class="menu-header">
                 <span class="menu-header-text">
             Current Files
         </span>
             </li>
-            {{#each currentFiles}}
+            {{#each value}}
                 <!-- menu item -->
                 <li class="menu-item clear">
                     <a href="{{path}}" target="_blank" class="float-left">

@@ -26,9 +26,9 @@
           <td class="checkbox-cell">
             <div class="form-group inline-block">
               <label class="form-checkbox">
-                                <input type="checkbox" ($change)="toggleSelected(object)" {$checked}="isSelected(object)" />
-                                <i class="form-icon"></i>
-                            </label>
+                  <input type="checkbox" ($change)="toggleSelected(object)" {$checked}="isSelected(object)" />
+                  <i class="form-icon"></i>
+              </label>
             </div>
           </td>
           {{#each fields as field}}

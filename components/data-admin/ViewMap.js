@@ -337,5 +337,8 @@ export const ViewMap = DefineMap.extend('ViewMap', {seal: false}, {
      */
     errorSubmit () {
         message.warning('Some of your fields are missing information.');
+    },
+    errorList (vm) {
+        message.warning('There was a problem getting the data, you may need to refresh the page');
     }
 });

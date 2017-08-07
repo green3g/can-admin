@@ -5,7 +5,6 @@ import {makeSentenceCase} from '~/util/string/string';
 import assign from 'object-assign';
 import define from 'can-define';
 
-
 /**
  * @property filter-widget.FilterOptions FilterOptions
  * @parent filter-widget.types
@@ -133,12 +132,12 @@ export const Filter = DefineMap.extend('Filter', {
      */
     operatorField: {
         serialize: false,
-        get () {
+        get (fieldProps) {
             const field = this.field;
             const options = field ? FilterOptions.filter((filter) => {
                 return !field.type || field.type === 'observable' || !filter.types || filter.types.indexOf(field.type) > -1;
             }) : FilterOptions;
-            return new Field({
+            return new Field(assign({
                 name: 'operator',
                 value: options[0].value,
                 alias: 'is',
@@ -146,7 +145,7 @@ export const Filter = DefineMap.extend('Filter', {
                 placeholder: 'Choose an operator',
                 fieldType: 'select',
                 options: options
-            });
+            }, fieldProps || {}));
         }
     },
     /**

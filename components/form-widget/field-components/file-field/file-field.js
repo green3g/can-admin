@@ -3,13 +3,19 @@ import DefineList from 'can-define/list/list';
 import DefineMap from 'can-define/map/map';
 import Component from 'can-component';
 import dev from 'can-util/js/dev/dev';
+import assign from 'can-util/js/assign/assign';
 
 import './file-field.less';
 import template from './file-field.stache!';
 
 const FileMap = DefineMap.extend({
     path: 'string',
+    name: 'string',
     removing: 'boolean'
+});
+
+const FileList = DefineList.extend({
+    '#': FileMap
 });
 
 /**
@@ -29,45 +35,8 @@ export const ViewModel = Base.extend('FileField', {
      * @parent FieldInputMap.props
      */
     value: {
-        type: '*',
-        set (val) {
-            if (this.value !== val) {
-                this.currentFiles.replace(val.split(',').filter((file) => {
-                    return file !== '';
-                }).map((file) => {
-                    return new FileMap({
-                        path: file,
-                        removing: false
-                    });
-                }));
-                this.dispatch('fieldchange', [{
-                    value: val,
-                    name: this.properties.name
-                }]);
-            }
-            return val;
-        }
-    },
-    /**
-     * A list of current files stored in this field. This is initialized
-     * as a list of items created splitting the comma separated list of files
-     * provided to the `value`.
-     * It is then manipulated by pushing and splicing uploaded and deleted items.
-     * @property {Object} file-field.ViewModel.props.currentFiles currentFiles
-     * @parent file-field.ViewModel.props
-     */
-    currentFiles: {
-        Type: DefineList,
-        Value: DefineList,
-        set (val) {
-            if (!val) { 
-                return val; 
-            }
-            // when the list changes, update the value
-            val.on('add', this.updateValue.bind(this));
-            val.on('remove', this.updateValue.bind(this));
-            return val;
-        }
+        Type: FileList,
+        Value: FileList
     },
     /**
      * The current state of any pending file uploads
@@ -100,8 +69,8 @@ export const ViewModel = Base.extend('FileField', {
      */
     onChange (element) {
         if (element.files) {
-            if (!this.properties.multiple && this.currentFiles.length) {
-                this.removeFile(this.currentFiles[0]).then(() => {
+            if (!this.properties.multiple && this.value.length) {
+                this.removeFile(this.value[0]).then(() => {
                     this.uploadFiles(element.files);
                 }).catch((error) => {
                     this.uploadError(error);
@@ -154,25 +123,16 @@ export const ViewModel = Base.extend('FileField', {
                     path: upload,
                     removing: false
                 });
-                this.currentFiles.push(file);
+                this.value.push(file);
             });
+            
+            this.dispatch('fieldchange', [{
+                value: this.value,
+                name: this.properties.name
+            }]);
         } else {
             // Handle errors here
             dev.warn('ERRORS: ', data.error);
-        }
-    },
-    /**
-     * Updates the value of this field after an upload or delete completes.
-     * Dispatches the `change` event with the value of the viewmodel
-     * @function updateValue
-     */
-    updateValue () {
-        if (this.currentFiles.length) {
-            this.value = this.currentFiles.map((f) => {
-                return f.path;
-            }).join(',');
-        } else {
-            this.value = '';
         }
     },
     /**
@@ -236,8 +196,12 @@ export const ViewModel = Base.extend('FileField', {
      * @param {String} file the file that was removed
      */
     removeSuccess (file) {
-        this.currentFiles.splice(this.currentFiles.indexOf(file), 1);
-        this.updateValue();
+        this.value.splice(this.value.indexOf(file), 1);
+        
+        this.dispatch('fieldchange', [{
+            value: this.value,
+            name: this.properties.name
+        }]);
     },
     /**
      * Called if an error occurs deleting the file. If the response is a 404,

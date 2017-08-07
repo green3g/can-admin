@@ -213,18 +213,18 @@ export const ViewModel = DefineMap.extend('DataAdmin', {
      */
     objects: {
         Value: DefineList,
-        get (val, setAttr) {
+        get (val) {
 
             const promise = this.objectsPromise;
 
-            // handle promise.catch for local-storage deferreds...
             promise.catch((err) => {
                 dev.warn('unable to complete objects request', err);
+                this.onEvent(err, 'errorList');
             });
 
             // update the list data
             promise.then((data) => {
-                setAttr(data);
+                val.replace(data);
             });
         }
     },
@@ -561,6 +561,7 @@ export const ViewModel = DefineMap.extend('DataAdmin', {
             }
 
         }).catch((e) => {
+            dev.warn(e);
             this.set({
                 viewId: null,
                 page: 'list',
@@ -570,7 +571,6 @@ export const ViewModel = DefineMap.extend('DataAdmin', {
                 obj: obj,
                 error: e
             }, 'errorSave');
-            dev.warn(e);
         });
         return deferred;
     },
