@@ -27,7 +27,16 @@
 
 {{#if objects.length}}
   <div {{#if objectsPromise.isPending}} class="faded" {{/if}}>
-    <list-table {objects}="objects" id-prop="{{view.connection.idProp}}" {actions}="buttons" {(selected-objects)}="selectedObjects"{{#if view.canEdit}} (edit)="editObject" {{/if}}{{#if view.canDelete}} (delete)="deleteObject" {{/if}}(view)="viewObject" (custom)="manageObjects" {sort}="@noop" {(current-sort)}="parameters.sort"
+    <list-table {objects}="objects" 
+      id-prop="{{view.connection.idProp}}" 
+      {actions}="buttons" 
+      {(selected-objects)}="selectedObjects"
+      {{#if view.canEdit}} (edit)="editObject"{{/if}}
+      {{#if view.canDelete}} (delete)="deleteObject" {{/if}}
+      (view)="viewObject" 
+      (custom)="manageObjects" 
+      {sort}="@noop" 
+      {(current-sort)}="parameters.sort"
       {fields}="_fields" />
 
       <div class="hidden-print">

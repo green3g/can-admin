@@ -226,6 +226,8 @@ export const ViewModel = DefineMap.extend('DataAdmin', {
             promise.then((data) => {
                 val.replace(data);
             });
+
+            return val;
         }
     },
     /**

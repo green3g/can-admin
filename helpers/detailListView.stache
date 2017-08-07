@@ -1,3 +1,7 @@
-{{#if objects.length}}
-    <property-table {object}="objects.0" {fields}="_fields" />
+{{#if objectsPromise.isPending}}
+    <div class="loading" />
+{{else}}
+    {{#if objects.length}}
+        <property-table {object}="objects.0" {fields}="_fields" />
+    {{/if}}
 {{/if}}
