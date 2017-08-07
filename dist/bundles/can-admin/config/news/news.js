@@ -1,0 +1,2 @@
+define("can-admin@0.1.1#config/news/news",["exports"],function(e){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default={views:{articles:{title:"Articles",path:"~/config/news/Article",iconClass:"fa fa-newspaper-o"},visits:{title:"Visits",path:"~/config/news/Visit",iconClass:"fa fa-calendar"},people_basic:{title:"People (basic example)",path:"~/config/news/Person_Basic",iconClass:"fa fa-user"},people_advanced:{title:"People (advanced)",path:"~/config/news/Person_Advanced",iconClass:"fa fa-user"}}}});
+//# sourceMappingURL=news.js.map
