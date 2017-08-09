@@ -101,7 +101,7 @@ export const Person = factory({
         },
         birthday: {
             type: 'date',
-            fieldType: 'date',
+            ui: 'datepicker',
             formatter (date) {
                 date = new Date(date);
                 var monthNames = [
@@ -120,21 +120,14 @@ export const Person = factory({
         picture: {
             type: 'string',
             list: false,
-            formatter (img) {
-                if (!img) {
-                    return 'None';
-                }
-                return `<img src="${img}" alt="Image" style="max-width:300px;" />`;
-            }
+            displayTemplate: `<img src="{{object.picture}}" alt="Image" style="max-width:300px;" />`
         },
         map: {
             serialize: false,
             list: false,
             edit: false,
-            formatter (none, attrs) {
-                const size = '300x300';
-                return `<img src="https://maps.googleapis.com/maps/api/staticmap?center=${attrs.address} ${attrs.city} ${attrs.state}&size=${size}&key=${MAPS_API}" />`;
-            }
+            displayTemplate: `<img 
+                src="https://maps.googleapis.com/maps/api/staticmap?center={{object.address}}{{object.city}}{{object.state}}&size=300x300&key=${MAPS_API}" />`
         }
     })
 });

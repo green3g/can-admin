@@ -1017,10 +1017,10 @@ define('package.json!npm', [
                 'steal-less': '1.2.0',
                 'can-define': '1.4.0',
                 'can-util': '3.9.8',
-                'can-route': '3.2.1',
-                'can-stache': '3.3.3',
-                'can-stache-bindings': '3.4.6',
                 'pubsub-js': '1.5.7',
+                'can-stache-bindings': '3.4.6',
+                'can-stache': '3.3.3',
+                'can-route': '3.2.1',
                 'can-event': '3.6.1',
                 'object-assign': '4.1.1',
                 'spectre.css': '0.2.14',
@@ -1100,11 +1100,11 @@ define('package.json!npm', [
                 'can-define': '1.4.0',
                 'can-util': '3.9.8',
                 'can-construct': '3.2.0',
-                'can-observation': '3.3.2',
                 'can-namespace': '1.0.0',
-                'can-types': '1.1.1',
                 'can-event': '3.6.1',
+                'can-observation': '3.3.2',
                 'can-reflect': '1.2.6',
+                'can-types': '1.1.1',
                 'can-symbol': '1.0.0',
                 'can-compute': '3.3.1',
                 'can-cid': '1.0.3'
@@ -1124,46 +1124,11 @@ define('package.json!npm', [
             }
         },
         {
-            'name': 'can-route',
-            'version': '3.2.1',
-            'fileUrl': './node_modules/can-route/package.json',
-            'main': 'can-route',
-            'steal': {},
-            'resolutions': {
-                'can-util': '3.9.8',
-                'can-observation': '3.3.2',
-                'can-namespace': '1.0.0',
-                'can-types': '1.1.1',
-                'can-event': '3.6.1',
-                'can-symbol': '1.0.0',
-                'can-compute': '3.3.1',
-                'can-param': '1.0.1',
-                'can-deparam': '1.0.1',
-                'can-reflect': '1.2.6'
-            }
-        },
-        {
-            'name': 'can-stache',
-            'version': '3.3.3',
-            'fileUrl': './node_modules/can-stache/package.json',
-            'main': 'can-stache',
-            'resolutions': {
-                'can-stache': '3.3.3',
-                'can-route': '3.2.1',
-                'can-util': '3.9.8',
-                'can-compute': '3.3.1',
-                'can-symbol': '1.0.0',
-                'can-reflect': '1.2.6',
-                'can-stache-key': '0.0.2',
-                'can-view-nodelist': '3.1.0',
-                'can-view-live': '3.2.1',
-                'can-view-scope': '3.3.2',
-                'can-observation': '3.3.2',
-                'can-view-parser': '3.4.0',
-                'can-view-callbacks': '3.2.0',
-                'can-namespace': '1.0.0',
-                'can-view-target': '3.1.1'
-            }
+            'name': 'pubsub-js',
+            'version': '1.5.7',
+            'fileUrl': './node_modules/pubsub-js/package.json',
+            'main': './src/pubsub.js',
+            'resolutions': {}
         },
         {
             'name': 'can-stache-bindings',
@@ -1177,8 +1142,8 @@ define('package.json!npm', [
                 'can-view-callbacks': '3.2.0',
                 'can-view-live': '3.2.1',
                 'can-view-scope': '3.3.2',
-                'can-stache-key': '0.0.2',
                 'can-view-model': '3.4.0',
+                'can-stache-key': '0.0.2',
                 'can-cid': '1.0.3',
                 'can-event-dom-enter': '1.0.1',
                 'can-event-dom-radiochange': '1.0.0',
@@ -1191,11 +1156,46 @@ define('package.json!npm', [
             }
         },
         {
-            'name': 'pubsub-js',
-            'version': '1.5.7',
-            'fileUrl': './node_modules/pubsub-js/package.json',
-            'main': './src/pubsub.js',
-            'resolutions': {}
+            'name': 'can-stache',
+            'version': '3.3.3',
+            'fileUrl': './node_modules/can-stache/package.json',
+            'main': 'can-stache',
+            'resolutions': {
+                'can-stache': '3.3.3',
+                'can-route': '3.2.1',
+                'can-util': '3.9.8',
+                'can-symbol': '1.0.0',
+                'can-reflect': '1.2.6',
+                'can-compute': '3.3.1',
+                'can-stache-key': '0.0.2',
+                'can-view-nodelist': '3.1.0',
+                'can-view-live': '3.2.1',
+                'can-view-scope': '3.3.2',
+                'can-observation': '3.3.2',
+                'can-view-parser': '3.4.0',
+                'can-view-callbacks': '3.2.0',
+                'can-namespace': '1.0.0',
+                'can-view-target': '3.1.1'
+            }
+        },
+        {
+            'name': 'can-route',
+            'version': '3.2.1',
+            'fileUrl': './node_modules/can-route/package.json',
+            'main': 'can-route',
+            'steal': {},
+            'resolutions': {
+                'can-util': '3.9.8',
+                'can-namespace': '1.0.0',
+                'can-event': '3.6.1',
+                'can-observation': '3.3.2',
+                'can-types': '1.1.1',
+                'can-symbol': '1.0.0',
+                'can-compute': '3.3.1',
+                'can-param': '1.0.1',
+                'can-deparam': '1.0.1',
+                'can-reflect': '1.2.6'
+            }
         },
         {
             'name': 'can-construct',
@@ -1206,6 +1206,28 @@ define('package.json!npm', [
             'resolutions': {
                 'can-util': '3.9.8',
                 'can-namespace': '1.0.0'
+            }
+        },
+        {
+            'name': 'can-namespace',
+            'version': '1.0.0',
+            'fileUrl': './node_modules/can-namespace/package.json',
+            'main': 'can-namespace',
+            'steal': { 'npmAlgorithm': 'flat' },
+            'resolutions': {}
+        },
+        {
+            'name': 'can-event',
+            'version': '3.6.1',
+            'fileUrl': './node_modules/can-event/package.json',
+            'main': 'can-event',
+            'steal': { 'npmAlgorithm': 'flat' },
+            'resolutions': {
+                'can-event': '3.6.1',
+                'can-util': '3.9.8',
+                'can-namespace': '1.0.0',
+                'can-types': '1.1.1',
+                'can-cid': '1.0.3'
             }
         },
         {
@@ -1224,12 +1246,15 @@ define('package.json!npm', [
             }
         },
         {
-            'name': 'can-namespace',
-            'version': '1.0.0',
-            'fileUrl': './node_modules/can-namespace/package.json',
-            'main': 'can-namespace',
-            'steal': { 'npmAlgorithm': 'flat' },
-            'resolutions': {}
+            'name': 'can-reflect',
+            'version': '1.2.6',
+            'fileUrl': './node_modules/can-reflect/package.json',
+            'main': 'can-reflect',
+            'resolutions': {
+                'can-reflect': '1.2.6',
+                'can-namespace': '1.0.0',
+                'can-symbol': '1.0.0'
+            }
         },
         {
             'name': 'can-types',
@@ -1241,31 +1266,6 @@ define('package.json!npm', [
                 'can-reflect': '1.2.6',
                 'can-symbol': '1.0.0',
                 'can-util': '3.9.8'
-            }
-        },
-        {
-            'name': 'can-event',
-            'version': '3.6.1',
-            'fileUrl': './node_modules/can-event/package.json',
-            'main': 'can-event',
-            'steal': { 'npmAlgorithm': 'flat' },
-            'resolutions': {
-                'can-event': '3.6.1',
-                'can-util': '3.9.8',
-                'can-namespace': '1.0.0',
-                'can-types': '1.1.1',
-                'can-cid': '1.0.3'
-            }
-        },
-        {
-            'name': 'can-reflect',
-            'version': '1.2.6',
-            'fileUrl': './node_modules/can-reflect/package.json',
-            'main': 'can-reflect',
-            'resolutions': {
-                'can-reflect': '1.2.6',
-                'can-namespace': '1.0.0',
-                'can-symbol': '1.0.0'
             }
         },
         {
@@ -1283,6 +1283,43 @@ define('package.json!npm', [
                 'main': 'can-symbol'
             },
             'resolutions': { 'can-namespace': '1.0.0' }
+        },
+        {
+            'name': 'object-assign',
+            'version': '4.1.1',
+            'fileUrl': './node_modules/object-assign/package.json',
+            'resolutions': {}
+        },
+        {
+            'name': 'spectre.css',
+            'version': '0.2.14',
+            'fileUrl': './node_modules/spectre.css/package.json',
+            'main': 'docs/dist/spectre.css',
+            'resolutions': {}
+        },
+        {
+            'name': 'animate.css',
+            'version': '3.5.2',
+            'fileUrl': './node_modules/animate.css/package.json',
+            'main': 'animate.css',
+            'jspm': { 'main': 'animate.css!' },
+            'resolutions': {}
+        },
+        {
+            'name': 'font-awesome',
+            'version': '4.7.0',
+            'fileUrl': './node_modules/font-awesome/package.json',
+            'resolutions': {}
+        },
+        {
+            'name': 'jquery-ui',
+            'version': '1.12.1',
+            'fileUrl': './node_modules/jquery-ui/package.json',
+            'main': 'ui/widget.js',
+            'resolutions': {
+                'jquery-ui': '1.12.1',
+                'jquery': '3.2.1'
+            }
         },
         {
             'name': 'can-compute',
@@ -1332,12 +1369,6 @@ define('package.json!npm', [
                 'main': 'can-deparam'
             },
             'resolutions': { 'can-namespace': '1.0.0' }
-        },
-        {
-            'name': 'object-assign',
-            'version': '4.1.1',
-            'fileUrl': './node_modules/object-assign/package.json',
-            'resolutions': {}
         },
         {
             'name': 'can-view-callbacks',
@@ -1390,11 +1421,24 @@ define('package.json!npm', [
                 'can-namespace': '1.0.0',
                 'can-reflect': '1.2.6',
                 'can-stache-key': '0.0.3',
-                'can-simple-map': '3.3.0',
                 'can-compute': '3.3.1',
                 'can-event': '3.6.1',
                 'can-cid': '1.0.3',
-                'can-symbol': '1.0.0'
+                'can-symbol': '1.0.0',
+                'can-simple-map': '3.3.0'
+            }
+        },
+        {
+            'name': 'can-view-model',
+            'version': '3.4.0',
+            'fileUrl': './node_modules/can-view-model/package.json',
+            'main': 'can-view-model',
+            'resolutions': {
+                'can-util': '3.9.8',
+                'can-types': '1.1.1',
+                'can-namespace': '1.0.0',
+                'can-reflect': '1.2.6',
+                'can-simple-map': '3.3.0'
             }
         },
         {
@@ -1422,19 +1466,6 @@ define('package.json!npm', [
                 'can-symbol': '1.0.0',
                 'can-reflect': '1.2.6',
                 'can-reflect-promise': '1.1.0'
-            }
-        },
-        {
-            'name': 'can-view-model',
-            'version': '3.4.0',
-            'fileUrl': './node_modules/can-view-model/package.json',
-            'main': 'can-view-model',
-            'resolutions': {
-                'can-util': '3.9.8',
-                'can-types': '1.1.1',
-                'can-namespace': '1.0.0',
-                'can-reflect': '1.2.6',
-                'can-simple-map': '3.3.0'
             }
         },
         {
@@ -1481,37 +1512,6 @@ define('package.json!npm', [
             }
         },
         {
-            'name': 'spectre.css',
-            'version': '0.2.14',
-            'fileUrl': './node_modules/spectre.css/package.json',
-            'main': 'docs/dist/spectre.css',
-            'resolutions': {}
-        },
-        {
-            'name': 'animate.css',
-            'version': '3.5.2',
-            'fileUrl': './node_modules/animate.css/package.json',
-            'main': 'animate.css',
-            'jspm': { 'main': 'animate.css!' },
-            'resolutions': {}
-        },
-        {
-            'name': 'font-awesome',
-            'version': '4.7.0',
-            'fileUrl': './node_modules/font-awesome/package.json',
-            'resolutions': {}
-        },
-        {
-            'name': 'jquery-ui',
-            'version': '1.12.1',
-            'fileUrl': './node_modules/jquery-ui/package.json',
-            'main': 'ui/widget.js',
-            'resolutions': {
-                'jquery-ui': '1.12.1',
-                'jquery': '3.2.1'
-            }
-        },
-        {
             'name': 'can-view-nodelist',
             'version': '3.1.0',
             'fileUrl': './node_modules/can-view-nodelist/package.json',
@@ -1519,6 +1519,46 @@ define('package.json!npm', [
             'resolutions': {
                 'can-util': '3.9.8',
                 'can-namespace': '1.0.0'
+            }
+        },
+        {
+            'name': 'can-component',
+            'version': '3.3.0',
+            'fileUrl': './node_modules/can-component/package.json',
+            'main': 'can-component',
+            'steal': {},
+            'resolutions': {
+                'can-component': '3.3.0',
+                'can-namespace': '1.0.0',
+                'can-construct': '3.2.0',
+                'can-stache-bindings': '3.4.6',
+                'can-view-scope': '3.3.2',
+                'can-view-callbacks': '3.2.0',
+                'can-view-nodelist': '3.1.0',
+                'can-compute': '3.3.1',
+                'can-util': '3.9.8',
+                'can-types': '1.1.1',
+                'can-reflect': '1.2.6',
+                'can-view-model': '3.4.0',
+                'can-stache-key': '0.0.2',
+                'can-control': '3.2.0'
+            }
+        },
+        {
+            'name': 'jquery',
+            'version': '3.2.1',
+            'fileUrl': './node_modules/jquery/package.json',
+            'main': 'dist/jquery.js',
+            'resolutions': {}
+        },
+        {
+            'name': 'can-view-parser',
+            'version': '3.4.0',
+            'fileUrl': './node_modules/can-view-parser/package.json',
+            'main': 'can-view-parser',
+            'resolutions': {
+                'can-namespace': '1.0.0',
+                'can-util': '3.9.8'
             }
         },
         {
@@ -1594,49 +1634,9 @@ define('package.json!npm', [
             'main': 'can-dom-events',
             'resolutions': {
                 'can-dom-events': '1.0.3',
-                'can-namespace': '1.0.0',
-                'can-util': '3.9.8'
-            }
-        },
-        {
-            'name': 'can-view-parser',
-            'version': '3.4.0',
-            'fileUrl': './node_modules/can-view-parser/package.json',
-            'main': 'can-view-parser',
-            'resolutions': {
-                'can-namespace': '1.0.0',
-                'can-util': '3.9.8'
-            }
-        },
-        {
-            'name': 'can-component',
-            'version': '3.3.0',
-            'fileUrl': './node_modules/can-component/package.json',
-            'main': 'can-component',
-            'steal': {},
-            'resolutions': {
-                'can-component': '3.3.0',
-                'can-namespace': '1.0.0',
-                'can-construct': '3.2.0',
-                'can-stache-bindings': '3.4.6',
-                'can-view-scope': '3.3.2',
-                'can-view-callbacks': '3.2.0',
-                'can-view-nodelist': '3.1.0',
-                'can-compute': '3.3.1',
                 'can-util': '3.9.8',
-                'can-types': '1.1.1',
-                'can-reflect': '1.2.6',
-                'can-view-model': '3.4.0',
-                'can-stache-key': '0.0.2',
-                'can-control': '3.2.0'
+                'can-namespace': '1.0.0'
             }
-        },
-        {
-            'name': 'jquery',
-            'version': '3.2.1',
-            'fileUrl': './node_modules/jquery/package.json',
-            'main': 'dist/jquery.js',
-            'resolutions': {}
         },
         {
             'name': 'can-control',

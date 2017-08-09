@@ -84,7 +84,7 @@ define('can-admin@0.1.1#config/news/Person_Advanced', [
             },
             birthday: {
                 type: 'date',
-                fieldType: 'date',
+                ui: 'datepicker',
                 formatter: function formatter(date) {
                     date = new Date(date);
                     var monthNames = [
@@ -110,21 +110,13 @@ define('can-admin@0.1.1#config/news/Person_Advanced', [
             picture: {
                 type: 'string',
                 list: false,
-                formatter: function formatter(img) {
-                    if (!img) {
-                        return 'None';
-                    }
-                    return '<img src="' + img + '" alt="Image" style="max-width:300px;" />';
-                }
+                displayTemplate: '<img src="{{object.picture}}" alt="Image" style="max-width:300px;" />'
             },
             map: {
                 serialize: false,
                 list: false,
                 edit: false,
-                formatter: function formatter(none, attrs) {
-                    var size = '300x300';
-                    return '<img src="https://maps.googleapis.com/maps/api/staticmap?center=' + attrs.address + ' ' + attrs.city + ' ' + attrs.state + '&size=' + size + '&key=' + MAPS_API + '" />';
-                }
+                displayTemplate: '<img \n                src="https://maps.googleapis.com/maps/api/staticmap?center={{object.address}}{{object.city}}{{object.state}}&size=300x300&key=' + MAPS_API + '" />'
             }
         })
     });
