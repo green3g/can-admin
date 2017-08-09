@@ -18,16 +18,16 @@ content = db.Column(db.Text())
 */
 
 export const Article = factory({
-    behaviors: [connect.behavior('logvisit', (base) => {
-        return {
-            getData (params) {
-                new Visit.Map({
-                    article_id: params.id
-                }).save();
-                return base.getData.apply(this, arguments);
-            }
-        };
-    })],
+    // behaviors: [connect.behavior('logvisit', (base) => {
+    //     return {
+    //         getData (params) {
+    //             new Visit.Map({
+    //                 article_id: params.id
+    //             }).save();
+    //             return base.getData.apply(this, arguments);
+    //         }
+    //     };
+    // })],
     url: '/api/article',
     name: 'article',
     Map: DefineMap.extend({

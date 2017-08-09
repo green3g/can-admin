@@ -1,2 +1,0 @@
-define("can-admin@0.1.1#config/news/Visit",["exports","can-define/map/map","can-admin/behaviors/flask-restless/index"],function(e,i,t){"use strict";function a(e){return e&&e.__esModule?e:{default:e}}Object.defineProperty(e,"__esModule",{value:!0}),e.Visit=void 0;var n=a(i),s=a(t),d=e.Visit=(0,s.default)({url:"/api/visit",name:"visit",Map:n.default.extend({date:{type:"date",Value:Date}})});e.default={connection:d,title:"Visits"},d.save(new d.Map)});
-//# sourceMappingURL=Visit.js.map
