@@ -47,7 +47,9 @@ export const Person = factory({
     name: 'person',
     map: DefineMap.extend({
         name: {
-            type: 'string'
+            type: 'string',
+            displayTemplate: `<a href="{{routeUrl(view='people_advanced' page='details' objectId=object.id)}}">
+                <i class="fa fa-user fa-fw"></i> {{object.name}}</a>`
         },
         // eslint-disable-next-line camelcase
         phone_number: {
@@ -56,8 +58,11 @@ export const Person = factory({
             set (number) {
                 return number ? number.replace(/[^0-9.]/g, '') : '';
             },
-            validate (value) {
-                return phoneRegEx.test(value) ? null : 'Please enter a valid phone number';
+            validate (props) {
+                let number = props.value;
+                number = number ? number.replace(/[^0-9.]/g, '') : '';
+                return number.length > 9 && number.length < 16 
+                    ? '' : 'Please enter a valid phone number';
             }
         },
         address: {
@@ -141,7 +146,8 @@ export const Person = factory({
 // moduleID in the default.js config
 export default {
     connection: Person,
-    title: 'People',
+    title: 'Authors',
+    titleProp: 'name',
     saveSuccessMessage: 'User successfully saved',
     relatedViews: [{
         view: Article,

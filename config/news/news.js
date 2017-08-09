@@ -21,7 +21,7 @@ export default {
         people_basic: {
 
             //this title gets displayed in the sidebar
-            title: 'People (basic example)',
+            title: 'Authors (basic example)',
 
             //this is the absolute path to the view file
             path: '~/config/news/Person_Basic',
@@ -32,7 +32,7 @@ export default {
         },
         // eslint-disable-next-line camelcase
         people_advanced: {
-            title: 'People (advanced)',
+            title: 'Authors (advanced)',
             path: '~/config/news/Person_Advanced',
             iconClass: 'fa fa-user'
         }
