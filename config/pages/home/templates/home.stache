@@ -1,0 +1,288 @@
+<div class="container content">
+      
+<img src="/static/images/rocket-logo.png" alt="Rocket Logo" class="logo-img float-right img-responsive">
+<h3>Welcome to Can Admin</h3>
+
+<p>
+  Can Admin is a modern front end data administration component library built on
+  CanJS and styled with SpectreCSS.
+  It features a highly flexible and modular set of tools to enable the management
+  of any type of data.
+</p>
+
+<div class="divider clearfix"></div>
+<br>
+
+<h4>Why Can Admin?</h4>
+<div class="columns features">
+    <div class="column col-6 col-sm-12">
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">User Features</div>
+            </div>
+
+
+            <div class="tile">
+                <div class="tile-icon">
+                    <div class="example-tile-icon">
+                        <i class="fa fa-filter"></i>
+                    </div>
+                </div>
+                <div class="tile-content">
+                    <ul class="checklist">
+                        <li>
+                            Quickly filter data using predefined filters
+                        </li>
+                        <li>
+                            Use custom filters to create complex queries
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="tile">
+                <div class="tile-icon">
+                    <div class="example-tile-icon">
+                        <i class="fa fa-sort-alpha-asc"></i>
+                    </div>
+                </div>
+                <div class="tile-content">
+                    <ul class="checklist">
+                        <li>
+                            Sort data using predefined columns
+                        </li>
+                        <li>
+                            View data in a paginated list type table
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tile">
+                <div class="tile-icon">
+                    <div class="example-tile-icon">
+                        <i class="fa fa-pencil-square-o"></i>
+                    </div>
+                </div>
+                <div class="tile-content">
+                    <ul class="checklist">
+                        <li>
+                            Access detailed and related property tables
+                        </li>
+                        <li>
+                            Create and edit data using a variety of field controls
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="tile">
+                <div class="tile-icon">
+                    <div class="example-tile-icon">
+                        <i class="fa fa-share-alt"></i>
+                    </div>
+                </div>
+                <div class="tile-content">
+                    <ul class="checklist">
+                        <li>
+                            Generate links to any item in any view to share with others. Example: <code>#!pages/details/32</code>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="column col-6 col-sm-12">
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">Developer Features</div></div>
+
+            <div class="tile">
+                <div class="tile-icon">
+                    <div class="example-tile-icon">
+                        <i class="fa fa-database"></i>
+                    </div>
+                </div>
+                <div class="tile-content">
+                    <ul class="checklist">
+                      <li>
+                          View, Edit, and Delete data from virtually any type of REST server or data store using <a href="http://canjs.com/doc/can-connect.html">CanJS's Can-Connect</a>
+                      </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tile">
+                <div class="tile-icon">
+                    <div class="example-tile-icon">
+                        <i class="fa fa-wrench"></i>
+                    </div>
+                </div>
+                <div class="tile-content">
+                    <ul class="checklist">
+                        <li>
+                            Customize the display of each data view for a complete user experiencer
+                        </li>
+                        <li>
+                            Format fields using custom functions to display images, links, etc.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tile">
+                <div class="tile-icon">
+                    <div class="example-tile-icon">
+                        <i class="fa fa-line-chart"></i>
+                    </div>
+                </div>
+                <div class="tile-content">
+                    <ul class="checklist">
+
+                        <li>
+                            Develop code in manageable modules using ES6 code. ES6 is transpiled on the fly using <a href="http://stealjs.com/">StealJS</a>
+                        </li>
+                        <li>
+                            Create super efficient, progressivly loaded bundles using StealJS's companion package, Steal Tools
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <ul class="checklist">
+            </ul>
+        </div>
+    </div>
+</div>
+
+<h4>Technology Used</h4>
+<p>
+    Can Admin uses some cutting edge libraries to balance performance, application maintainability, and user requirements. All softare dependencies are free and open source. While python (Flask) is used to power this demo, Can Admin is designed to work with
+    any server backend.
+</p>
+
+<div class="columns">
+
+    <div class="column col-4 col-sm-6 col-xs-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-image">
+                    <img src="/static/images/canjs_logo.svg" class="img-responsive" style="height:50px;">
+                </div>
+                <h6 class="card-meta">Live Binding Templates and Web Components</h6>
+            </div>
+            <div class="card-body">CanJS is an evolving and improving set of client side JavaScript architectural libraries that balances innovation and stability. It targets experienced developers building complex applications with long futures ahead of them.
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-primary" href="http://canjs.com/">More Info</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="column col-4 col-sm-6 col-xs-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Spectre.css</h4>
+                <h6 class="card-meta">The lightweight, responsive and modern CSS framework</h6>
+            </div>
+            <div class="card-body">Spectre.css is a lightweight and responsive and modern CSS framework for faster and extensible development.<br> Spectre provides basic styles for typography and elements, flexbox based responsive layout system, CSS components and utilities
+                with best practice coding and consistent design language.
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-primary" href="https://picturepan2.github.io/spectre/index.html">More Info</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="column col-4 col-sm-6 col-xs-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Spectre CanJS</h4>
+                <h6 class="card-meta">Data Administration Components</h6>
+            </div>
+            <div class="card-body">A collection of data administration and management components to enable the rapid developement of client side web applications. Built on the Spectre CSS framework crossed with CanJS to provide fast, beautiful, navigation, data management, and user interface web components.
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-primary" href="https://roemhildtg.github.io/spectre-canjs/docs/index.html">More Info</a>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="column col-4 col-sm-6 col-xs-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">FontAwesome</h4>
+                <h6 class="card-meta">The iconic font and CSS toolkit</h6>
+            </div>
+            <div class="card-body">Font Awesome gives you scalable vector icons that can instantly be customized — size, color, drop shadow, and anything that can be done with the power of CSS.
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-primary" href="http://fontawesome.io/">More Info</a>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div class="column col-4 col-sm-6 col-xs-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-image">
+                    <img src="/static/images/steal_logo.jpg" class="img-responsive" style="height:50px;">
+                </div>
+                <h6 class="card-meta">Dependency loader and builder</h6>
+            </div>
+            <div class="card-body">Futuristic JavaScript dependency loader and builder. Speeds up application load times. Works with ES6, CommonJS, AMD, CSS, LESS and more. Simplifies modular workflows.
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-primary" href="http://stealjs.com/">More Info</a>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="column col-4 col-sm-6 col-xs-12">
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-image">
+                    <img src="/static/images/flask.png" class="img-responsive" style="height:50px;">
+                </div>
+                <h6 class="card-meta">Python Server - Used for demo</h6>
+            </div>
+            <div class="card-body">Flask is a microframework for Python based on Werkzeug, Jinja 2 and good intentions.
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-primary" href="http://flask.pocoo.org/">More Info</a>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="column col-4 col-sm-6 col-xs-12">
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-image">
+                    <img src="/static/images/flask-restless.png" class="img-responsive" style="height:50px;">
+                </div>
+                <h6 class="card-meta">REST API Server</h6>
+            </div>
+            <div class="card-body">Flask-Restless provides simple generation of ReSTful APIs for database models defined using SQLAlchemy (or Flask-SQLAlchemy). The generated APIs send and receive messages in JSON format.
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-primary" href="http://flask.pocoo.org/">More Info</a>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>
+
+</div>

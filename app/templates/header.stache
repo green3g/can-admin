@@ -1,0 +1,34 @@
+<header class="navbar main">
+    <section class="navbar-primary">
+        <a href="{{routeUrl(page='home'}}" class="navbar-brand mr-10">Can-Admin</a>
+    </section>
+
+    <section class="navbar-section">        
+        <dropdown-menu text="Demos" icon-class="fa fa-fw fa-caret-down">
+            
+            <ul class="menu">
+                <li class="menu-item">
+                    <a href="{{routeUrl(page='news' view='articles' section='list')}}"><i class="fa fa-fw fa-newspaper-o"></i> Article Manager</a>
+                </li>
+            </ul>
+        </dropdown-menu>
+    </section>
+
+    <section class="navbar-section">
+        <dropdown-menu text="Github Repos" icon-class="fa fa-fw fa-caret-down" right>
+            <ul class="menu">
+                <li class="menu-item">
+                    <a href="https://github.com/roemhildtg/flask-can-crud"><i class="fa fa-fw fa-github"></i> Flask Python App</a>
+                </li>
+                <li class="menu-item">
+                    <a href="https://github.com/roemhildtg/can-admin-app"><i class="fa fa-fw fa-github"></i> Can-Admin-App</a>
+                </li>
+                <!-- <li class="menu-item">
+                    <a href="https://roemhildtg.github.io/spectre-canjs/docs/index.html"><i class="fa fa-fw fa-github"></i> Spectre-CanJS</a>
+                </li> -->
+            </ul>
+        </dropdown-menu>
+    </section>
+
+
+</header>

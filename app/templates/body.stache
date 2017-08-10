@@ -1,0 +1,16 @@
+{{>header}}
+
+{{#if pagePromise.isPending}}
+<i class="fa fa-2x fa-spin fa-spinner"></i>
+{{else}}
+    {{#if pagePromise.isResolved}}
+        {{>pageData.render}}
+
+    {{else}}
+        {{#if pagePromise.isRejected}}
+            {{>error}}
+        {{/if}}
+    {{/if}}
+{{/if}}
+
+{{>footer}}

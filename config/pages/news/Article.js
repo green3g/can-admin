@@ -1,9 +1,7 @@
 import DefineMap from 'can-define/map/map';
 import factory from 'can-admin/behaviors/flask-restless/index';
-import route from 'can-route';
 import {Person} from './Person_Basic';
 import {Visit} from './Visit';
-import connect from 'can-connect';
 
 // import pubsub from 'pubsub-js';
 // import {TOPICS} from 'can-crud/crud-manager/';
@@ -49,7 +47,7 @@ export const Article = factory({
             })
         },
         title: {
-            displayTemplate: `<a href="{{routeUrl(page='details' objectId=object.id)}}">
+            displayTemplate: `<a href="{{routeUrl(section='details' objectId=object.id, true)}}">
                 <i class="fa fa-list"></i> {{object.title}}</a>`,
             type: 'string'
         },
@@ -66,7 +64,7 @@ export const Article = factory({
             displayTemplate: `{{#if object.author.isPending}}
                 <i class="fa fa-spin fa-spinner"></i>
                 {{else}}
-                <a href="{{routeUrl(view='people_advanced' page='details' objectId=object.author_id)}}">
+                <a href="{{routeUrl(view='people_advanced' page='details' objectId=object.author_id, true)}}">
                     {{object.author.value.name}}
                 </a>
                 {{/if}}`,
@@ -84,7 +82,7 @@ export const Article = factory({
         },
         reviewed: {
             //sqlite doesn't have boolean so we use 1,0
-            type: 'integer',
+            type: 'number',
             value: 0,
             displayTemplate: `{{#if object.reviewed}}Yes{{else}}No{{/if}}`,
             fieldType: 'select',
@@ -118,6 +116,7 @@ export const Article = factory({
 });
 
 export default {
+    id: 'articles',
     connection: Article,
     title: 'Articles',
     manageButtons: [{

@@ -48,7 +48,7 @@ export const Person = factory({
     map: DefineMap.extend({
         name: {
             type: 'string',
-            displayTemplate: `<a href="{{routeUrl(view='people_advanced' page='details' objectId=object.id)}}">
+            displayTemplate: `<a href="{{routeUrl(view='people_advanced' page='details' objectId=object.id, true)}}">
                 <i class="fa fa-user fa-fw"></i> {{object.name}}</a>`
         },
         // eslint-disable-next-line camelcase
@@ -92,13 +92,7 @@ export const Person = factory({
             type: 'number'
         },
         // eslint-disable-next-line camelcase
-        is_cool: {
-            type: 'boolean',
-            formatter (isCool) {
-                const icon = isCool ? 'fa-thumbs-up' : 'fa-thumbs-down';
-                return `<i class="fa  ${icon}"></i>`;
-            }
-        },
+        is_cool: 'boolean',
         birthday: {
             type: 'date',
             ui: 'datepicker',
@@ -140,6 +134,7 @@ export const Person = factory({
 export default {
     connection: Person,
     title: 'Authors',
+    id: 'people_advanced',
     titleProp: 'name',
     saveSuccessMessage: 'User successfully saved',
     relatedViews: [{

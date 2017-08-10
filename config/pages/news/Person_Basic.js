@@ -42,6 +42,7 @@ export const Person = factory({
 // or we could export let TaskModel = {....} and specify
 // moduleID in the default.js config
 export default {
+    id: 'people_basic',
     connection: Person,
     title: 'People'
 };

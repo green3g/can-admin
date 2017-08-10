@@ -1,0 +1,10 @@
+<section class="empty">
+    <div class="empty-icon">
+        <i class="fa fa-3x fa-frown-o"></i>
+    </div>
+    <h4 class="empty-title">There was an error</h4>
+    <p class="empty-subtitle">{{pagePromise.reason}}</p>
+    <div class="empty-action">
+        <button class="btn btn-primary">Send a message</button>
+    </div>
+</section>
