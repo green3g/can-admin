@@ -2,16 +2,16 @@ import DefineMap from 'can-define/map/map';
 import DefineList from 'can-define/list/list';
 import stache from 'can-stache';
 
-import base from 'can-admin/behaviors/base';
+import factory from 'can-admin/behaviors/flask-restless/index';
 
 // import transformParameters from 'can-admin/behaviors/transformParameters';
-import totalResourceCount from 'can-admin/behaviors/totalResourceCount';
+// import totalResourceCount from 'can-admin/behaviors/totalResourceCount';
 
 import 'can-admin/components/data-admin/data-admin';
 import 'can-admin/components/form-widget/field-components/checkbox-field/checkbox-field';
 
 // get a fake rest api
-import 'can-admin/components/test/data/fixtures';
+import 'can-admin/test/data/fixtures';
 
 export const TaskMap = DefineMap.extend('Task', {
     seal: false
@@ -30,7 +30,7 @@ export const TaskList = DefineList.extend({
     '#': TaskMap
 });
 
-const Connection = base({
+const Connection = factory({
     // transform spectre-canjs parameters to our servers parameters if needed
     //behaviors:  [
     //transformParameters
