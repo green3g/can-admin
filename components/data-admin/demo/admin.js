@@ -2,10 +2,10 @@ import DefineMap from 'can-define/map/map';
 import DefineList from 'can-define/list/list';
 import stache from 'can-stache';
 
-import base from '~/util/behaviors/base';
+import base from 'can-admin/behaviors/base';
 
-// import transformParameters from '~/util/behaviors/transformParameters';
-import totalResourceCount from '~/util/behaviors/totalResourceCount';
+// import transformParameters from 'can-admin/behaviors/transformParameters';
+import totalResourceCount from 'can-admin/behaviors/totalResourceCount';
 
 import 'can-admin/components/data-admin/data-admin';
 import 'can-admin/components/form-widget/field-components/checkbox-field/checkbox-field';

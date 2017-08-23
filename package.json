@@ -32,11 +32,12 @@
     "jquery-ui": "^1.12.1",
     "object-assign": "^4.1.1",
     "pubsub-js": "^1.5.7",
-    "spectre.css": "^0.2.14",
+    "spectre.css": "^0.3.1",
     "steal": "^1.5.5"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
+    "can-fixture": "^1.1.0",
     "documentjs": "^0.5.0",
     "eslint": "^4.2.0",
     "steal-css": "^1.2.5",

@@ -1,6 +1,6 @@
-import 'filter-widget/';
+import 'can-admin/components/filter-widget/filter-widget';
 import stache from 'can-stache';
-import parseFieldArray from '~/util/field/parseFieldArray/parseFieldArray';
+import parseFieldArray from 'can-admin/util/field/parseFieldArray/parseFieldArray';
 import DefineMap from 'can-define/map/map';
 
 const render = stache.from('demo-html');

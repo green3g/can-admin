@@ -325,7 +325,13 @@ export const ViewModel = DefineMap.extend('DataAdmin', {
      */
     viewId: {
         type: 'number',
-        value: 0
+        value: 0,
+        serialize (val) {
+            if (!val) {
+                return undefined;
+            }
+            return val;
+        }
     },
     /**
      * Current loading progress. NOT IMPLEMENTED
