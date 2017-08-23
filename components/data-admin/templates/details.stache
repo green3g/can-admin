@@ -13,7 +13,7 @@
       <nav-container>
         <nav-page label="{{view.title}}: {{focusObject[view.titleProp]}}">
 
-          <manage-toolbar class="inline-block float-right" {buttons}="toolbarButtons" (buttonclick)="manageObjects" />
+          <manage-toolbar class="d-inline-block float-right" {buttons}="toolbarButtons" (buttonclick)="manageObjects" />
 
           <property-table {object}="focusObject" {fields}="_fields" />
         </nav-page>

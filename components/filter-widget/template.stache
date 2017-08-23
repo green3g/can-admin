@@ -9,7 +9,7 @@
             <button type="button" class="btn block float-left" ($click)="removeFilter(this)"><i class="fa fa-trash"></i> {{alias}}</button>
             <select-field class="float-left" {properties}="operatorField" {(value)}="operator" inline />
           {{/if}}
-          <div class="inline-block">
+          <div class="d-inline-block">
             {{#valueField}}
               {{>formTemplate}}
             {{/valueField}}

@@ -24,7 +24,7 @@
       {{#each objects as object}}
         <tr {{#if isSelected(object)}} class="selected" {{/if}}>
           <td class="checkbox-cell">
-            <div class="form-group inline-block">
+            <div class="form-group d-inline-block">
               <label class="form-checkbox">
                   <input type="checkbox" ($change)="toggleSelected(object)" {$checked}="isSelected(object)" />
                   <i class="form-icon"></i>

@@ -1,4 +1,4 @@
-<div class="inline-block btn-group btn-group-block hidden-print">
+<div class="d-inline-block btn-group btn-group-block hidden-print">
   {{#each buttons}}
     {{#unless disabled}}
       <button class="btn btn-primary{{#tooltip}} tooltip{{/tooltip}}" {{#tooltip}} data-tooltip="{{tooltip}}" {{/tooltip}} ($click)="dispatchEvent(.)">
