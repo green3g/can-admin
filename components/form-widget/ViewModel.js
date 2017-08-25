@@ -247,7 +247,7 @@ const ViewModel = FieldIteratorMap.extend('FormWidget', {
         canBatch.start();
         for (var fieldIndex = 0; fieldIndex < this.fields.length; fieldIndex ++) {
             const name = this.fields[fieldIndex].name;
-            if (typeof serialized[name] !== 'undefined') { 
+            if (serialized.hasOwnProperty(name)) { 
                 this.formObject[name] = serialized[name]; 
             }
         }
