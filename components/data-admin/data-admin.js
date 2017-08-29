@@ -3,7 +3,6 @@ import DefineList from 'can-define/list/list';
 import Component from 'can-component';
 import dev from 'can-util/js/dev/dev';
 import template from './template.stache!';
-import actionsCellTemplate from './templates/actionsCell.stache';
 import isPromiseLike from 'can-util/js/is-promise-like/is-promise-like';
 import './widget.less!';
 
@@ -323,16 +322,7 @@ export const ViewModel = DefineMap.extend('DataAdmin', {
      * @property {Number}  data-admin.ViewModel.props.viewId viewId
      * @parent data-admin.ViewModel.props
      */
-    viewId: {
-        type: 'number',
-        value: 0,
-        serialize (val) {
-            if (!val) {
-                return undefined;
-            }
-            return val;
-        }
-    },
+    viewId: 'number',
     /**
      * Current loading progress. NOT IMPLEMENTED
      * TODO: implement loading progress on lengthy processes like multi delete
