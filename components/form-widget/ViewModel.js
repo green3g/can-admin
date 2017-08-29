@@ -98,24 +98,7 @@ const ViewModel = FieldIteratorMap.extend('FormWidget', {
      * @property {DefineMap} form-widget.ViewModel.props.formObject
      * @parent form-widget.ViewModel.props
      */
-    formObject: {
-        set (obj) {
-
-            // if (obj && obj.constructor) {
-            //     // extend the constructor to get some custom properties added to the dirty obj
-            //     const ObjectClass = obj.constructor.extend('ExtendedFormObject', {
-            //         __isDirtyObject: {value: true, serialize: false},
-            //         __isDirty: {value: false, serialize: false}
-            //     });
-
-            //     this.set('dirtyObject', new ObjectClass(obj || {}));
-            // } else {
-            this.dirtyObject.set(obj || {});
-            // }
-
-            return obj;
-        }
-    },
+    formObject: DefineMap,
     /**
      * An object set with values that have changed since the form was initialized
      * @property {DefineMap} form-widget.ViewModel.props.dirtyObject dirtyObject
