@@ -16,11 +16,11 @@ import 'can-admin/components/dropdown-menu/dropdown-menu';
  * @description A `<search-control />` component's ViewModel
  */
 export const ViewModel = DefineMap.extend({
-  /**
+    /**
    * @prototype
    */
 
-  /**
+    /**
    * The current filters
    * @property {Array<filter-widget.Filter>} search-control.ViewModel.props.filters filters
    * @parent search-control.ViewModel.props
@@ -39,7 +39,7 @@ export const ViewModel = DefineMap.extend({
      */
     view: '*',
 
-  /**
+    /**
    * A helper for toggling quick filter dropdowns from the template,
    * this accepts simplified parameters, similar to the addFilter function.
    * Depending on the arguments several outcomes may occur:
@@ -60,25 +60,25 @@ export const ViewModel = DefineMap.extend({
             event.preventDefault();
         }
         let filter = this.filters.filter((f) => {
-            return f.name === fieldName;
+            return f.name === fieldName && f.operator === 'equals';
         });
         if (filter.length) {
             filter = filter[0];
 
-          // if the filter exists but the values are the same, remove the filter
+            // if the filter exists but the values are the same, remove the filter
             if (filter.value === value) {
                 const index = this.filters.indexOf(filter);
                 this.filters.splice(index, 1);
                 return false;
             }
 
-          // otherwise update the value
+            // otherwise update the value
             filter.value = value;
             return false;
         }
 
 
-                // make a new filter object with the fields used in the form
+        // make a new filter object with the fields used in the form
         let fieldProp;
         if (this.fields.length) {
             fieldProp = this.fields.filter((field) => {
@@ -86,7 +86,7 @@ export const ViewModel = DefineMap.extend({
             })[0];
         }
 
-      // if no filter exists create it
+        // if no filter exists create it
         this.filters.push(new Filter({
             name: fieldName,
             value: value,
