@@ -1,6 +1,6 @@
 <ul class="{{type}}">
     {{#each pages}}
-      <li class="{{type}}-item {{#is this active}}active{{/is}}" ($click)="activate(.)">
+      <li class="{{type}}-item {{#is this active}}active{{/is}}" on:el:click="activate(.)">
           <a {{#if href}}href="{{href}}"{{/if}}>
               {{label}}
           </a>

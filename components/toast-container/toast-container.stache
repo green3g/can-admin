@@ -1,7 +1,7 @@
 
 <div class="toasts">
     {{#each toasts}}
-        <toast-item (hide)="removeToast(.)"
+        <toast-item on:vm:hide="removeToast(.)"
           severity="{{severity}}"
           visible="{{visible}}"
           heading="{{heading}}"

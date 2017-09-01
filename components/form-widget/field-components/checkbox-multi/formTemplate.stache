@@ -1,1 +1,1 @@
-<checkbox-multi (fieldchange)="setField" value="{{formObject[name]}}" {errors}="validationErrors" {properties}="." />
+<checkbox-multi on:vm:fieldchange="setField" value="{{formObject[name]}}" vm:errors:from="validationErrors" vm:properties:from="." />

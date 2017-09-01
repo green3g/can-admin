@@ -1,5 +1,5 @@
 <div class="btn-group btn-group-block float-right hidden-print">
-  <button ($click)="setPage('list')" class="btn tooltip" type="button" data-tooltip="Back to List"><i class="fa fa-list"></i> List</button>
+  <button on:el:click="setPage('list')" class="btn tooltip" type="button" data-tooltip="Back to List"><i class="fa fa-list"></i> List</button>
 </div>
 
 {{#if view.canEdit}}
@@ -11,12 +11,12 @@
     <h3>{{view.title}}: {{focusObject[view.titleProp]}}</h3>
 
     <form-widget 
-      {form-object}="focusObject" 
+      vm:formObject:from="focusObject" 
       show-saving 
-      (submit)="saveObject" 
-      (submitfail)="view.errorSubmit"
-      {fields}="_fields" 
-      (cancel)="setPage('list')" />
+      on:vm:submit="saveObject" 
+      on:vm:submitfail="view.errorSubmit"
+      vm:fields:from="_fields" 
+      on:vm:cancel="setPage('list')" />
       {{else}}
       <toast-item level="warning" body="There was an error getting the row: {{viewId}}." auto-hide="0" />
       {{/if}}

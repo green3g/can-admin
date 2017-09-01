@@ -4,18 +4,18 @@
     <h3>{{view.title}} List</h3>
   </section>
   <section class="navbar-section hidden-print">
-    <search-control {fields}="_fields" {(filters)}="parameters.filters" {view}="view" />
+    <search-control vm:fields:from="_fields" vm:filters:bind="parameters.filters" vm:view:from="view" />
   </section>
 
   <section class="navbar-section hidden-print">
     {{#if view.canCreate}}
-    <button class="btn btn-primary" ($click)="setPage('add')"><i class="fa fa-plus"></i> Create</button>
+    <button class="btn btn-primary" on:el:click="setPage('add')"><i class="fa fa-plus"></i> Create</button>
     {{/if}}
     {{#if selectedObjects.length}}
-      <manage-toolbar {buttons}="toolbarButtons" (buttonclick)="manageObjects" />
+      <manage-toolbar vm:buttons:from="toolbarButtons" on:vm:buttonclick="manageObjects" />
     {{/if}}
 <div class="btn-group btn-group-block">
-    <button class="btn btn-default" ($click)="setPage('list')">
+    <button class="btn btn-default" on:el:click="setPage('list')">
               <i title="Refresh Data" class="fa {{#if objectsPromise.isPending}}fa-spin{{/if}} fa-refresh"></i> Refresh
             </button>
             </div>
@@ -27,20 +27,20 @@
 
 {{#if objects.length}}
   <div {{#if objectsPromise.isPending}} class="faded" {{/if}}>
-    <list-table {objects}="objects" 
+    <list-table vm:objects:from="objects" 
       id-prop="{{view.connection.idProp}}" 
-      {actions}="buttons" 
-      {(selected-objects)}="selectedObjects"
-      {{#if view.canEdit}} (edit)="editObject"{{/if}}
-      {{#if view.canDelete}} (delete)="deleteObject" {{/if}}
-      (view)="viewObject" 
-      (custom)="manageObjects" 
-      {sort}="@noop" 
-      {(current-sort)}="parameters.sort"
-      {fields}="_fields" />
+      vm:actions:from="buttons" 
+      vm:selectedObjects:bind="selectedObjects"
+      {{#if view.canEdit}} on:vm:edit="editObject"{{/if}}
+      {{#if view.canDelete}} on:vm:delete="deleteObject" {{/if}}
+      on:vm:view="viewObject" 
+      on:vm:custom="manageObjects" 
+      vm:sort:from="@noop" 
+      vm:currentSort:bind="parameters.sort"
+      vm:fields:from="_fields" />
 
       <div class="hidden-print">
-        <paginate-footer total="{{totalItems}}" {(per-page)}="parameters.perPage" {(page-index)}="parameters.page" />
+        <paginate-footer total="{{totalItems}}" vm:perPage:bind="parameters.perPage" vm:pageIndex:bind="parameters.page" />
       </div>
   </div>
 {{else}}

@@ -5,16 +5,16 @@
         <th class="checkbox-heading">
           <div class="form-group">
             <label class="form-checkbox">
-                            <input type="checkbox" ($change)="toggleSelectAll" {$checked}="_allSelected" />
+                            <input type="checkbox" on:el:change="toggleSelectAll" el:checked:from="_allSelected" />
                             <i class="form-icon"></i>
                         </label>
           </div>
         </th>
         {{#each fields}}
-          <th {{#is name currentSort.field}} class="text-bold {{#if classes}}{{classes}}{{/if}}"{{/is}}{{#if ./sort}} ($click)="setSort(name)"{{/if}}>
+          <th {{#is name currentSort.field}} class="text-bold {{#if classes}}{{classes}}{{/if}}"{{/is}}{{#if ./sort}} on:el:click="setSort(name)"{{/if}}>
             {{alias}}
             {{#is name currentSort.field}}<i class="fa fa-sort-{{#is currentSort.type 'desc'}}desc{{else}}asc{{/is}}"></i>
-            <i class="fa fa-times float-right" ($click)="setSort('', %event)" title="Clear Sort"></i>{{/is}}
+            <i class="fa fa-times float-right" on:el:click="setSort('', %event)" title="Clear Sort"></i>{{/is}}
           </th>
         {{/each}}
       </tr>
@@ -26,7 +26,7 @@
           <td class="checkbox-cell">
             <div class="form-group d-inline-block">
               <label class="form-checkbox">
-                  <input type="checkbox" ($change)="toggleSelected(object)" {$checked}="isSelected(object)" />
+                  <input type="checkbox" on:el:change="toggleSelected(object)" el:checked:from="isSelected(object)" />
                   <i class="form-icon"></i>
               </label>
             </div>

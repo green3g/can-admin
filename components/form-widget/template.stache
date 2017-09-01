@@ -1,4 +1,4 @@
-<form class="form{{#inline}}-horizontal form-inline{{/inline}}" ($submit)="submitForm">
+<form class="form{{#inline}}-horizontal form-inline{{/inline}}" on:el:submit="submitForm">
     {{#each fields}}
       {{>formTemplate}}
     {{/each}}
@@ -7,8 +7,8 @@
 
     {{#if showButtons}}
       <div class="btn-group" role="group" aria-label="Form Buttons">
-        <button type="button" class="{{#isSaving}}loading{{/isSaving}} btn btn-primary" ($click)="submitForm">Submit</button>
-        <button type="button" class="btn" ($click)="cancelForm">Cancel</button>
+        <button type="button" class="{{#isSaving}}loading{{/isSaving}} btn btn-primary" on:el:click="submitForm">Submit</button>
+        <button type="button" class="btn" on:el:click="cancelForm">Cancel</button>
       </div>
     {{/if}}
 </form>

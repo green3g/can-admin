@@ -1,1 +1,1 @@
-<checkbox-field (fieldchange)="setField" value="{{formObject[name]}}" {errors}="validationErrors" {properties}="." />
+<checkbox-field on:vm:fieldchange="setField" value="{{formObject[name]}}" vm:errors:from="validationErrors" vm:properties:from="." />

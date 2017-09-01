@@ -38,7 +38,7 @@
   {{/switch}}
 
 {{#if view.canDelete}}
-  <confirm-dialog small title="Delete" {^action-promise}="deletePromise" {(active)}="showConfirmDelete">
+  <confirm-dialog small title="Delete" vm:actionPromise:to="deletePromise" vm:active:bind="showConfirmDelete">
 
     <h3><i class="fa fa-exclamation"></i> Warning!</h3>
     <p>Are you sure you want to delete these item(s)?</p>

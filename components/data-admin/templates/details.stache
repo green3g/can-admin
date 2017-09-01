@@ -1,5 +1,5 @@
 <div class="btn-group btn-group-block float-right hidden-print">
-  <button ($click)="setPage('list')" class="btn tooltip" type="button" data-tooltip="Back to List"><i class="fa fa-list"></i> List</button>
+  <button on:el:click="setPage('list')" class="btn tooltip" type="button" data-tooltip="Back to List"><i class="fa fa-list"></i> List</button>
 </div>
 
 {{#if view.canDetails}}
@@ -13,13 +13,13 @@
       <nav-container>
         <nav-page label="{{view.title}}: {{focusObject[view.titleProp]}}">
 
-          <manage-toolbar class="d-inline-block float-right" {buttons}="toolbarButtons" (buttonclick)="manageObjects" />
+          <manage-toolbar class="d-inline-block float-right" vm:buttons:from="toolbarButtons" on:vm:buttonclick="manageObjects" />
 
-          <property-table {object}="focusObject" {fields}="_fields" />
+          <property-table vm:object:from="focusObject" vm:fields:from="_fields" />
         </nav-page>
         {{#each view.relatedViews as relView}}
           <nav-page label="{{#if relView.title}}{{relView.title}}{{else}}{{relView.view.title}}{{/if}}">
-            <data-admin {view}="relView.view" related-field="{{relView.referenceKey}}" related-value="{{focusObject[relView.foreignKey]}}" />
+            <data-admin vm:view:from="relView.view" related-field="{{relView.referenceKey}}" related-value="{{focusObject[relView.foreignKey]}}" />
           </nav-page>
         {{/each}}
       </nav-container>
