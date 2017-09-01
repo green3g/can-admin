@@ -32,6 +32,7 @@ export default DefineMap.extend({
         Value: DefineList,
         Type: DefineList,
         get (fields) {
+            fields = fields || [];
             if (fields.length && !(fields[0] instanceof Field)) {
                 fields = parseFieldArray(fields);
             }
