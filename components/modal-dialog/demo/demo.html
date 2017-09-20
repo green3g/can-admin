@@ -1,12 +1,12 @@
 <script type="text/stache" id="demo-html">
     <h1>Modal Demo</h1>
-    <button type="button" class="btn btn-default" ($click)="showModal('modal1')">Show Basic</button>
-    <button type="button" class="btn btn-default" ($click)="showModal('modal2')">Custom Modal</button>
-    <button type="button" class="btn btn-default" ($click)="showModal('modal3')">Small Modal</button>
-    <button type="button" class="btn btn-default" ($click)="showModal('confirm1')">Confirm Dialog</button>
-    <button type="button" class="btn btn-default" ($click)="showModal('modal4')">No Backdrop Modal</button>
+    <button type="button" class="btn btn-default" on:el:click="showModal('modal1')">Show Basic</button>
+    <button type="button" class="btn btn-default" on:el:click="showModal('modal2')">Custom Modal</button>
+    <button type="button" class="btn btn-default" on:el:click="showModal('modal3')">Small Modal</button>
+    <button type="button" class="btn btn-default" on:el:click="showModal('confirm1')">Confirm Dialog</button>
+    <button type="button" class="btn btn-default" on:el:click="showModal('modal4')">No Backdrop Modal</button>
 
-    <modal-dialog title="A simple dialog with content" {(active)}="modal1">
+    <modal-dialog title="A simple dialog with content" vm:active:bind="modal1">
 
       This is the content inside the modal. By default, modals come with
       a close button and a titlebar. This can be completely overridden by
@@ -42,15 +42,15 @@
       </div>
       </modal-dialog>
 
-      <modal-dialog custom-body="true" {(active)}="modal2">
+      <modal-dialog custom-body="true" vm:active:bind="modal2">
       <p>This modals content is created from scratch so there will not be any
       buttons unless you add them to the body</p>
 
-      <button type="button" class="btn btn-primary"($click)="hideModal('modal2')">Hide this modal</button>
+      <button type="button" class="btn btn-primary"on:el:click="hideModal('modal2')">Hide this modal</button>
 
       </modal-dialog>
 
-      <modal-dialog title="A small modal" {(active)}="modal3">
+      <modal-dialog title="A small modal" vm:active:bind="modal3">
         <form>
           <!-- form input control -->
           <div class="form-group">
@@ -100,7 +100,7 @@
       </form>
     </modal-dialog>
 
-    <modal-dialog id="modal4" {(active)}="modal4" backdrop="false" title="Modal without backdrop">
+    <modal-dialog id="modal4" vm:active:bind="modal4" backdrop="false" title="Modal without backdrop">
       <p>This modal demonstrates the ability to generate a modal that allows the user to interact with elements behind a modal.</p>
 
       <p>Combine this with a library such as
@@ -126,7 +126,7 @@
       }
     </style>
 
-    <confirm-dialog small title="Are you sure???" {(active)}="confirm1" (accept)="onAccept" (reject)="onReject">
+    <confirm-dialog small title="Are you sure???" vm:active:bind="confirm1" on:vm:accept="onAccept" on:vm:reject="onReject">
 
         <h3><i class="fa fa-exclamation"></i> Warning!</h3>
         <p>This action is very dangerous and you should be sure you want to proceed.</p>

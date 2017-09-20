@@ -1,6 +1,18 @@
 import DefineMap from 'can-define/map/map';
 import FieldIteratorMap from '~/util/field/base/FieldIteratorMap';
 import canBatch from 'can-event/batch/batch';
+import DefineList from 'can-define/list/list';
+
+export const ActionMap = DefineMap.extend({
+    label: 'string',
+    buttonClass: {type: 'string', value: 'btn btn-primary'},
+    iconClass: {type: 'string'}
+});
+
+export const ActionList = DefineList.extend({
+    '#': ActionMap
+});
+
 /**
  * @constructor form-widget.ViewModel ViewModel
  * @parent form-widget
@@ -39,6 +51,9 @@ const ViewModel = FieldIteratorMap.extend('FormWidget', {
         get () {
             return this.formObject;
         }
+    },
+    actions: {
+        Type: ActionList
     },
     /**
      * Whether or not to show the submit/cancel buttons
@@ -203,10 +218,7 @@ const ViewModel = FieldIteratorMap.extend('FormWidget', {
      * @param {Event} event the dom form event
      * @return {Boolean} returns false to prevent form submissions
      */
-    submitForm (vm, form, event) {
-        if (event) {
-            event.preventDefault();
-        }
+    submitForm () {
 
         // we're currently saving
         if (this.isSaving) {
@@ -238,6 +250,13 @@ const ViewModel = FieldIteratorMap.extend('FormWidget', {
         // formObject.set(this.dirtyObject.serialize());
         this.dispatch('submit', [formObject]);
         return false;
+    },
+    dispatchEvent (eventName) {
+        if (eventName === 'submit') {
+            this.submitForm();
+        } else {
+            this.dispatch(eventName, [this.formObject]);
+        }
     },
     /**
      * Sets the formObject value when a field changes. This will allow for future
@@ -289,19 +308,6 @@ const ViewModel = FieldIteratorMap.extend('FormWidget', {
             dirty: this.dirtyObject,
             current: this.formObject
         }) : null;
-    },
-    /**
-     * @typedef {can.Event} form-widget.events.formCancel cancel
-     * @parent form-widget.events
-     * An event dispatched when the cancel button is clicked. No arguments are passed.
-     */
-    /**
-     * Called when the form cancel button is clicked. Dispatches the `cancel` event.
-     * @function cancelForm
-     * @signature
-     */
-    cancelForm () {
-        this.dispatch('cancel', []);
     }
 });
 

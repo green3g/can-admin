@@ -16,6 +16,7 @@
       on:vm:submit="saveObject" 
       on:vm:submitfail="view.errorSubmit"
       vm:fields:from="_fields" 
+      vm:actions:from="view.formActions"
       on:vm:cancel="setPage('list')" />
       {{else}}
       <toast-item level="warning" body="There was an error getting the row: {{viewId}}." auto-hide="0" />

@@ -3,12 +3,12 @@
 
     <h2>Simple:</h2>
     <!-- id-prop is required for selection -->
-    <list-table {objects}="data" id-prop="_cid" />
+    <list-table vm:objects:from="data" id-prop="_cid" />
 
     <br />
 
     <h2>Advanced:</h2>
-    <list-table {^selected-objects}="selectedObjects" {objects}="data" (up)="voteUp" {fields}="fields" (down)="voteDown" id-prop="_cid" />
+    <list-table vm:selectedObjects:to="selectedObjects" vm:objects:from="data" on:vm:up="voteUp" vm:fields:from="fields" on:vm:down="voteDown" id-prop="_cid" />
 
 
     <p>You chose: {{#if selectedObjects.length}} {{#each selectedObjects}} {{name}}, {{/each}} {{else}} No one {{/if}}

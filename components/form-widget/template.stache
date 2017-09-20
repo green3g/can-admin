@@ -5,10 +5,20 @@
 
     <br />
 
-    {{#if showButtons}}
-      <div class="btn-group" role="group" aria-label="Form Buttons">
-        <button type="button" class="{{#isSaving}}loading{{/isSaving}} btn btn-primary" on:el:click="submitForm">Submit</button>
-        <button type="button" class="btn" on:el:click="cancelForm">Cancel</button>
-      </div>
+    {{#if isSaving}}
+      <div class="loading"></div>
+    {{else}}
+      {{#if actions.length}}
+        <div class="btn-group" role="group" aria-label="Form Buttons">
+          {{#each actions}}
+            <button type="button" 
+              class="{{buttonClass}}" 
+              on:el:click="dispatchEvent(eventName)">
+                {{#if iconClass}}<i class="{{iconClass}}"></i>{{/if}} 
+                {{label}}
+            </button>
+          {{/each}}
+        </div>
+      {{/if}}
     {{/if}}
 </form>

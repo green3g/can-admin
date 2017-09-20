@@ -182,7 +182,10 @@ export const Filter = DefineMap.extend('Filter', {
      *
      */
     alias: {
-        get () {
+        get (val) {
+            if (val) { 
+                return val; 
+            }
             return this.field ? this.field.alias : makeSentenceCase(this.name);
         },
         serialize: false
