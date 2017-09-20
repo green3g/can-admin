@@ -8,7 +8,11 @@
     "lint": "eslint . --fix",
     "pretest": "npm run lint",
     "test": "testee test/index.html --reporter Spec --browsers firefox",
-    "posttest": "npm run build"
+    "posttest": "npm run build",
+    "docs": "documentjs -d -f",
+    "postdocs": "node docs-bundle",
+    "prepublish-docs": "git checkout gh-pages && git merge master",
+    "publish-docs": "npm run docs && git add docs -f && git commit -m docs && git push origin gh-pages -f && git checkout master"
   },
   "author": "",
   "license": "ISC",
