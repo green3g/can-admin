@@ -19,13 +19,13 @@ import dev from 'can-util/js/dev/dev';
  * @parent util/field.guides
  */
 export const TEMPLATES = {
-    text: '<text-field {properties}="." (fieldchange)="setField" value="{{formObject[name]}}" {errors}="validationErrors" />', // string
-    select: '<select-field {properties}="." (fieldchange)="setField" value="{{formObject[name]}}" {errors}="validationErrors" />', // string
-    file: '<file-field {properties}="." (fieldchange)="setField" {value}="formObject[name]" {errors}="validationErrors" />', // string
-    json: '<json-field {properties}="." (fieldchange)="setField" {value}="formObject[name]" {errors}="validationErrors" />', // string
-    subform: '<subform-field {properties}="." (fieldchange)="setField" {value}="formObject[name]" {errors}="validationErrors" />', // string
-    date: '<date-field {properties}="." (fieldchange)="setField" {value}="formObject[name]" {errors}="validationErrors" />', // date object
-    checkbox: '<checkbox-field (fieldchange)="setField" value="{{formObject[name]}}" {errors}="validationErrors" {properties}="." />'
+    text: stache('<text-field vm:properties:from="." on:vm:fieldchange="setField" value="{{formObject[name]}}" vm:errors:from="validationErrors" />'), // string
+    select: stache('<select-field vm:properties:from="." on:vm:fieldchange="setField" value="{{formObject[name]}}" vm:errors:from="validationErrors" />'), // string
+    file: stache('<file-field vm:properties:from="." on:vm:fieldchange="setField" vm:value:from="formObject[name]" vm:errors:from="validationErrors" />'), // string
+    json: stache('<json-field vm:properties:from="." on:vm:fieldchange="setField" vm:value:from="formObject[name]" vm:errors:from="validationErrors" />'), // string
+    subform: stache('<subform-field vm:properties:from="." on:vm:fieldchange="setField" vm:value:from="formObject[name]" vm:errors:from="validationErrors" />'), // string
+    date: stache('<date-field vm:properties:from="." on:vm:fieldchange="setField" vm:value:from="formObject[name]" vm:errors:from="validationErrors" />'), // date object
+    checkbox: stache('<checkbox-field on:vm:fieldchange="setField" value="{{formObject[name]}}" vm:errors:from="validationErrors" vm:properties:from="." />')
 };
 
 const displayTemplate = stache('{{object[field.name]}}');
@@ -111,9 +111,9 @@ export const Field = DefineMap.extend('Field', {
             const fType = this.fieldType;
             if (!TEMPLATES.hasOwnProperty(fType)) {
                 dev.warn('No template for the given field type', fType);
-                return stache(TEMPLATES.text);
+                return TEMPLATES.text;
             }
-            return stache(TEMPLATES[fType]);
+            return TEMPLATES[fType];
         }
     },
     /**
