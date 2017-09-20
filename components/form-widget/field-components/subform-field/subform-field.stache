@@ -5,6 +5,6 @@
       vm:formObject:from="subFormObject" 
       on:vm:fieldchange="saveField" 
       vm:fields:from="formFields" 
-      show-buttons="false" />
+      vm:actions:from="formActions" />
   </fieldset>
 </div>

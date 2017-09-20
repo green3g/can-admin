@@ -42,6 +42,12 @@ export const ViewModel = Base.extend('SubformField', {
             return val;
         }
     },
+    // override default actions to none
+    formActions: {
+        value () {
+            return [];
+        }
+    },
     /**
      * The current object being edited in this field's json form, this
      * is created automatically from the `ObjectTemplate` property.

@@ -141,15 +141,15 @@ const vm = new DefineMap({
     formObject: new Template(),
     fields: fields,
     formSaving: false,
-    actions: [{
-        label: 'Submit',
-        iconClass: 'fa fa-plus',
-        buttonClass: 'btn btn-primary',
-        eventName: 'submit'
-    }, {
-        label: 'Cancel and log message',
-        eventName: 'cancel'
-    }],
+    // actions: [{
+    //     label: 'Submit',
+    //     iconClass: 'fa fa-plus',
+    //     buttonClass: 'btn btn-primary',
+    //     eventName: 'submit'
+    // }, {
+    //     label: 'Cancel and log message',
+    //     eventName: 'cancel'
+    // }],
     onChange () {
         console.log(arguments);
     },

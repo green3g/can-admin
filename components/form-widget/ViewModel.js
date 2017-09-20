@@ -53,16 +53,17 @@ const ViewModel = FieldIteratorMap.extend('FormWidget', {
         }
     },
     actions: {
-        Type: ActionList
-    },
-    /**
-     * Whether or not to show the submit/cancel buttons
-     * @property {Boolean} form-widget.ViewModel.props.showButtons
-     * @parent form-widget.ViewModel.props
-     */
-    showButtons: {
-        type: 'boolean',
-        value: true
+        Type: ActionList,
+        value () {
+            return [{
+                eventName: 'submit',
+                label: 'Submit'
+            }, {
+                eventName: 'cancel',
+                label: 'Cancel',
+                buttonClass: 'btn btn-default'
+            }];
+        }
     },
     /**
      * Whether or not this form should be an inline (horizontal) form
