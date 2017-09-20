@@ -440,6 +440,7 @@ export const ViewModel = DefineMap.extend('DataAdmin', {
      * @function setPage
      * @signature
      * @param {String} page The name of the page to switch to
+     * @param {Number} id The objectId to view - Default is null
      */
     setPage (page, id = null) {
         if (page === 'list') {
@@ -860,6 +861,9 @@ export const ViewModel = DefineMap.extend('DataAdmin', {
      * @param {DefineMap} params the params to mixin
      */
     updateParameters (params) {
+        if (typeof params === 'function') {
+            params = params();
+        }
         // mixin view parameters
         if (params) {
             params.forEach((param, key) => {
