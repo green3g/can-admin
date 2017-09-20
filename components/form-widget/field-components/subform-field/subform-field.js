@@ -52,7 +52,10 @@ export const ViewModel = Base.extend('SubformField', {
      */
     subFormObject: {
         Value: DefineMap,
-        get () {
+        get (val) {
+            if (val) { 
+                return val; 
+            }
             const Template = this.properties.ObjectTemplate;
             let obj;
             if (Template) {
