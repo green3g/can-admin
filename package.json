@@ -1,6 +1,6 @@
 {
   "name": "can-admin",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "",
   "main": "app/crud.js",
   "scripts": {
