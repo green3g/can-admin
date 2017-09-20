@@ -51,7 +51,21 @@ export const ViewMap = DefineMap.extend('ViewMap', {seal: false}, {
      * @property {Object} data-admin/ViewMap.props.parameters parameters
      * @parent data-admin/ViewMap.props
      */
-    parameters: {Type: DefineMap, Value: DefineMap},
+    parameters: {
+        Type: DefineMap, 
+        Value: DefineMap
+    },
+    /**
+     * a function that will return the parameters to be set
+     */
+    getParameters: {
+        set (func) {
+            if (typeof func === 'function') {
+                this.parameters = func();
+            }
+            return func;
+        }
+    },
     /**
      * A template for creating new objects. This should be an constructor of can.Map
      * created using DefineMap.extend. This object defines the default properties, types,

@@ -861,9 +861,6 @@ export const ViewModel = DefineMap.extend('DataAdmin', {
      * @param {DefineMap} params the params to mixin
      */
     updateParameters (params) {
-        if (typeof params === 'function') {
-            params = params();
-        }
         // mixin view parameters
         if (params) {
             params.forEach((param, key) => {
