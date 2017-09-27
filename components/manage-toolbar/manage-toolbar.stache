@@ -6,6 +6,9 @@
       </button>
     {{/unless}}
   {{/each}}
+
+  {{#if objects.length}}
   <button on:el:click="clearSelection" type="button" class="btn btn-primary badge" data-badge="{{objects.length}}">
     <i class="fa fa-eraser"></i> Clear Selected</button>
+  {{/if}}
 </div>
