@@ -1,4 +1,13 @@
 {{#if view.canList}}
+
+
+{{#if selectedObjects.length}}
+<div class="manage-wrapper container">
+  <manage-toolbar vm:buttons:from="toolbarButtons" on:vm:buttonclick="manageObjects" vm:objects:bind="selectedObjects" />
+</div>
+{{/if}}
+
+
 <header class="navbar">
   <section class="navbar-section">
     <h3>{{view.title}} List</h3>
@@ -8,14 +17,11 @@
   </section>
 
   <section class="navbar-section hidden-print">
-    {{#if view.canCreate}}
-    <button class="btn btn-primary" on:el:click="setPage('add')"><i class="fa fa-plus"></i> Create</button>
-    {{/if}}
-    {{#if selectedObjects.length}}
-      <manage-toolbar vm:buttons:from="toolbarButtons" on:vm:buttonclick="manageObjects" />
-    {{/if}}
-<div class="btn-group btn-group-block">
-    <button class="btn btn-default" on:el:click="setPage('list')">
+    <div class="btn-group btn-group-block">
+        {{#if view.canCreate}}
+        <button class="btn btn-primary" on:el:click="setPage('add')"><i class="fa fa-plus"></i> Create</button>
+        {{/if}}
+        <button class="btn btn-default" on:el:click="setPage('list')">
               <i title="Refresh Data" class="fa {{#if objectsPromise.isPending}}fa-spin{{/if}} fa-refresh"></i> Refresh
             </button>
             </div>
@@ -39,7 +45,7 @@
       vm:currentSort:bind="parameters.sort"
       vm:fields:from="_fields" />
 
-      <div class="hidden-print">
+      <div class="hidden-print page-footer">
         <paginate-footer total="{{totalItems}}" vm:perPage:bind="parameters.perPage" vm:pageIndex:bind="parameters.page" />
       </div>
   </div>

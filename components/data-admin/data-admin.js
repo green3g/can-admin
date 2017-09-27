@@ -785,6 +785,9 @@ export const ViewModel = DefineMap.extend('DataAdmin', {
             if (promise) {
                 promise.then(() => {
                     this.objectsRefreshCount++;
+                    if (button.clearSelection) {
+                        this.clearSelection();
+                    }
                 });
             }
             return;

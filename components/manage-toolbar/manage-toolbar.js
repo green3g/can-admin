@@ -12,16 +12,17 @@ import template from './manage-toolbar.stache';
  * @description A `<manage-toolbar />` component's ViewModel
  */
 export const ViewModel = DefineMap.extend({
-  /**
+    /**
    * @prototype
    */
-  /**
+    /**
    * The buttons to display in the toolbar
    * @property {Array<dropdown-menu.ButtonObject} manage-toolbar.ViewModel.props.buttons buttons
    * @parent manage-toolbar.ViewModel.props
    */
     buttons: DefineList,
-  /**
+    objects: DefineList,
+    /**
    * Called when a button is clicked. This dispatches the button's event and
    * calls the buttons `onClick` method if it exists
    * @function dispatchButtonEvent
@@ -30,6 +31,11 @@ export const ViewModel = DefineMap.extend({
    */
     dispatchEvent (button) {
         this.dispatch('buttonclick', [button]);
+    },
+    clearSelection () {
+        if (this.objects) {
+            this.objects.replace([]);
+        }
     }
 });
 

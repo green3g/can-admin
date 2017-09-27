@@ -2,10 +2,7 @@ import DefineMap from 'can-define/map/map';
 import DefineList from 'can-define/list/list';
 import stache from 'can-stache';
 
-import factory from 'can-admin/behaviors/flask-restless/index';
-
-// import transformParameters from 'can-admin/behaviors/transformParameters';
-// import totalResourceCount from 'can-admin/behaviors/totalResourceCount';
+import connection from '../../../behaviors/connect';
 
 import 'can-admin/components/data-admin/data-admin';
 import 'can-admin/components/form-widget/field-components/checkbox-field/checkbox-field';
@@ -30,16 +27,14 @@ export const TaskList = DefineList.extend({
     '#': TaskMap
 });
 
-const Connection = factory({
-    // transform spectre-canjs parameters to our servers parameters if needed
-    //behaviors:  [
-    //transformParameters
-    //],
+const Connection = connection({
     idProp: 'id',
     Map: TaskMap,
     List: TaskList,
     url: '/tasks',
-    name: 'task'
+    name: 'task',
+    parseListProp: 'data',
+    totalProp: 'total'
 });
 
 const viewModel = new DefineMap({
@@ -59,6 +54,7 @@ const viewModel = new DefineMap({
         title: 'Tasks',
         connection: Connection,
         actions: [{
+            clearSelection:true,
             tooltip: 'Mark this task complete',
             header: 'Quick Tasks',
             text: 'Complete',
