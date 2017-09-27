@@ -2,7 +2,7 @@ import DefineMap from 'can-define/map/map';
 import DefineList from 'can-define/list/list';
 import Field from '~/util/field/Field';
 import {makeSentenceCase} from '~/util/string/string';
-import assign from 'object-assign';
+import assign from 'can-assign';
 import define from 'can-define';
 
 /**
@@ -182,10 +182,7 @@ export const Filter = DefineMap.extend('Filter', {
      *
      */
     alias: {
-        get (val) {
-            if (val) { 
-                return val; 
-            }
+        get () {
             return this.field ? this.field.alias : makeSentenceCase(this.name);
         },
         serialize: false
@@ -201,7 +198,7 @@ export const Filter = DefineMap.extend('Filter', {
     valueField: {
         serialize: false,
         get () {
-            const fieldProps = this.field ? assign(this.field.serialize(), {inline: true, textarea: false}) : {
+            const fieldProps = this.field ? assign(assign({}, this.field), {inline: true, textarea: false}) : {
                 inline: true,
                 name: this.name,
                 alias: 'Value',
