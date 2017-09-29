@@ -24,7 +24,7 @@ fixture({
     url: '/upload'
 }, function (request, response, headers, ajaxSettings) {
     return {
-        uploads: ['fake_upload_filename']
+        uploads: ['/path/to/file/fake_upload_filename']
     };
 });
 
@@ -76,13 +76,47 @@ const Template = DefineMap.extend({
         type: 'date', 
         value: new Date('2010-10-11')
     },
-    field5: 'string',
-    field6: ChildObject
+    field5: {
+
+        // convert a string value to a file list type 
+        set (val) {
+            if (!val) {
+                return []; 
+            }
+            if (typeof val === 'string') {
+                return val.split(',').map((file) => {
+                    const spl = file.split('/');
+                    return {
+                        path: file,
+                        name: spl[spl.length - 1]
+                    };
+                });
+            }
+            return val;
+        },
+
+        // convert file list type back to list
+        serialize (val) {
+
+            return val ? val.map((obj) => {
+                return obj.path;
+            }).join(',') : '';
+        }
+    },
+    field6: ChildObject,
+    field1Length: 'number',
+    field7: 'boolean'
 });
 
 const fields = [{
     name: 'field1',
     validate (props) {
+
+        // set an additional prop in the dirty to track additional data
+        // this field is defined in the Model, but not a field so its not editable
+        props.dirty.set('field1Length', props.value ? props.value.length: 0);
+
+        //return an error message if the length is < 50 chars
         return props.value.length < 50 ? 'This field must contain at least 50 characters' : false;
     }
 }, {

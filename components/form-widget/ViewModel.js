@@ -240,9 +240,12 @@ const ViewModel = FieldIteratorMap.extend('FormWidget', {
 
         // temporary workaround for setting array values on define map
         const serialized = this.dirtyObject.serialize();
+
+        // list of field values to update
+        const fields = Object.keys(serialized);
         canBatch.start();
-        for (var fieldIndex = 0; fieldIndex < this.fields.length; fieldIndex ++) {
-            const name = this.fields[fieldIndex].name;
+        for (var fieldIndex = 0; fieldIndex < fields.length; fieldIndex ++) {
+            const name = fields[fieldIndex];
             if (serialized.hasOwnProperty(name)) { 
                 this.formObject[name] = serialized[name]; 
             }
