@@ -7,6 +7,7 @@ import 'can-admin/components/form-widget/field-components/checkbox-field/checkbo
 import fixture from 'can-fixture';
 import stache from 'can-stache';
 import DefineMap from 'can-define/map/map';
+import dev from 'can-util/js/dev/dev';
 
 // import jquery ui functionality for datepicker
 import 'jquery';
@@ -23,6 +24,16 @@ fixture({
     method: 'POST',
     url: '/upload'
 }, function (request, response, headers, ajaxSettings) {
+    try {
+        const files = Array.from(request.data.entries()).map(file => {
+            return `path/to/webserver/${file[1].name}`;
+        })
+        return {
+            uploads: files
+        };
+    }  catch(e){
+        dev.warn(e);
+    }
     return {
         uploads: ['/path/to/file/fake_upload_filename']
     };

@@ -35,7 +35,7 @@ export const ViewModel = Base.extend('SubformField', {
 
 
             if (typeof val === 'object') {
-                this.subFormObject.set(val.serialize ? val.serialize() : val);
+                this.subFormObject.set(val);
             } else {
                 dev.warn('typeof subform value needs to be object. Type is ' + typeof val, val);
             }
