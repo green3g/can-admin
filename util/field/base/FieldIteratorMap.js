@@ -41,7 +41,7 @@ export default DefineMap.extend({
             }
             
             // otherwise try to get 'defined' fields from define map properties
-            if (this.object instanceof DefineMap) {
+            if (!fields.length && this.object instanceof DefineMap) {
                 fields = mapToFields(this.object);
             }
 
