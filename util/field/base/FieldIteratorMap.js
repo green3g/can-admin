@@ -1,5 +1,6 @@
 import DefineMap from 'can-define/map/map';
 import parseFieldArray from '../parseFieldArray/parseFieldArray';
+import mapToFields from '../mapToFields/mapToFields';
 import Field from '../Field';
 import DefineList from 'can-define/list/list';
 
@@ -37,6 +38,9 @@ export default DefineMap.extend({
                 fields = parseFieldArray(fields);
             }
             if (!fields.length && this.object) {
+                if (this.object instanceof DefineMap) {
+                    return mapToFields(this.object);
+                }
                 const obj = this.object.serialize ? this.object.serialize() : this.object;
                 return parseFieldArray(Object.keys(obj));
             }
