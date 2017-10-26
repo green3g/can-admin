@@ -1,7 +1,6 @@
 language: node_js
 node_js: node
 install:
-  - npm install -g npm@4
   - npm install
 addons:
   firefox: "54.0"
