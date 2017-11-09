@@ -47,7 +47,7 @@ export const ViewModel = Base.extend('DateField', {
 
                 // if the set date is valid, set our dropdowns
             } else {
-                this.set({
+                this.assign({
                     day: date.getUTCDate(),
                     month: date.getUTCMonth(),
                     year: date.getUTCFullYear()

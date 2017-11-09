@@ -35,7 +35,7 @@ export const ViewModel = Base.extend('SubformField', {
 
 
             if (typeof val === 'object') {
-                this.subFormObject.set(val);
+                this.subFormObject.update(val);
             } else {
                 dev.warn('typeof subform value needs to be object. Type is ' + typeof val, val);
             }
@@ -100,7 +100,7 @@ export const ViewModel = Base.extend('SubformField', {
      * @param  {Object} props   The change event properties
      */
     saveField (scope, dom, event, props) {
-        this.subFormObject.set(props.dirty.serialize());
+        this.subFormObject.update(props.dirty.serialize());
         this.dispatch('fieldchange', [{
             value: this.subFormObject.serialize(),
             name: this.properties.name

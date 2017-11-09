@@ -11,7 +11,7 @@ export function updateFieldProps (fields, props) {
                 return field.name === prop;
             });
             if (fieldProps.length) {
-                fieldProps[0].set(props[prop]);
+                fieldProps[0].update(props[prop]);
             } else {
                 fields.push(props[prop]);
             }

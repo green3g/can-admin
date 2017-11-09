@@ -29,10 +29,14 @@ export default Base.extend('SelectField', {
         set (props) {
             if (props.optionsPromise) {
                 props.optionsPromise.then((options) => {
-                    props.set('options', [DEFAULT_OPTION].concat(options.serialize ? options.serialize() : options));
+                    props.assign({
+                        options: [DEFAULT_OPTION].concat(options.serialize ? options.serialize() : options)
+                    });
                 });
             } else if (props.options && props.options.length) {
-                props.set('options', [DEFAULT_OPTION].concat(props.options.serialize ? props.options.serialize() : props.options));
+                props.assign({
+                    options: [DEFAULT_OPTION].concat(props.options.serialize ? props.options.serialize() : props.options)
+                });
             } else {
                 dev.warn('select-field::no options passed');
             }

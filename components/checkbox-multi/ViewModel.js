@@ -17,7 +17,7 @@ export default FieldInputMap.extend('CheckboxMulti', {
         set (props) {
             if (props.optionsPromise) {
                 props.optionsPromise.then((options) => {
-                    props.set('options', options);
+                    props.assign({options: options});
                 });
             } 
             return props;

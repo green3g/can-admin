@@ -19,7 +19,7 @@ q.module('form-widget.ViewModel', {
 test('objectId set()', (assert) => {
     const done = assert.async();
     const id = 6;
-    vm.set({
+    vm.assign({
         connection: Connection,
         objectId: id
     });

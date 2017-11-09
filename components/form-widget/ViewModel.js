@@ -278,7 +278,9 @@ const ViewModel = FieldIteratorMap.extend('FormWidget', {
     setField (field, domElement, event, props) {
         const value = props.value;
         // update our dirty form field
-        this.dirtyObject.set(field.name, value);
+        const updates = {};
+        updates[field.name] = value;
+        this.dirtyObject.assign(updates);
 
         // check for valid field value and don't update if it's not
         const error = this.validationErrors[field.name] = this.getValidationError(field, value);

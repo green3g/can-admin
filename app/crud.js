@@ -168,7 +168,7 @@ export const AppViewModel = DefineMap.extend('AppViewModel', {
             this.messages.push(toast);
         });
         PubSub.subscribe(T.SET_VIEW, (topic, view, page, id) => {
-            this.set({
+            this.assign({
                 view: view,
                 objectId: id || null,
                 page: page || 'list'

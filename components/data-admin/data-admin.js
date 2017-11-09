@@ -397,7 +397,7 @@ export const ViewModel = DefineMap.extend('DataAdmin', {
     updateRelatedFilter (field, value) {
         if (field && value) {
             if (this.relatedFilter) {
-                this.relatedFilter.set({
+                this.relatedFilter.assign({
                     name: field.name,
                     value: value
                 });
@@ -446,7 +446,7 @@ export const ViewModel = DefineMap.extend('DataAdmin', {
         if (page === 'list') {
             this.objectsRefreshCount++;
         }
-        this.set({
+        this.assign({
             viewId: id,
             page: page
         });
@@ -545,7 +545,7 @@ export const ViewModel = DefineMap.extend('DataAdmin', {
 
             // update the view id
             // set page to the details view by default
-            this.set({
+            this.assign({
                 viewId: this.view.connection.id(result),
                 page: 'details',
                 objectsRefreshCount: this.objectsRefreshCount + 1
@@ -561,7 +561,7 @@ export const ViewModel = DefineMap.extend('DataAdmin', {
 
         }).catch((e) => {
             dev.warn(e);
-            this.set({
+            this.assign({
                 viewId: null,
                 page: 'list',
                 objectsRefreshCount: this.objectsRefreshCount + 1
@@ -678,7 +678,7 @@ export const ViewModel = DefineMap.extend('DataAdmin', {
         const deferred = this.view.connection.destroy(obj);
         deferred.then(() => {
 
-            this.set({
+            this.assign({
                 viewId: null,
                 page: 'list',
                 objectsRefreshCount: this.objectsRefreshCount + 1
@@ -692,7 +692,7 @@ export const ViewModel = DefineMap.extend('DataAdmin', {
 
         deferred.catch((result) => {
 
-            this.set({
+            this.assign({
                 viewId: null,
                 page: 'list',
                 objectsRefreshCount: this.objectsRefreshCount + 1
@@ -866,19 +866,7 @@ export const ViewModel = DefineMap.extend('DataAdmin', {
     updateParameters (params) {
         // mixin view parameters
         if (params) {
-            params.forEach((param, key) => {
-                // deep copy filters
-                if (key === 'filters') {
-                    const filters = param.filter((filter) => {
-                        return this.parameters.filters && this.parameters.filters.indexOf(filter) < 0;
-                    });
-                    this.parameters.set('filters',
-                        (this.parameters.filters ? this.parameters.filters.concat(filters) : filters)
-                    );
-                } else {
-                    this.parameters.set(key, param);
-                }
-            });
+            this.parameters.assignDeep(params);
         }
     }
 });

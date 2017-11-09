@@ -211,7 +211,7 @@ test('deleteObject(obj, skipConfirm) ', (assert) => {
         done();
     });
 
-  // delete the object skip confirm
+    // delete the object skip confirm
     vm.deleteObject(new TaskMap({id: id}), true);
 });
 
@@ -249,7 +249,7 @@ test('manageObjects(button) details', (assert) => {
             });
         }
     };
-    vm.set({
+    vm.assign({
         page: 'details',
         focusObject: {}
     });
@@ -278,7 +278,7 @@ test('manageObjects(button) list', (assert) => {
             });
         }
     };
-    vm.set({
+    vm.assign({
         selectedObjects: [{}, {}],
         page: 'list'
     });

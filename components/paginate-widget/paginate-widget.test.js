@@ -32,8 +32,8 @@ test('hasPrevious get()', (assert) => {
 });
 
 test('visiblePages get()', (assert) => {
-    vm.set({
-        'pages': 10,
+    vm.update({
+        pages: 10,
         activeOffset: 3
     });
     const tests = [{

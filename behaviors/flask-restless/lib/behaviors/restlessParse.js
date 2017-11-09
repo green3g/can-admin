@@ -37,7 +37,9 @@ export default connect.behavior('FlaskRestlessData', function () {
                     }) : props.relationships[rel].data ? props.relationships[rel].data.id : null;
 
                     // update the metadata relationships
-                    this.metadata.relationships.set(rel, true);
+                    const updates = {};
+                    updates[rel] = true;
+                    this.metadata.relationships.assign(updates);
                 }
             }
 

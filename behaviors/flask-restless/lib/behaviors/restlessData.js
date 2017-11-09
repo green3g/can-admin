@@ -62,7 +62,7 @@ export default connect.behavior('FlaskRestlessData', function (base) {
                 promise.then((props) => {
 
                     // update the metadata
-                    this.metadata.set(props.meta);
+                    this.metadata.assign(props.meta);
 
                     resolve(props);
                 }, reject);

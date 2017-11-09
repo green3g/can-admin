@@ -17,7 +17,7 @@ q.module('data-admin/components/paginate-footer.ViewModel', {
 
 
 test('pageNumber get()', (assert) => {
-    vm.set({
+    vm.update({
         total: 100,
         pageIndex: 0
     });
@@ -79,7 +79,7 @@ test('perPageOptions get()', (assert) => {
 });
 
 test('itemFrom get()', (assert) => {
-    vm.set({
+    vm.update({
         pageIndex: 1,
         perPage: 15
     });
@@ -87,7 +87,7 @@ test('itemFrom get()', (assert) => {
 });
 
 test('itemTo get()', (assert) => {
-    vm.set({
+    vm.update({
         pageIndex: 1,
         perPage: 15,
         total: 100

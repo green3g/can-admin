@@ -53,7 +53,7 @@ export const ViewModel = DefineMap.extend('JSONField', {
             if (val) {
                 try {
                     const obj = JSON.parse(val);
-                    this.jsonFormObject.set(obj);
+                    this.jsonFormObject.assign(obj);
                 } catch (e) {
                     dev.warn('error parsing json, value set on json-field was ' + val);
                     dev.warn(e);
@@ -106,7 +106,7 @@ export const ViewModel = DefineMap.extend('JSONField', {
      * @param  {Object} props   The change event properties
      */
     saveField (scope, dom, event, props) {
-        this.jsonFormObject.set(props.name, props.value);
+        this.jsonFormObject.assign(props.name, props.value);
         const json = JSON.stringify(this.jsonFormObject.serialize());
         this.value = json;
         this.dispatch('fieldchange', [{

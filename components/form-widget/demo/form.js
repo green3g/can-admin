@@ -125,7 +125,9 @@ const fields = [{
 
         // set an additional prop in the dirty to track additional data
         // this field is defined in the Model, but not a field so its not editable
-        props.dirty.set('field1Length', props.value ? props.value.length: 0);
+        props.dirty.assign({
+            field1Length: props.value ? props.value.length: 0
+        });
 
         //return an error message if the length is < 50 chars
         return props.value.length < 50 ? 'This field must contain at least 50 characters' : false;

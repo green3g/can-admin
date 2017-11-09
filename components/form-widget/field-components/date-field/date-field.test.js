@@ -42,7 +42,7 @@ test('value get() invalid date', (assert) => {
 });
 
 test('dayProperties get()', (assert) => {
-    vm.set({
+    vm.assign({
         month: 0,
         day: 1,
         year: 1900
