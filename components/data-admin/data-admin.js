@@ -198,6 +198,9 @@ export const ViewModel = DefineMap.extend('DataAdmin', {
     objectsPromise: {
         get () {
             this.get('objectsRefreshCount');
+
+            // TODO: remove when fix 
+            this.parameters.filters.get('length');
             const params = this.parameters ? this.parameters.serialize() : {};
             const promise = this.view.connection.getList(params);
 
