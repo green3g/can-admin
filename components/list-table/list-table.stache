@@ -21,7 +21,7 @@
     </thead>
 
     <tbody>
-      {{#each objects as object}}
+      {{#each objects object=value}}
         <tr {{#if isSelected(object)}} class="selected" {{/if}}>
           <td class="checkbox-cell">
             <div class="form-group d-inline-block">
@@ -31,7 +31,7 @@
               </label>
             </div>
           </td>
-          {{#each fields as field}}
+          {{#each fields field=value}}
             <td {{#if classes}}class="{{classes}}"{{/if}}>
                 {{ >field.displayTemplate}}
             </td>

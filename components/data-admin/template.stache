@@ -29,7 +29,7 @@
   {{/case}}
 
 
-  {{#each view.tabs as tab}}
+  {{#each view.tabs tab=value}}
     {{#case tab.id}}
         {{>tab.template}}
     {{/case}}
@@ -45,7 +45,7 @@
 
     <p>{{objectsToDelete.length}} item(s) to be deleted:</p>
     <ul>
-      {{#each objectsToDelete as obj}}
+      {{#each objectsToDelete obj=value}}
         <li>{{obj[view.titleProp]}}</li>
       {{/each}}
     </ul>

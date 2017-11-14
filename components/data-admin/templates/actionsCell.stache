@@ -6,7 +6,7 @@
     </a>
 
     <ul class="menu" style="cursor:pointer;">
-      {{#each actions as action}}
+      {{#each actions action=value}}
         {{#if header}}
           <li class="divider" data-content="{{header}}">
           </li>

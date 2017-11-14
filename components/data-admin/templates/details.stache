@@ -17,7 +17,7 @@
 
           <property-table vm:object:from="focusObject" vm:fields:from="_fields" />
         </nav-page>
-        {{#each view.relatedViews as relView}}
+        {{#each view.relatedViews relView=value}}
           <nav-page label="{{#if relView.title}}{{relView.title}}{{else}}{{relView.view.title}}{{/if}}">
             <data-admin vm:view:from="relView.view" related-field="{{relView.referenceKey}}" related-value="{{focusObject[relView.foreignKey]}}" />
           </nav-page>

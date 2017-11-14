@@ -1,6 +1,6 @@
 <fieldset class="mt-10">
   <legend>{{properties.alias}}</legend>
-  {{#each properties.options as opt}}
+  {{#each properties.options opt=value}}
     <div class="form-group">
       <label class="form-{{#if properties.style}}{{properties.style}}{{else}}checkbox{{/if}}">
         <input type="checkbox" el:checked:bind="boolean-to-inList(opt.value, ../value)" name="{{opt.value}}" on:el:change="onChange" />
