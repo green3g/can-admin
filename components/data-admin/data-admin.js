@@ -175,7 +175,13 @@ export const ViewModel = DefineMap.extend('DataAdmin', {
      */
     parameters: {
         Value: ParameterMap,
-        Type: ParameterMap
+        Type: ParameterMap,
+        set (params) {
+            params.filters.on('length', () => {
+                this.objectsRefreshCount ++;
+            });
+            return params;
+        }
     },
     deletePromise: '*',
     showConfirmDelete: 'boolean',
@@ -198,9 +204,6 @@ export const ViewModel = DefineMap.extend('DataAdmin', {
     objectsPromise: {
         get () {
             this.get('objectsRefreshCount');
-
-            // TODO: remove when fix 
-            this.parameters.filters.get('length');
             const params = this.parameters ? this.parameters.serialize() : {};
             const promise = this.view.connection.getList(params);
 
