@@ -25,17 +25,17 @@
     </script>
     <script src="node_modules/steal/steal.js" data-main="can-admin/app/crud">
 
+        // define config path here
+        var config = 'can-admin/config/news/news';
         Promise.all([
-            steal.import('can-admin/app/crud')
+            steal.import('can-admin/app/crud'),
+            steal.import(config)
         ]).then(function(modules) {
-            // var qs = modules[0];
+            
             var AppViewModel = modules[0].AppViewModel;
-            var config = 'can-admin/config/workorders/workorders';
-
-            steal.import(config).then(function(module) {
-                var app = new AppViewModel(module.config || module.default);
-                app.startup(document.getElementById('app'));
-            });
+            var config = modules[1].default || modules[1].config;
+            var app = new AppViewModel(config);
+            app.startup(document.getElementById('app'));
         });
     </script>
 

@@ -1,8 +1,10 @@
-<toast-container {(toasts)}="messages" />
+
+<toast-container toasts:bind="messages" />
 
 <!-- Page Content -->
 <div class="container">
 
+    
     {{#if configPromise.isPending}}
         <p style="text-align:center">
             <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
@@ -10,22 +12,31 @@
         </p>
     {{else}}
         {{#if config}}
-        
-            <dropdown-menu {text}="activeViewProps.title" icon-class="fa fa-fw fa-caret-down">
-                
-                <ul class="menu">
-                    {{#each views}}
+    
+        <div class="off-canvas">
+    
+            <a class="off-canvas-toggle btn btn-primary btn-action" on:el:click="toggleSidebar">
+                <i class="fa fa-bars"></i>
+            </a>
+            <div class="off-canvas-sidebar {{#if sidebarActive}}active{{/if}}" style="overflow:visible">
+                <h3 class="py-1">{{pageData.title}}</h3>
+                <ul class="menu mx-2">
+                    {{#each views id=key}}
                         <li class="menu-item">
-                            <a href="{{routeUrl(page='list' view=%key)}}">
+                            <a href="{{routeUrl(page='list' view=id)}}" class="{{#is view id}}active{{/is}}">
                                 <i class="{{#if iconClass}}{{iconClass}}{{else}}fa fa-fw fa-ellipsis-v{{/if}}"></i> {{title}}</a>
                         </li>
                     {{/each}}
                 </ul>
-            </dropdown-menu>
-            
-            <data-admin {(page)}="page" {(view-id)}="objectId" {view}="config" />
-        {{else}}
-            <toast-item body="Config could not be loaded" heading="Oops!" severity="warning" />
+            </div>
+            <a class="off-canvas-overlay" on:el:click="toggleSidebar"></a>
+            <div class="off-canvas-content">
+                {{#if .}}
+                    <data-admin page:bind="page" viewId:bind="objectId" view:from="config" />
+                {{/if}}
+            </div>
+
         {{/if}}
+    </div>
     {{/if}}
 </div>

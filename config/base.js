@@ -4,7 +4,8 @@ import 'can-admin/components/dropdown-menu/dropdown-menu';
 import 'can-admin/components/toast-container/toast-container';
 import 'can-admin/components/toast-item/toast-item';
 
-import 'spectre.css/docs/dist/spectre.css';
+import 'spectre.css/dist/spectre.css';
+import 'spectre.css/dist/spectre-exp.css';
 import 'animate.css/animate.css';
 import 'font-awesome/css/font-awesome.css';
 

@@ -96,7 +96,7 @@ export const AppViewModel = DefineMap.extend('AppViewModel', {
             this.configPromise.then(set);
         }
     },
-    sidebarHidden: {
+    sidebarActive: {
         type: 'boolean',
         value: false,
         serialize: false
@@ -174,5 +174,8 @@ export const AppViewModel = DefineMap.extend('AppViewModel', {
                 page: page || 'list'
             });
         });
+    },
+    toggleSidebar () {
+        this.sidebarActive = !this.sidebarActive;
     }
 });
