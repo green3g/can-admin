@@ -1,9 +1,9 @@
 <!--
 @module {Module} util/behaviors behaviors
-@parent spectre.util
+@parent can-admin.util
 
 -->
 
 ## Description
 
-Custom can-connect behaviors for working with spectre-canjs.
+Custom can-connect behaviors for working with can-admin.

@@ -1,7 +1,7 @@
 <!--
 
 @module {can.Component} property-table <property-table />
-@parent spectre.components
+@parent can-admin.components
 -->
 
 ## Description

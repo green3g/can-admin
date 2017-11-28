@@ -1,6 +1,6 @@
 <!--
 @module {can.Component} modal-dialog <modal-dialog />
-@parent spectre.components
+@parent can-admin.components
 -->
 
 ## Description

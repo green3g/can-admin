@@ -1,7 +1,7 @@
 <!--
 
 @module {can.Component} paginate-widget <paginate-widget />
-@parent spectre.components
+@parent can-admin.components
 
 -->
 

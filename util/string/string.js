@@ -2,7 +2,7 @@ import string from 'can-util/js/string/string';
 
 /**
  * @module {{}} util/string string
- * @parent spectre.util
+ * @parent can-admin.util
  * @description a collection of string utilities
  */
 

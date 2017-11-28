@@ -1,6 +1,6 @@
 <!--
 @module {can.Component} nav-page <nav-page />
-@parent spectre.components
+@parent can-admin.components
 
 -->
 

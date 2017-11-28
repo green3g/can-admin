@@ -1,6 +1,6 @@
 <!--
 @module {can.Component} paginate-footer <paginate-footer />
-@parent spectre.components
+@parent can-admin.components
 @outline 3
 -->
 

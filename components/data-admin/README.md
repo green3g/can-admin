@@ -1,6 +1,6 @@
 <!--
 @module {can.Component} data-admin <data-admin />
-@parent spectre.components
+@parent can-admin.components
 @group data-admin.types Types
 @outline 3
 -->

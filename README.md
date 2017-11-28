@@ -1,6 +1,6 @@
 <!--
-@page crud Home
-@group crud.guides Guides
+@page can-admin Home
+@group can-admin.guides Guides
 -->
 
 # Can Admin App

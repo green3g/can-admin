@@ -1,6 +1,6 @@
 <!--
 @module {can.Component} filter-widget <filter-widget />
-@parent spectre.components
+@parent can-admin.components
 @group filter-widget.types Types
 -->
 

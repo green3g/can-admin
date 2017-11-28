@@ -5,7 +5,7 @@ import ViewModel from './ViewModel';
 
 /**
  * @module {can.Component} toast-item <toast-item />
- * @parent spectre.components
+ * @parent can-admin.components
  * @outline 3
  */
 Component.extend({

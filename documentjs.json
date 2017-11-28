@@ -8,7 +8,7 @@
       "glob": {
         "ignore": "{docs,dist,node_modules}/**/*"
       },
-      "parent": "spectre",
+      "parent": "can-admin",
       "dest": "./docs",
       "templates": "guides/site/templates",
       "static": "guides/site/static"

@@ -1,6 +1,6 @@
 <!--
 @module {can.Component} list-table <list-table />
-@parent spectre.components
+@parent can-admin.components
 -->
 
 ## Description

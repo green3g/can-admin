@@ -1,6 +1,6 @@
 <!--
 @module {can.Component} manage-toolbar <manage-toolbar />
-@parent spectre.components
+@parent can-admin.components
 @outline 3
 -->
 

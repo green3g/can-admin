@@ -1,7 +1,7 @@
 
 <!--
-@module {can.COmponent} confirm-dialog <confirm-dialog />
-@parent spectre.components
+@module {can.Component} confirm-dialog <confirm-dialog />
+@parent can-admin.components
 -->
 
 ## Description

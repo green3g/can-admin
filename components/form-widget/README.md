@@ -1,6 +1,6 @@
 <!--
 @module {can.Component} form-widget <form-widget />
-@parent spectre.components
+@parent can-admin.components
 @group form-widget.fields Field Types
 @group form-widget.types Types
 -->
