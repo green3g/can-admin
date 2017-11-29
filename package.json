@@ -9,7 +9,7 @@
     "pretest": "npm run lint",
     "test": "testee test/index.html --reporter Spec --browsers firefox",
     "posttest": "npm run build",
-    "docs": "documentjs -d -f",
+    "docs": "bit-docs",
     "postdocs": "node docs-bundle",
     "prepublish-docs": "git checkout gh-pages && git merge master",
     "publish-docs": "npm run docs && git add docs -f && git commit -m docs && git push origin gh-pages -f && git checkout master"
@@ -40,9 +40,10 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
+    "bit-docs": "0.0.8-0",
     "can-fixture": "^1.1.1",
-    "documentjs": "^0.5.1",
     "eslint": "^4.6.1",
+    "fs-extra": "^4.0.2",
     "steal-css": "^1.2.4",
     "steal-less": "^1.2.0",
     "steal-qunit": "^1.0.1",
@@ -63,5 +64,29 @@
       "can-admin/config/news/Visit",
       "can-admin/config/news/Article"
     ]
+  },
+  "bit-docs": {
+    "dependencies": {
+      "bit-docs-glob-finder": "^0.0.5",
+      "bit-docs-dev": "^0.0.3",
+      "bit-docs-js": "^0.0.6",
+      "bit-docs-tag-sourceref": "^0.0.3",
+      "bit-docs-tag-package": "^0.0.3",
+      "bit-docs-generate-html": "^0.7.1",
+      "bit-docs-prettify": "^0.1.0",
+      "bit-docs-html-highlight-line": "^0.2.2",
+      "bit-docs-html-toc": "^0.4.0",
+      "bit-docs-tag-demo": "^0.3.0"
+    },
+    "glob": {
+      "ignore": [
+        "{docs,dist,node_modules}/**/*"
+      ],
+      "pattern": "**/*.{js,md}"
+    },
+    "parent": "can-admin",
+    "dest": "./docs",
+    "templates": "guides/site/templates",
+    "static": "guides/site/static"
   }
 }
