@@ -196,7 +196,7 @@ export const ViewMap = DefineMap.extend('ViewMap', {seal: false}, {
      * @property {Array<Object>} data-admin/ViewMap.props.relatedViews relatedViews
      * @parent data-admin/ViewMap.props
      */
-    relatedViews: {value: undefined},
+    relatedViews: {Value: DefineList},
     /**
      * Additional buttons to display when items are checked in the table. Buttons
      * can have an icon, text an an on click event handler
@@ -212,7 +212,7 @@ export const ViewMap = DefineMap.extend('ViewMap', {seal: false}, {
        }],
        ```
      */
-    actions: {value: undefined},
+    actions: {value: DefineList},
     /**
      * Additional tabs to display in this view's navigation pane. Each tab
      * can have a
@@ -243,7 +243,7 @@ export const ViewMap = DefineMap.extend('ViewMap', {seal: false}, {
 
      *
      */
-    quickFilters: {value: undefined},
+    quickFilters: {Value: DefineList},
     /**
      * The template to render when editing and has permissions.  The scope of the template
      * is the `data-admin` view model.

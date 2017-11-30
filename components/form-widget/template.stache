@@ -1,24 +1,30 @@
-<form class="form{{#inline}}-horizontal form-inline{{/inline}}" on:el:submit="submitForm">
-    {{#each fields}}
-      {{>formTemplate}}
-    {{/each}}
+{{#if formObject}}
 
-    <br />
+  <form class="form{{#inline}}-horizontal form-inline{{/inline}}" on:el:submit="submitForm">
+      {{#each fields}}
+        {{>formTemplate}}
+      {{/each}}
 
-    {{#if isSaving}}
-      <div class="loading"></div>
-    {{else}}
-      {{#if actions.length}}
-        <div class="btn-group" role="group" aria-label="Form Buttons">
-          {{#each actions}}
-            <button type="button" 
-              class="{{buttonClass}}" 
-              on:el:click="dispatchEvent(eventName)">
-                {{#if iconClass}}<i class="{{iconClass}}"></i>{{/if}} 
-                {{label}}
-            </button>
-          {{/each}}
-        </div>
+      <br />
+
+      {{#if isSaving}}
+        <div class="loading"></div>
+      {{else}}
+        {{#if actions.length}}
+          <div class="btn-group" role="group" aria-label="Form Buttons">
+            {{#each actions}}
+              <button type="button" 
+                class="{{buttonClass}}" 
+                on:el:click="dispatchEvent(eventName)">
+                  {{#if iconClass}}<i class="{{iconClass}}"></i>{{/if}} 
+                  {{label}}
+              </button>
+            {{/each}}
+          </div>
+        {{/if}}
       {{/if}}
-    {{/if}}
-</form>
+  </form>
+
+{{else}}
+  <p>The form could not be displayed. The object was not found.</p>
+{{/if}}
