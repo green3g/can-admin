@@ -236,23 +236,9 @@ const ViewModel = FieldIteratorMap.extend('FormWidget', {
         if (this.showSaving) {
             this.isSaving = true;
         }
-        const formObject = this.formObject;
 
-        // temporary workaround for setting array values on define map
-        const serialized = this.dirtyObject.serialize();
-
-        // list of field values to update
-        const fields = Object.keys(serialized);
-        canBatch.start();
-        for (var fieldIndex = 0; fieldIndex < fields.length; fieldIndex ++) {
-            const name = fields[fieldIndex];
-            if (serialized.hasOwnProperty(name)) { 
-                this.formObject[name] = serialized[name]; 
-            }
-        }
-        canBatch.stop();
-        // formObject.set(this.dirtyObject.serialize());
-        this.dispatch('submit', [formObject]);
+        this.formObject.assign(this.dirtyObject.serialize());
+        this.dispatch('submit', [this.formObject]);
         return false;
     },
     dispatchEvent (eventName) {
