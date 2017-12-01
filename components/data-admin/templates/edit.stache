@@ -3,28 +3,28 @@
 </div>
 
 {{#if view.canEdit}}
-{{#if viewId}}
-  {{#if focusObjectPromise.isPending}}
-    <div class="loading"></div>
-  {{else}}
-    {{#if focusObjectPromise.isResolved}}
-    <h3>{{view.title}}: {{focusObject[view.titleProp]}}</h3>
+  {{#if viewId}}
+    {{#if focusObjectPromise.isPending}}
+      <div class="loading"></div>
+    {{else}}
+      {{#if focusObjectPromise.isResolved}}
+        <h3>{{view.title}}: {{focusObject[view.titleProp]}}</h3>
 
-    <form-widget 
-      vm:formObject:from="focusObject" 
-      show-saving 
-      on:vm:submit="saveObject" 
-      on:vm:submitfail="view.errorSubmit"
-      vm:fields:from="_fields" 
-      vm:actions:from="view.formActions"
-      on:vm:cancel="setPage('list')" />
+        <form-widget 
+          vm:formObject:from="focusObject" 
+          show-saving 
+          on:vm:submit="saveObject" 
+          on:vm:submitfail="view.errorSubmit"
+          vm:fields:from="_fields" 
+          on:vm:cancel="setPage('list')" />
+
       {{else}}
-      <toast-item level="warning" body="There was an error getting the row: {{viewId}}." auto-hide="0" />
+        <toast-item level="warning" body="There was an error getting the row: {{viewId}}." auto-hide="0" />
       {{/if}}
+    {{/if}}
+  {{else}}
+    <p>Please click the <i class="fa fa-pencil"></i> Edit button on the list page to edit a row.</p>
   {{/if}}
 {{else}}
-  <p>Please click the <i class="fa fa-pencil"></i> Edit button on the list page to edit a row.</p>
-{{/if}}
-{{else}}
-<p>{{view.editDisabledMessage}}</p>
+  <p>{{view.editDisabledMessage}}</p>
 {{/if}}
