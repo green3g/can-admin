@@ -35,7 +35,7 @@ export const ViewModel = Base.extend('SubformField', {
 
 
             if (typeof val === 'object') {
-                this.subFormObject.update(val);
+                this.subFormObject = val;
             } else {
                 dev.warn('typeof subform value needs to be object. Type is ' + typeof val, val);
             }
@@ -57,22 +57,8 @@ export const ViewModel = Base.extend('SubformField', {
      * @parent subform-field.ViewModel.props
      */
     subFormObject: {
-        Value: DefineMap,
-        get (val) {
-            if (val) { 
-                return val; 
-            }
-            const Template = this.properties.ObjectTemplate;
-            let obj;
-            if (Template) {
-                obj = new Template();
-            } else {
-                dev.warn('subform-field needs an ObjectTemplate defined in its field properties');
-                obj = new DefineMap();
-            }
-
-            return obj;
-        }
+        Type: DefineMap,
+        Value: DefineMap
     },
     /**
      * The field properties to set up the form fields functionality, this is
@@ -100,7 +86,7 @@ export const ViewModel = Base.extend('SubformField', {
      * @param  {Object} props   The change event properties
      */
     saveField (scope, dom, event, props) {
-        this.subFormObject.update(props.dirty.serialize());
+        this.subFormObject.assign(props.dirty.serialize());
         this.dispatch('fieldchange', [{
             value: this.subFormObject.serialize(),
             name: this.properties.name

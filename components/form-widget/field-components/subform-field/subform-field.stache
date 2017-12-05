@@ -2,9 +2,9 @@
   <fieldset>
     <legend>{{properties.alias}}</legend>
     <form-widget vm:inline:from="properties.inline" 
-      vm:formObject:from="subFormObject" 
-      on:vm:fieldchange="saveField" 
-      vm:fields:from="formFields" 
-      vm:actions:from="formActions" />
+      formObject:from="subFormObject" 
+      on:fieldchange="saveField" 
+      fields:from="formFields" 
+      actions:from="formActions" />
   </fieldset>
 </div>
