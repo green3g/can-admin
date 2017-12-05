@@ -97,7 +97,7 @@ export const ViewModel = DefineMap.extend({
     },
     getQuickFilter (fieldName, value) {
         const filter = this.filters.filter((f) => {
-            return f.name === fieldName && f.value === value;
+            return f.name === fieldName && f.value === value && f.operator === 'equals';
         });
         return filter[0];
     }
