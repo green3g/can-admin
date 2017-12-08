@@ -25,22 +25,20 @@ export default Base.extend('SelectField', {
     properties: {
         value: {
             options: [DEFAULT_OPTION]
-        },
-        set (props) {
+        }
+    },
+    options: {
+        get (val, set) {
+            const props = this.properties;
             if (props.optionsPromise) {
                 props.optionsPromise.then((options) => {
-                    props.assign({
-                        options: [DEFAULT_OPTION].concat(options.serialize ? options.serialize() : options)
-                    });
+                    set([DEFAULT_OPTION].concat(options.serialize ? options.serialize() : options));
                 });
             } else if (props.options && props.options.length) {
-                props.assign({
-                    options: [DEFAULT_OPTION].concat(props.options.serialize ? props.options.serialize() : props.options)
-                });
+                set([DEFAULT_OPTION].concat(props.options.serialize ? props.options.serialize() : props.options));
             } else {
                 dev.warn('select-field::no options passed');
             }
-            return props;
         }
     },
     /**
