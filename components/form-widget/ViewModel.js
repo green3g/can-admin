@@ -166,7 +166,7 @@ const ViewModel = FieldIteratorMap.extend('FormWidget', {
             for (let i = 0; i < this.fields.length; i++) {
                 const field = this.fields[i];
                 const name = field.name;
-                const currentValue = this.dirtyObject[name] || this.formObject[name];
+                const currentValue = typeof this.dirtyObject[name] !== 'undefined' ? this.dirtyObject[name] : this.formObject[name];
                 if (this.validationErrors[name]) {
                     isValid = false;
                 } else {
