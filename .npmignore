@@ -1,0 +1,12 @@
+# Dependency directory
+node_modules/
+dist/
+.vscode/
+
+#docs and build output
+docs/
+
+.directory
+*.log
+
+.vscode/
