@@ -15,7 +15,6 @@ var realTime = require("can-connect/real-time/real-time");
 var callbacksOnce = require("can-connect/constructor/callbacks-once/callbacks-once");
 var GLOBAL = require("can-util/js/global/global");
 var totalResourceCount = require('./totalResourceCount').default;
-console.log(totalResourceCount);
 var $ = GLOBAL().$;
 
 module.exports = function (options) {

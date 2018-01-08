@@ -1,6 +1,0 @@
-<div class="form-group">
-  <fieldset>
-    <legend>{{properties.alias}}</legend>
-    <form-widget inline="{{properties.inline}}" vm:formObject:from="jsonFormObject" on:vm:fieldchange="saveField" vm:fields:from="formFields" show-buttons="false" />
-  </fieldset>
-</div>

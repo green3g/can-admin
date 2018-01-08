@@ -1,4 +1,0 @@
-
-<span style="font-weight: bolder;color: {{voteColor object.votes}};">
-  {{object.votes}}
-</span>

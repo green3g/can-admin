@@ -35,12 +35,12 @@
     "jquery-ui": "^1.12.1",
     "object-assign": "^4.1.1",
     "pubsub-js": "^1.5.7",
+    "spectre-canjs": "^0.32.0",
     "spectre.css": "^0.4.6",
     "steal": "^1.5.13"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
-    "bit-docs": "0.0.8-0",
     "can-fixture": "^1.1.1",
     "eslint": "^4.6.1",
     "fs-extra": "^4.0.2",
@@ -48,8 +48,7 @@
     "steal-less": "^1.2.0",
     "steal-qunit": "^1.0.1",
     "steal-stache": "^3.1.0",
-    "steal-tools": "^1.3.6",
-    "testee": "^0.7.0"
+    "steal-tools": "^1.3.6"
   },
   "steal": {
     "plugins": [

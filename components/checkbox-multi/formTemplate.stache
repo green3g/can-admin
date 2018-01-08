@@ -1,1 +1,0 @@
-<checkbox-multi on:vm:fieldchange="setField" vm:value:from="formObject[name]" vm:errors:from="validationErrors" vm:properties:from="." />

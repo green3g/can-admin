@@ -1,5 +1,0 @@
-{{#if parent.isActive(this)}}
-    <div class="container pt-10 fadeIn animated">
-        <content />
-    </div>
-{{/if}}

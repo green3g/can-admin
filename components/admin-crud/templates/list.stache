@@ -1,0 +1,61 @@
+<h3 class="show-print logo-title">{{view.title}} List</h3>
+
+{{#if view.canList}}
+
+
+{{#if selectedObjects.length}}
+<div class="manage-wrapper container">
+  <manage-toolbar vm:buttons:from="toolbarButtons" on:vm:buttonclick="manageObjects" vm:objects:bind="selectedObjects" />
+</div>
+{{/if}}
+
+
+<header class="navbar">
+  <section class="navbar-section">
+    <h3>{{view.title}} List</h3>
+  </section>
+  <section class="navbar-section hidden-print">
+    <search-control vm:fields:from="_fields" vm:filters:bind="parameters.filters" vm:view:from="view" />
+  </section>
+
+  <section class="navbar-section hidden-print">
+    <div class="btn-group btn-group-block">
+        {{#if view.canCreate}}
+        <button class="btn btn-primary" on:el:click="setPage('add')"><i class="fa fa-plus"></i> Create</button>
+        {{/if}}
+        <button class="btn btn-default" on:el:click="setPage('list')">
+              <i title="Refresh Data" class="fa {{#if objectsPromise.isPending}}fa-spin{{/if}} fa-refresh"></i> Refresh
+            </button>
+            </div>
+  </section>
+</header>
+
+
+<div class="clearfix"></div>
+
+{{#if objects.length}}
+  <div {{#if objectsPromise.isPending}} class="faded" {{/if}}>
+    <list-table vm:objects:from="objects" 
+      id-prop="{{view.connection.idProp}}" 
+      vm:actions:from="buttons" 
+      vm:selectedObjects:bind="selectedObjects"
+      {{#if view.canEdit}} on:vm:edit="editObject"{{/if}}
+      {{#if view.canDelete}} on:vm:delete="deleteObject" {{/if}}
+      on:vm:view="viewObject" 
+      on:vm:custom="manageObjects" 
+      vm:sort:from="@noop" 
+      vm:currentSort:bind="parameters.sort"
+      vm:fields:from="_fields" />
+
+      <div class="hidden-print page-footer">
+        <paginate-footer total="{{totalItems}}" vm:perPage:bind="parameters.perPage" vm:pageIndex:bind="parameters.page" />
+      </div>
+  </div>
+{{else}}
+  {{#if objectsPromise.isResolved}}
+    <p>{{view.noDataMessage}}</p>
+  {{/if}}
+{{/if}}
+{{else}}
+<p>{{view.listDisabledMessage}}</p>
+{{/if}}
